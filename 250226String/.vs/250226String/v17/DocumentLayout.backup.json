@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|solutionrelative:250226String\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|solutionrelative:250226String\\String.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F6EAF1FD-1A26-46AF-9CF6-BE8F106EB4DD}|250226String\\250226String.vcxproj|solutionrelative:250226String\\String.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 299,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "String.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.h",
+              "RelativeDocumentMoniker": "250226String\\String.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.h",
+              "RelativeToolTip": "250226String\\String.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-26T10:05:40.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\main.cpp",
+              "RelativeDocumentMoniker": "250226String\\main.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\main.cpp",
+              "RelativeToolTip": "250226String\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-26T10:04:40.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "String.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.cpp",
+              "RelativeDocumentMoniker": "250226String\\String.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250226String\\250226String\\String.cpp",
+              "RelativeToolTip": "250226String\\String.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-26T10:09:26.394Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
