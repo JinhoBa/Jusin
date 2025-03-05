@@ -4,6 +4,7 @@
 CPlayer::CPlayer()
 {
 	vecInventory.reserve(5);
+	m_pEquipment =nullptr;
 }
 
 CPlayer::~CPlayer()
@@ -13,6 +14,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize()
 {
+	m_pEquipment = new CItem;
 }
 
 void CPlayer::Update()
@@ -21,7 +23,13 @@ void CPlayer::Update()
 
 void CPlayer::Release()
 {
-	//아이템 할당 해제
+	vector<CItem*>::iterator iter;
+
+	for (iter = vecInventory.begin(); iter != vecInventory.end();++iter)
+	{
+		Safe_Delete<CItem*>(*iter);
+	}
+	Safe_Delete<CItem*>(m_pEquipment);
 }
 
 void CPlayer::Render()
@@ -62,6 +70,11 @@ void CPlayer::Select_Job()
 			bSelect = true;
 			break;
 
+		case HIDEN:
+			Set_Info("???", 150, 20, 9999, 0);
+			bSelect = true;
+			break;
+
 		case END:
 			cout << "게임 종료";
 			SYSTEM_CLOSE;
@@ -82,8 +95,11 @@ void CPlayer::Get_Reward(CObj& rMonster)
 
 void CPlayer::Buy_Item(CItem& rItem)
 {
+	
+
 	if (5 > vecInventory.size())
 	{
+		
 		vecInventory.push_back(&rItem);
 		m_tInfo.iMoney -= rItem.Get_Price();
 		cout << "구매 완료" << endl;
@@ -98,8 +114,55 @@ void CPlayer::Buy_Item(CItem& rItem)
 	
 }
 
-void CPlayer::Sell_Item(CItem& rItem)
+void CPlayer::Sell_Item(string _Name)
 {
+	if (vecInventory.empty())
+	{
+		cout << "아이템이 존재하지 않습니다." << endl;
+		SYSTEM_PAUSE;
+		return;
+	}
+
+	vector<CItem*>::iterator iter;
+
+	for (iter = vecInventory.begin(); iter != vecInventory.end(); )
+	{
+		if (_Name == (*iter)->Get_Name())
+		{
+			cout << (*iter)->Get_Name() << " 판매 완료" << endl;
+			m_tInfo.iMoney += (*iter)->Get_Price();
+			Safe_Delete(*iter);
+			iter = vecInventory.erase(iter);
+			SYSTEM_PAUSE;
+			return;
+		}
+		else
+			++iter;
+	}
+
+	
+	cout << "아이템이 존재하지 않습니다." << endl;
+	SYSTEM_PAUSE;
+	
+}
+
+void CPlayer::Equip_Item(string _Name)
+{
+	vector<CItem*>::iterator iter;
+
+	for (iter = vecInventory.begin(); iter != vecInventory.end(); )
+	{
+		if (_Name == (*iter)->Get_Name())
+		{
+			m_pEquipment = *iter;
+			iter = vecInventory.erase(iter);
+			SYSTEM_PAUSE;
+			return;
+		}
+		else
+			++iter;
+	}
+		
 }
 
 void CPlayer::Render_Inventory()

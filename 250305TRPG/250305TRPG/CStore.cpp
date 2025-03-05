@@ -8,12 +8,12 @@ CStore::CStore()
 
 CStore::~CStore()
 {
+	Release();
 }
 
 void CStore::Initialize(CObj* _pPlayer)
 {
 	m_pPlayer = _pPlayer;
-	m_pItem = new CItem;
 }
 
 void CStore::Update()
@@ -23,6 +23,7 @@ void CStore::Update()
 	while (true)
 	{
 		SYSTEM_CLOSE;
+		m_pItem = new CItem;
 		dynamic_cast<CPlayer*>(m_pPlayer)->Render();
 		cout << "-------------------STORE-------------------" << endl;
 		cout << "구매할 물건을 선택하세요" << endl;
@@ -43,7 +44,7 @@ void CStore::Update()
 		case 2:
 			if (30 <= m_pPlayer->Get_Gold())
 			{
-				m_pItem->Set_Item("빛나는 지팡이", 0, 15, 30);
+				m_pItem->Set_Item("지팡이", 0, 15, 30);
 				dynamic_cast<CPlayer*>(m_pPlayer)->Buy_Item(*m_pItem);
 			}
 			else
@@ -70,4 +71,5 @@ void CStore::Update()
 
 void CStore::Release()
 {
+	Safe_Delete<CItem*>(m_pItem);
 }

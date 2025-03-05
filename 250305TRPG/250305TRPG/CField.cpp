@@ -40,6 +40,7 @@ void CField::Update()
 			m_pMonster->Set_Info("ЛѓБо", 30 * iInput, 3 * iInput, 5 * iInput, 2 * iInput);
 			break;
 		case BACK:
+			Release();
 			return;
 		default:
 			ENTER_AGAIN;

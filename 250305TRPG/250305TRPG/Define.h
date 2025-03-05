@@ -18,5 +18,7 @@ typedef struct tagInfo
 template<typename T>
 void Safe_Delete(T& p)
 {
-	if (p) { delete p; p = nullptr; }
+	if (p) { 
+		delete p;
+		p = nullptr; }
 };

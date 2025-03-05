@@ -12,7 +12,8 @@ public:
 		WARRIOR = 1,
 		MAGE,
 		THIF,
-		END
+		END,
+		HIDEN = 999
 	};
 public:
 	void Initialize();
@@ -24,9 +25,12 @@ public:
 	const void Set_Hp() { m_tInfo.iHp = m_tInfo.iMaxHp; }
 	void Get_Reward(CObj& rMonster);
 	void Buy_Item(CItem& rItem);
-	void Sell_Item(CItem& rItem);
+	void Sell_Item(string _Name);
+	void Equip_Item(string _Name);
 	void Render_Inventory();
+	string Get_Equipment() { return m_pEquipment->Get_Name(); }
 private:
 	vector<CItem*> vecInventory;
+	CItem* m_pEquipment;
 };
 
