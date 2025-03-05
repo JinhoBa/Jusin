@@ -1,0 +1,264 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CMainGame.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CStore.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CStore.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CField.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CField.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CObj.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\250303TRPG_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\250303TRPG_1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CObj.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CMonster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{36DC37FB-914D-46D5-BCA7-9E1299C40F6C}|250303TRPG_1\\250303TRPG_1.vcxproj|solutionrelative:250303TRPG_1\\CMonster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CMainGame.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CMainGame.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.h",
+              "RelativeToolTip": "250303TRPG_1\\CMainGame.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T05:56:27.322Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CMainGame.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CMainGame.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMainGame.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CMainGame.cpp",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAIwDUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T05:57:58.56Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CField.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CField.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.h",
+              "RelativeToolTip": "250303TRPG_1\\CField.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T06:51:03.787Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CField.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CField.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CField.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CField.cpp",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAGAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T06:53:41.771Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CStore.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CStore.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.h",
+              "RelativeToolTip": "250303TRPG_1\\CStore.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T07:05:55.18Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CStore.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CStore.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CStore.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CStore.cpp",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T07:39:12.581Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CPlayer.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CPlayer.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CPlayer.cpp",
+              "ViewState": "AgIAABcAAAAAAAAAAAAIwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T06:21:03.942Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "250303TRPG_1.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\250303TRPG_1.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\250303TRPG_1.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\250303TRPG_1.cpp",
+              "RelativeToolTip": "250303TRPG_1\\250303TRPG_1.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T05:52:45.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CObj.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CObj.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CObj.cpp",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T06:08:37.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Define.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\Define.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\Define.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\Define.h",
+              "RelativeToolTip": "250303TRPG_1\\Define.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T06:00:56.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CObj.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CObj.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CObj.h",
+              "RelativeToolTip": "250303TRPG_1\\CObj.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T05:59:32.373Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CPlayer.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CPlayer.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CPlayer.h",
+              "RelativeToolTip": "250303TRPG_1\\CPlayer.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T06:10:12.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CMonster.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.h",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CMonster.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.h",
+              "RelativeToolTip": "250303TRPG_1\\CMonster.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-03T06:58:02.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CMonster.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.cpp",
+              "RelativeDocumentMoniker": "250303TRPG_1\\CMonster.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250303TRPG_1\\250303TRPG_1\\CMonster.cpp",
+              "RelativeToolTip": "250303TRPG_1\\CMonster.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-03T06:59:56.38Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

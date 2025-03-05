@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Jinho\\source\\Jusin\\250227_1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D302D420-9522-4195-B5BE-BFC11B93A286}|250227_1\\250227_1.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250227_1\\250227_1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D302D420-9522-4195-B5BE-BFC11B93A286}|250227_1\\250227_1.vcxproj|solutionrelative:250227_1\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 299,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250227_1\\250227_1\\main.cpp",
+              "RelativeDocumentMoniker": "250227_1\\main.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250227_1\\250227_1\\main.cpp",
+              "RelativeToolTip": "250227_1\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-27T07:20:44.399Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
