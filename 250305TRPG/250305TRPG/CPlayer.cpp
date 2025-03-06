@@ -14,7 +14,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize()
 {
-	m_pEquipment = new CItem;
+
 }
 
 void CPlayer::Update()
@@ -34,12 +34,26 @@ void CPlayer::Release()
 
 void CPlayer::Render()
 {
+	int iGauge = m_tInfo.iExp % 10;
+	int iLevel(1);
+	if (m_tInfo.iExp > 9)
+		iLevel += m_tInfo.iExp / 10;
+
+	cout << "\t\tINFO" << endl;
 	cout << "------------------------------------" << endl;
 	cout << "이름 : " << m_tInfo.sName << endl;
+	cout << "Level : " << iLevel << endl;
 	cout << "체력 : " << m_tInfo.iHp << "\t공격력 : " << m_tInfo.iAttack << endl;
 	cout << "보유 금액 : " << m_tInfo.iMoney << "G" << endl;
-	cout << "Exp " << m_tInfo.iExp << endl;
-	cout << "------------------------------------" << endl;
+	cout << "Exp ";
+	for (int i = 0; i < 10; i++)
+	{
+		if (iGauge > i)
+			cout << "■";
+		else
+			cout << "□";
+	}
+	cout << "\n------------------------------------" << endl;
 }
 
 void CPlayer::Select_Job()
@@ -85,6 +99,12 @@ void CPlayer::Select_Job()
 			break;
 		}
 	}
+}
+
+void CPlayer::Set_Item()
+{
+	m_tInfo.iMaxHp += m_pEquipment->Get_ExtraHp();
+	m_tInfo.iAttack += m_pEquipment->Get_ExtraAttack();
 }
 
 void CPlayer::Get_Reward(CObj& rMonster)
@@ -156,6 +176,7 @@ void CPlayer::Equip_Item(string _Name)
 		{
 			m_pEquipment = *iter;
 			iter = vecInventory.erase(iter);
+			Set_Item();
 			SYSTEM_PAUSE;
 			return;
 		}
@@ -165,15 +186,38 @@ void CPlayer::Equip_Item(string _Name)
 		
 }
 
+void CPlayer::Unequip_Item()
+{
+	if (5 == vecInventory.size())
+	{
+		cout << "인벤토리가 가득 찼습니다." << endl;
+		SYSTEM_PAUSE;
+		return;
+	}
+	m_tInfo.iMaxHp -= m_pEquipment->Get_ExtraHp();
+	m_tInfo.iAttack -= m_pEquipment->Get_ExtraAttack();
+	vecInventory.push_back(m_pEquipment);
+	m_pEquipment = nullptr;
+	
+}
+
 void CPlayer::Render_Inventory()
 {
 	int i = 1;
 	vector<CItem*>::iterator iter;
-	cout << "------------------------------" << endl;
-	cout << "보유한 아이템" << endl;
+	cout << "------------------------------------" << endl;
+	cout << "\t\t보유한 아이템" << endl;
 	for (iter = vecInventory.begin(); iter != vecInventory.end(); ++iter,++i)
 	{
-		cout << i<<". " << (*iter)->Get_Name() << endl;
+		cout << "● " << (*iter)->Get_Name() << endl;
 	}
-	cout << "------------------------------" << endl;
+	cout << "------------------------------------" << endl;
+}
+
+string CPlayer::Get_Equipment()
+{
+	if (nullptr != m_pEquipment)
+		return m_pEquipment->Get_Name();
+	else
+		return "없음";
 }

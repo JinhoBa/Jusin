@@ -23,3 +23,10 @@ private:
 	vector<CStudent*> vecStudent;
 };
 
+class Compare
+{
+public:
+	bool operator()(CStudent* A, CStudent* B)
+	{ return *A < *B; }
+};
+

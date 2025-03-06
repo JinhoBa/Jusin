@@ -178,6 +178,6 @@ void CReportCard::Delete()
 
 void CReportCard::Sort()
 {
-   sort(vecStudent.begin(), vecStudent.end());
+   sort(vecStudent.begin(), vecStudent.end(), Compare());
 }
 

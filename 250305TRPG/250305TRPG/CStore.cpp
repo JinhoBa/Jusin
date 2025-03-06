@@ -25,7 +25,9 @@ void CStore::Update()
 		SYSTEM_CLOSE;
 		m_pItem = new CItem;
 		dynamic_cast<CPlayer*>(m_pPlayer)->Render();
-		cout << "-------------------STORE-------------------" << endl;
+		cout << "------------------------------------" << endl;
+		cout << "\t\tSTORE" << endl;
+		cout << "------------------------------------" << endl;
 		cout << "구매할 물건을 선택하세요" << endl;
 		cout << "1. 낡은 단검(10G) 2. 빛나는 지팡이(30G) 3. 용기사의 검(100G) 4. 돌아가기\n>> ";
 		cin >> iInput;

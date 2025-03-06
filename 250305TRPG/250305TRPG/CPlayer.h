@@ -23,12 +23,14 @@ public:
 	virtual void Render();
 	void Select_Job();
 	const void Set_Hp() { m_tInfo.iHp = m_tInfo.iMaxHp; }
+	void Set_Item();
 	void Get_Reward(CObj& rMonster);
 	void Buy_Item(CItem& rItem);
 	void Sell_Item(string _Name);
 	void Equip_Item(string _Name);
+	void Unequip_Item();
 	void Render_Inventory();
-	string Get_Equipment() { return m_pEquipment->Get_Name(); }
+	string Get_Equipment();
 private:
 	vector<CItem*> vecInventory;
 	CItem* m_pEquipment;

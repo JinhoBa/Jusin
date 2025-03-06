@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,8 +15,8 @@
       "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{9D352E84-9DD8-49CE-9237-306A90C37114}|250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.vcxproj|solutionrelative:250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +38,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "CReportCard.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h*",
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.h*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-04T09:41:22.949Z",
               "IsPinned": true,
@@ -56,13 +56,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CReportCard.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp",
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CReportCard.cpp",
-              "ViewState": "AgIAAKIAAAAAAAAAAAAAALQAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAALQAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-04T09:46:47.35Z",
               "IsPinned": true,
@@ -70,13 +70,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CStudent.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.h",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.h",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.h",
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-03-04T09:35:50.509Z",
               "IsPinned": true,
@@ -84,7 +84,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "CStudent.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\CStudent.cpp",
@@ -97,8 +97,12 @@
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Define.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\Define.h",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\Define.h",
@@ -106,12 +110,11 @@
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\Define.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-04T09:36:33.898Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T09:36:33.898Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "pch.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\pch.h",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\pch.h",
@@ -119,12 +122,11 @@
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\pch.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-04T09:35:10.582Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T09:35:10.582Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp",
               "RelativeDocumentMoniker": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp",
@@ -132,8 +134,7 @@
               "RelativeToolTip": "250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8\\250304\uC131\uC801\uD45C\uD504\uB85C\uADF8\uB7A8.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-04T09:35:01.663Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-04T09:35:01.663Z"
             }
           ]
         }
