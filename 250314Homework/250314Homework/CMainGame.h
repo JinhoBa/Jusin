@@ -2,6 +2,7 @@
 #include "Define.h"
 #include "CPlayer.h"
 #include "CBullet.h"
+
 class CMainGame
 {
 public:
@@ -15,7 +16,6 @@ public:
 private:
 	HDC m_hDC;
 	CObj* m_pPlayer;
-	CObj* m_pBullet;
 	ULONG64 dwTime;
 };
 

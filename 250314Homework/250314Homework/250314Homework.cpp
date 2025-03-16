@@ -26,6 +26,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -71,8 +72,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             if (dwTime + 60 < GetTickCount64())
             {
                 
-                MainGame.Update();
-                MainGame.Render();
+               MainGame.Update();
+               MainGame.Render();
 
                 dwTime = GetTickCount64();
             }

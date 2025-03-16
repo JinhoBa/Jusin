@@ -1,5 +1,6 @@
 #pragma once
 #include "CObj.h"
+#include "CBullet.h"
 
 class CPlayer : public CObj
 {
@@ -14,10 +15,11 @@ public:
 public:
 	void Move_Right();
 	void Move_Left();
+	void Jump();
 	void Shoot();
 protected:
-	list<RECT> listBullet;
 	ULONG time;
-	RECT preBullet;
+	HBRUSH myBrush;
+	CObj* m_pBullet;
 };
 
