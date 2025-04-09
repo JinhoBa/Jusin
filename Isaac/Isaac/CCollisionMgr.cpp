@@ -83,6 +83,8 @@ bool CCollisionMgr::Check_Obj(CObj* pDst, CObj* pSrc, float* pWidth, float* pHei
 
 void CCollisionMgr::Collision_Tile(list<CObj*> DstList, vector<CObj*> vecSrc)
 {
+	if (vecSrc.empty())
+		return;
 	float fWidth(0.f), fHeight(0.f);
 
 	for (auto& Dst : DstList)

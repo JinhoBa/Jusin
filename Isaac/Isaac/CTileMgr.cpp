@@ -147,7 +147,7 @@ void CTileMgr::Load_Tile(const TCHAR* _FilePath)
 
 	int		iDrawID(0), iOption(0);
 
-	Release();
+	//Release();
 
 	while (true)
 	{
@@ -170,6 +170,11 @@ void CTileMgr::Load_Tile(const TCHAR* _FilePath)
 	CloseHandle(hFile);
 
 	//MessageBox(g_hWnd, L"불러오기 성공", _T("성공"), MB_OK);
+}
+
+void CTileMgr::Erase_Tile()
+{
+	m_vecTile.clear();
 }
 
 CTileMgr* CTileMgr::Get_Instance()

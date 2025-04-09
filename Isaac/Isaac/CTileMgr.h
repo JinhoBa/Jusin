@@ -18,8 +18,13 @@ public:
 public:
 	void Picking_Tile(POINT _pt, int _iDraw, int _iOption);
 	vector<CObj*> Get_vecTile() { return m_vecTile; }
+	void Set_vecTile(vector<CObj*> _vecTile) 
+	{
+		m_vecTile = _vecTile;
+	}
 	void Save_Tile();
 	void Load_Tile(const TCHAR * _FilePath);
+	void Erase_Tile();
 
 public:
 	static CTileMgr* Get_Instance();

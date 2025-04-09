@@ -36,10 +36,17 @@ public:
 		}
 	}
 
+private:
+	void Set_Obj(CScene* _pScene);
+	void Set_Tile(CScene* _pScene);
+
 public:
 	static CSceneMgr* m_pInstance;
 
 	CScene* m_pScene;
+	CScene* m_pTutorial;
+	CScene* m_pStage1;
+	CScene* m_pStage2;
 
 	SCENEID m_eCurScene;
 	SCENEID m_ePreScene;

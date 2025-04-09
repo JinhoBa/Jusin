@@ -3,6 +3,7 @@
 
 CScene::CScene()
 {
+	m_vecTile.reserve(TILEX * TILEY);
 }
 
 CScene::~CScene()

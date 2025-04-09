@@ -22,6 +22,11 @@ public:
 	void Late_Update();
 	void Render(HDC _hDC);
 	void Release();
+	void Erase_ObjList(OBJID _eObjID)
+	{
+		m_ObjList[OBJ_ITEM].clear();
+		m_ObjList[OBJ_DOOR].clear();
+	}
 
 public:
 	static CObjMgr* Get_Instance()

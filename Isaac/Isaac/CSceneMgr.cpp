@@ -3,11 +3,13 @@
 #include "CMenu.h"
 #include "CTutorial.h"
 #include "CStage1.h"
+#include "CObjMgr.h"
+#include "CTileMgr.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
 CSceneMgr::CSceneMgr()
-	: m_pScene(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
+	: m_pScene(nullptr), m_pTutorial(nullptr), m_pStage1(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
 {
 }
 
@@ -22,25 +24,49 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 
 	if (m_eCurScene != m_ePreScene)
 	{
-		Safe_Delete(m_pScene);
+		if(m_pScene)
+			m_pScene->Release();
 
 		switch (m_eCurScene)
 		{
 		case CSceneMgr::SC_MENU:
 			m_pScene = new CMenu;
+			m_pScene->Initialize();
 			break;
 
 		case CSceneMgr::SC_TUTORIAL:
-			m_pScene = new CTutorial;
+			if (!m_pTutorial)
+			{
+				m_pTutorial = new CTutorial;
+				m_pTutorial->Initialize();
+			}
+			else
+			{
+				Set_Obj(m_pTutorial);
+				Set_Tile(m_pTutorial);
+			}
+		
+			m_pScene = m_pTutorial;
 			break;
 
 		case CSceneMgr::SC_STAGE1:
-			m_pScene = new CStage1;
+			if (!m_pStage1)
+			{
+				m_pStage1 = new CStage1;
+				m_pStage1->Initialize();
+			}
+			else
+			{
+				Set_Obj(m_pStage1);
+				Set_Tile(m_pStage1);
+			}
+
+			m_pScene = m_pStage1;
 			break;
 		case CSceneMgr::SC_END:
 			break;
 		}
-		m_pScene->Initialize();
+		
 
 		m_ePreScene = m_eCurScene;
 	}
@@ -66,4 +92,18 @@ void CSceneMgr::Release()
 {
 	m_pScene->Release();
 	Safe_Delete<CScene*>(m_pScene);
+}
+
+void CSceneMgr::Set_Obj(CScene* _pScene)
+{
+	for (auto pObj : _pScene->Get_ObjList(OBJ_ITEM))
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+
+	for (auto pObj : _pScene->Get_ObjList(OBJ_DOOR))
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pObj);
+}
+
+void CSceneMgr::Set_Tile(CScene* _pScene)
+{
+	CTileMgr::Get_Instance()->Set_vecTile(_pScene->Get_VecTile());
 }
