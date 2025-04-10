@@ -53,7 +53,7 @@ int CBombEffect::Late_Update()
 
 void CBombEffect::Render(HDC hDC)
 {
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
@@ -92,6 +92,10 @@ void CBombEffect::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 
 	case OBJ_MONSTER:
 		_pObj->Set_Hp(m_tStat.fAttack);
+		break;
+
+	case OBJ_ITEM:
+		_pObj->Set_Dead();
 		break;
 
 	default:

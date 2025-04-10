@@ -32,7 +32,7 @@ void CCoin::Late_Initialize()
 int CCoin::Update()
 {
     if (m_bDead)
-        return DEAD;
+		return DEAD;
 
     __super::Update_Rect();
 	__super::Move_Frame();

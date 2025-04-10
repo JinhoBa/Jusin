@@ -16,6 +16,7 @@ public:
 	virtual void	Release()PURE;
 
 public:
+	void Save_Data();
 	void Set_ObjList(list<CObj*> _ObjList, OBJID _eObjID)
 	{
 		int i(0);
@@ -56,7 +57,7 @@ public:
 	}
 
 protected:
-	list<CObj*> m_ObjList[3];
+	list<CObj*> m_ObjList[2];
 	vector<CObj*> m_vecTile;
 };
 

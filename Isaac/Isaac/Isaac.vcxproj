@@ -137,9 +137,12 @@
   <ItemGroup>
     <ClInclude Include="CAbstractFactory.h" />
     <ClInclude Include="CBmpMgr.h" />
+    <ClInclude Include="CBomb.h" />
     <ClInclude Include="CBombBullet.h" />
     <ClInclude Include="CBombEffect.h" />
     <ClInclude Include="CBombFly.h" />
+    <ClInclude Include="CBoss.h" />
+    <ClInclude Include="CBox.h" />
     <ClInclude Include="CBullet.h" />
     <ClInclude Include="CButton.h" />
     <ClInclude Include="CCoin.h" />
@@ -147,12 +150,14 @@
     <ClInclude Include="CDoor.h" />
     <ClInclude Include="CEffect.h" />
     <ClInclude Include="CFly.h" />
+    <ClInclude Include="CHeart.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CKeyMgr.h" />
     <ClInclude Include="CMainGame.h" />
     <ClInclude Include="CMenu.h" />
     <ClInclude Include="CMonster.h" />
+    <ClInclude Include="CMonsterBullet.h" />
     <ClInclude Include="CMyBmp.h" />
     <ClInclude Include="CObj.h" />
     <ClInclude Include="CObjMgr.h" />
@@ -160,6 +165,7 @@
     <ClInclude Include="CPlayerBullet.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneMgr.h" />
+    <ClInclude Include="CSoulHeart.h" />
     <ClInclude Include="CStage1.h" />
     <ClInclude Include="CTile.h" />
     <ClInclude Include="CTileMgr.h" />
@@ -177,9 +183,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBmpMgr.cpp" />
+    <ClCompile Include="CBomb.cpp" />
     <ClCompile Include="CBombBullet.cpp" />
     <ClCompile Include="CBombEffect.cpp" />
     <ClCompile Include="CBombFly.cpp" />
+    <ClCompile Include="CBoss.cpp" />
+    <ClCompile Include="CBox.cpp" />
     <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CButton.cpp" />
     <ClCompile Include="CCoin.cpp" />
@@ -187,12 +196,14 @@
     <ClCompile Include="CDoor.cpp" />
     <ClCompile Include="CEffect.cpp" />
     <ClCompile Include="CFly.cpp" />
+    <ClCompile Include="CHeart.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CKeyMgr.cpp" />
     <ClCompile Include="CMainGame.cpp" />
     <ClCompile Include="CMenu.cpp" />
     <ClCompile Include="CMonster.cpp" />
+    <ClCompile Include="CMonsterBullet.cpp" />
     <ClCompile Include="CMyBmp.cpp" />
     <ClCompile Include="CObj.cpp" />
     <ClCompile Include="CObjMgr.cpp" />
@@ -200,6 +211,7 @@
     <ClCompile Include="CPlayerBullet.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneMgr.cpp" />
+    <ClCompile Include="CSoulHeart.cpp" />
     <ClCompile Include="CStage1.cpp" />
     <ClCompile Include="CTile.cpp" />
     <ClCompile Include="CTileMgr.cpp" />

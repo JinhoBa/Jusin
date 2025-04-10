@@ -64,10 +64,9 @@ void CTileMgr::Render(HDC hDC)
 			MoveToEx(hDC, 0, y * TILECY, NULL);      // 시작점 설정
 			LineTo(hDC, WINCX, y * TILECY);   // 끝점까지 선 그리기
 		}
-
-		for (auto pTile : m_vecTile)
-			pTile->Render(hDC);
 	}
+	for (auto pTile : m_vecTile)
+		pTile->Render(hDC);
 }
 
 void CTileMgr::Release()

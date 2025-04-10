@@ -8,6 +8,7 @@
 #include "CBmpMgr.h"
 #include "CKey.h"
 #include "CDoor.h"
+#include "CBoss.h"
 
 CStage1::CStage1()
 {
@@ -21,7 +22,8 @@ CStage1::~CStage1()
 void CStage1::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CKey>::Create_Obj(400.f, 200.f, 42.f, 42.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CKey>::Create_Obj(400.f, 400.f, 42.f, 42.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial2.dat");
 
@@ -77,13 +79,12 @@ void CStage1::Render(HDC hDC)
 
 void CStage1::Release()
 {
-	Set_ObjList(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), OBJ_ITEM);
-	Set_ObjList(CObjMgr::Get_Instance()->Get_ObjList(OBJ_DOOR), OBJ_DOOR);
+	for(int i = 0; i < size(m_ObjList); ++i)
+	{
+		for_each(m_ObjList[i].begin(), m_ObjList[i].end(), Safe_Delete<CObj*>);
+		m_ObjList[i].clear();
+	}
 
-	CObjMgr::Get_Instance()->Erase_ObjList(OBJ_ITEM);
-	CObjMgr::Get_Instance()->Erase_ObjList(OBJ_DOOR);
-
-	Set_VecTile(CTileMgr::Get_Instance()->Get_vecTile());
-
-	CTileMgr::Get_Instance()->Erase_Tile();
+	for_each(m_vecTile.begin(), m_vecTile.end(), Safe_Delete<CObj*>);
+	m_vecTile.clear();
 }

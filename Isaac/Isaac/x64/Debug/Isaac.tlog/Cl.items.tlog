@@ -1,7 +1,10 @@
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBmpMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBmpMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBomb.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBomb.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBombBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBombBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBombEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBombEffect.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBombFly.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBombFly.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBoss.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBoss.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBox.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBox.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CButton.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CButton.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCoin.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CCoin.obj
@@ -9,12 +12,14 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCollisionMgr.cpp;C:\Users\Jinho\source\
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDoor.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CDoor.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CEffect.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CFly.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CFly.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CHeart.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CHeart.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CItem.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CItem.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CKey.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CKey.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CKeyMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CKeyMgr.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMainGame.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CMainGame.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMenu.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CMenu.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonster.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CMonster.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonsterBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CMonsterBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMyBmp.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CMyBmp.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObj.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CObj.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObjMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CObjMgr.obj
@@ -22,6 +27,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CPlayer.cpp;C:\Users\Jinho\source\Jusin\
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CPlayerBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CPlayerBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CScene.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CScene.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CSceneMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSoulHeart.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CSoulHeart.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CStage1.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CStage1.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTile.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CTile.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTileMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\x64\Debug\CTileMgr.obj

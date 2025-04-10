@@ -11,7 +11,7 @@ public:
 
 public:
 	void Set_SceneID(CSceneMgr::SCENEID _eSceneID) { m_eSceneID = _eSceneID; }
-
+	bool Get_bOpen() { return m_bOpen; }
 public:
 	void Initialize() override;
 	void Late_Initialize() override;

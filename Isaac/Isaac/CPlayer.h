@@ -31,9 +31,6 @@ public:
 	void	 Render(HDC hDC) override;
 	void	Release() override;
 	void	Collision(CObj* _pObj, HITPOINT _tHitPoint) override;
-		
-	
-	
 	
 private:
 	void	Key_Input();
@@ -46,6 +43,7 @@ private:
 	float m_fCoolDown;
 
 	float m_fAttackPos;
+	float m_fSoulHp;
 
 	ULONGLONG m_dwTime;
 	ULONGLONG m_MotionTime;

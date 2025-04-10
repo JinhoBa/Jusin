@@ -5,12 +5,15 @@
 #include "CStage1.h"
 #include "CObjMgr.h"
 #include "CTileMgr.h"
+#include "CAbstractFactory.h"
+#include "CUIMgr.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
 CSceneMgr::CSceneMgr()
-	: m_pScene(nullptr), m_pTutorial(nullptr), m_pStage1(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
+	: m_pScene(nullptr), m_pTutorial(nullptr), m_pStage1(nullptr), m_pStage2(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
 {
+	m_vecScene.assign(10, nullptr);
 }
 
 CSceneMgr::~CSceneMgr()
@@ -25,49 +28,54 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 	if (m_eCurScene != m_ePreScene)
 	{
 		if(m_pScene)
-			m_pScene->Release();
+			m_pScene->Save_Data();
 
 		switch (m_eCurScene)
 		{
 		case CSceneMgr::SC_MENU:
-			m_pScene = new CMenu;
-			m_pScene->Initialize();
+			if(!m_vecScene[SC_MENU])
+				m_vecScene[SC_MENU] = CAbstractFactory<CMenu>::Create_Scene();
+			else
+			{
+				m_vecScene[SC_MENU]->Initialize();
+				CUIMgr::Get_Instance()->Delete_UI(UI_BAR);
+				CObjMgr::Get_Instance()->Release();
+				for (int i = 1; i < m_vecScene.size(); ++i)
+				{
+					if (!m_vecScene[i])
+						continue;
+
+					m_vecScene[i]->Release();
+					Safe_Delete<CScene*>(m_vecScene[i]);
+				}
+				
+			}
+
+			m_pScene = m_vecScene[SC_MENU];
 			break;
 
 		case CSceneMgr::SC_TUTORIAL:
-			if (!m_pTutorial)
-			{
-				m_pTutorial = new CTutorial;
-				m_pTutorial->Initialize();
-			}
+			if (!m_vecScene[SC_TUTORIAL])
+				m_vecScene[SC_TUTORIAL] = CAbstractFactory<CTutorial>::Create_Scene();
 			else
-			{
-				Set_Obj(m_pTutorial);
-				Set_Tile(m_pTutorial);
-			}
-		
-			m_pScene = m_pTutorial;
+				Set_Data(m_vecScene[SC_TUTORIAL]);
+
+			m_pScene = m_vecScene[SC_TUTORIAL];
 			break;
 
 		case CSceneMgr::SC_STAGE1:
-			if (!m_pStage1)
-			{
-				m_pStage1 = new CStage1;
-				m_pStage1->Initialize();
-			}
+			if (!m_vecScene[SC_STAGE1])
+				m_vecScene[SC_STAGE1] = CAbstractFactory<CStage1>::Create_Scene();
 			else
-			{
-				Set_Obj(m_pStage1);
-				Set_Tile(m_pStage1);
-			}
+				Set_Data(m_vecScene[SC_STAGE1]);
 
-			m_pScene = m_pStage1;
+			m_pScene = m_vecScene[SC_STAGE1];
 			break;
+
 		case CSceneMgr::SC_END:
 			break;
 		}
 		
-
 		m_ePreScene = m_eCurScene;
 	}
 
@@ -90,20 +98,25 @@ void CSceneMgr::Render(HDC hDC)
 
 void CSceneMgr::Release()
 {
-	m_pScene->Release();
-	Safe_Delete<CScene*>(m_pScene);
+	for(int i = 0; i < m_vecScene.size(); ++i)
+	{
+		if (!m_vecScene[i])
+			continue;
+
+		m_vecScene[i]->Release();
+		Safe_Delete<CScene*>(m_vecScene[i]);
+	}
 }
 
-void CSceneMgr::Set_Obj(CScene* _pScene)
+
+void CSceneMgr::Set_Data(CScene* _pScene)
 {
 	for (auto pObj : _pScene->Get_ObjList(OBJ_ITEM))
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 
 	for (auto pObj : _pScene->Get_ObjList(OBJ_DOOR))
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pObj);
-}
 
-void CSceneMgr::Set_Tile(CScene* _pScene)
-{
 	CTileMgr::Get_Instance()->Set_vecTile(_pScene->Get_VecTile());
 }
+

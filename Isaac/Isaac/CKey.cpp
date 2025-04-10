@@ -36,6 +36,7 @@ int CKey::Update()
 
 	__super::Update_Rect();
 	__super::Move_Frame();
+
 	return NOEVENT;
 }
 
@@ -48,7 +49,7 @@ int CKey::Late_Update()
 
 void CKey::Render(HDC hDC)
 {
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Key");
 

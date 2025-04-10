@@ -70,7 +70,11 @@ void CObjMgr::Update()
 		for (auto iter = m_ObjList[i].begin();
 			iter != m_ObjList[i].end();)
 		{
+			
+
 			int Result = (*iter)->Update();
+			if (m_ObjList[i].empty())
+				break;
 			if (Result == 1)
 			{
 				Safe_Delete<CObj*>(*iter);
@@ -91,10 +95,12 @@ void CObjMgr::Late_Update()
 		for (auto iter = m_ObjList[i].begin();
 			iter != m_ObjList[i].end();)
 		{
+
 			int Result = (*iter)->Late_Update();
 
 			if (m_ObjList[i].empty())
 				break;
+
 			if (Result == 1)
 			{
 				Safe_Delete<CObj*>(*iter);
@@ -115,6 +121,8 @@ void CObjMgr::Render(HDC _hDC)
 	{
 		for (auto iter = m_ObjList[i].begin();iter != m_ObjList[i].end();++iter)
 		{
+			if (m_ObjList[i].empty())
+				break;
 			(*iter)->Render(_hDC);
 		}
 	}

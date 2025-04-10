@@ -92,9 +92,9 @@ void CCollisionMgr::Collision_Tile(list<CObj*> DstList, vector<CObj*> vecSrc)
 		float fX = Dst->Get_Collison()->fX / TILECX;
 		float fY = Dst->Get_Collison()->fY / TILECY;
 
-		int iMinX = (fX <= 0.f) ? 0 : (int)fX - 1;
+		int iMinX = (fX <= 1.f) ? 0 : (int)fX - 1;
 		int iMaxX = (fX > TILEX) ? TILEX : (int)fX + 2;
-		int iMinY = (fY <= 0.f) ? 0 : (int)fY - 1;
+		int iMinY = (fY <= 1.f) ? 0 : (int)fY - 1;
 		int iMaxY = (fY > TILEY) ? TILEY : (int)fY + 2;
 
 		for (int j = iMinY; j < iMaxY; ++j)

@@ -3,7 +3,7 @@
 #include "Define.h"
 #include "CBmpMgr.h"
 
-CTile::CTile() : m_iDrawID(0), m_iOptionID(0)
+CTile::CTile() : m_iDrawID(0), m_iOption(0)
 {
 }
 
@@ -57,12 +57,11 @@ int CTile::Late_Update()
 
 void CTile::Render(HDC hDC)
 {
-	/*if (0 == m_iOptionID)
+	if (0 == m_iOption)
 	{
-		MoveToEx(hDC, m_tRect.left, m_tRect.top, NULL);
-		LineTo(hDC, m_tRect.right, m_tRect.bottom);
+		return;
 	}
-
+	/*
 	else if (1 == m_iOptionID)
 	{
 		HPEN Blue_Pen = (HPEN)CreatePen(PS_SOLID, 4, RGB(0, 0, 255));
@@ -92,12 +91,12 @@ void CTile::Render(HDC hDC)
 		DeleteObject(Red_Pen);
 	}*/
 
-	if (0 == m_iDrawID)
+	/*if (0 == m_iDrawID)
 	{
 		MoveToEx(hDC, m_tRect.left, m_tRect.top, NULL);
 		LineTo(hDC, m_tRect.right, m_tRect.bottom);
 		return;
-	}
+	}*/
 	/*
 	else if (1 == m_iOptionID)
 	{
@@ -128,7 +127,7 @@ void CTile::Render(HDC hDC)
 		DeleteObject(Red_Pen);
 	}*/
 
-	if (m_iDrawID == 2)
+	/*if (m_iDrawID == 2)
 	{
 		HPEN Red_Pen = (HPEN)CreatePen(PS_SOLID, 4, RGB(255, 0, 0));
 		HPEN Original_Pen = (HPEN)SelectObject(hDC, Red_Pen);
@@ -142,7 +141,7 @@ void CTile::Render(HDC hDC)
 		(HPEN)SelectObject(hDC, Original_Pen);
 		DeleteObject(Red_Pen);
 		return;
-	}
+	}*/
 
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);

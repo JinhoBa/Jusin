@@ -133,6 +133,15 @@
     <Filter Include="01. Obj\05. Door">
       <UniqueIdentifier>{da528883-dd8e-4da2-b9e0-ceb920f9cdda}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Item\04. Heart">
+      <UniqueIdentifier>{526bfc90-40de-4c68-80c3-8faacedee2d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Monster\02. Boss">
+      <UniqueIdentifier>{05146f49-0d39-436f-af51-b25abde37e59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Bullet\MonsterBullet">
+      <UniqueIdentifier>{e0b570d8-e5e0-488a-bc6b-020e711b4c6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -252,6 +261,24 @@
     <ClInclude Include="CDoor.h">
       <Filter>01. Obj\05. Door</Filter>
     </ClInclude>
+    <ClInclude Include="CHeart.h">
+      <Filter>01. Obj\04. Item\04. Heart</Filter>
+    </ClInclude>
+    <ClInclude Include="CSoulHeart.h">
+      <Filter>01. Obj\04. Item\04. Heart</Filter>
+    </ClInclude>
+    <ClInclude Include="CBomb.h">
+      <Filter>01. Obj\04. Item\01. Bomb</Filter>
+    </ClInclude>
+    <ClInclude Include="CBox.h">
+      <Filter>01. Obj\04. Item\03. Box</Filter>
+    </ClInclude>
+    <ClInclude Include="CBoss.h">
+      <Filter>01. Obj\03. Monster\02. Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterBullet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -355,6 +382,24 @@
     </ClCompile>
     <ClCompile Include="CDoor.cpp">
       <Filter>01. Obj\05. Door</Filter>
+    </ClCompile>
+    <ClCompile Include="CHeart.cpp">
+      <Filter>01. Obj\04. Item\04. Heart</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoulHeart.cpp">
+      <Filter>01. Obj\04. Item\04. Heart</Filter>
+    </ClCompile>
+    <ClCompile Include="CBomb.cpp">
+      <Filter>01. Obj\04. Item\01. Bomb</Filter>
+    </ClCompile>
+    <ClCompile Include="CBox.cpp">
+      <Filter>01. Obj\04. Item\03. Box</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoss.cpp">
+      <Filter>01. Obj\03. Monster\02. Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterBullet.cpp">
+      <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

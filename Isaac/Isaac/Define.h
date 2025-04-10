@@ -60,6 +60,7 @@ typedef struct tagInfo
 typedef struct tagStat
 {
 	float	fHp;
+	float	fMaxHp;
 	float	fAttack;
 	float	fIntersection;
 }STAT;

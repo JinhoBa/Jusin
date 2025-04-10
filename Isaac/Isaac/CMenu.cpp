@@ -55,3 +55,4 @@ void CMenu::Release()
 {
 	CUIMgr::Get_Instance()->Delete_UI(UI_BUTTON);
 }
+

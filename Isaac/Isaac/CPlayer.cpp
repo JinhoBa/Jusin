@@ -9,10 +9,13 @@
 #include "CPlayerBullet.h"
 #include "CBombBullet.h"
 #include "CItem.h"
+#include "CSceneMgr.h"
+#include "CBox.h"
+#include "CDoor.h"
 
 
 CPlayer::CPlayer()
-	: m_dwTime(NULL), m_bJump(false), m_fTime(0.f), m_MotionTime(NULL), m_eCurState(IDLE), m_ePreState(MS_END), m_fCoolDown(300.f), m_fAttackPos(0.f)
+	: m_dwTime(NULL), m_bJump(false), m_fTime(0.f), m_MotionTime(NULL), m_eCurState(IDLE), m_ePreState(MS_END), m_fCoolDown(300.f), m_fAttackPos(0.f), m_fSoulHp(0.f)
 {
 	ZeroMemory(&m_tBodyInfo, sizeof(INFO));
 	ZeroMemory(&m_tBodyFrame, sizeof(FRAME));
@@ -27,9 +30,13 @@ CPlayer::~CPlayer()
 void CPlayer::Initialize()
 {
 	m_fSpeed = 4.f;
+	m_tStat.fMaxHp = 8.f;
 
-	Set_Stat(50.f, 1.f, 300.f);
-	Set_ItemInfo(0, 99, 0);
+	// Test code
+	m_fSoulHp = 1.f;
+
+	Set_Stat(5.f, 1.f, 300.f);
+	Set_ItemInfo(0, 99, 5);
 
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 40.f;
@@ -88,7 +95,7 @@ int CPlayer::Late_Update()
 	else if (CPlayer::HIT == m_eCurState)
 	{
 		__super::Move_Frame();
-		if (m_MotionTime + 1000 < GetTickCount64())
+		if (m_MotionTime + 700 < GetTickCount64())
 			m_eCurState = IDLE;
 	}
 	else if (CPlayer::GETITEM == m_eCurState)
@@ -106,7 +113,7 @@ int CPlayer::Late_Update()
 
 void CPlayer::Render(HDC hDC)
 {
-	//__super::Collison_Render(hDC);
+	//__super::Collision_Render(hDC);
 
 	HDC hMemDC;
 
@@ -195,7 +202,12 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 
 	case OBJ_MONSTER:
 		if(HIT != m_ePreState)
-			m_tStat.fHp -= _pObj->Get_Damage();
+		{
+			if (0 >= m_fSoulHp)
+				m_tStat.fHp -= _pObj->Get_Damage();
+			else
+				m_fSoulHp -= 1.f;
+		}
 		m_eCurState = HIT;
 		switch (_tHitPoint.eDirection)
 		{
@@ -224,13 +236,83 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			_pObj->Set_Dead();
 			++m_tItemInfo.iCoin;
 			break;
+
+		case CItem::ITEM_BOMB:
+			_pObj->Set_Dead();
+			++m_tItemInfo.iBomb;
+			break;
+
 		case CItem::ITEM_KEY:
 			m_eCurState = GETITEM;
 			_pObj->Set_Dead();
 			++m_tItemInfo.iKey;
 			break;
+
+		case CItem::ITEM_BOX:
+			if(0 < m_tItemInfo.iKey && !dynamic_cast<CBox*>(_pObj)->Get_bOpen())
+			{
+				dynamic_cast<CBox*>(_pObj)->Set_Open();
+				dynamic_cast<CBox*>(_pObj)->Drop_Item();
+				--m_tItemInfo.iKey;
+			}
+			break;
+
+		case CItem::ITEM_HEART:
+			if(m_tStat.fHp < m_tStat.fMaxHp)
+			{
+				_pObj->Set_Dead();
+				++m_tStat.fHp;
+			}
+			else
+			{
+				switch (_tHitPoint.eDirection)
+				{
+				case DIR_DOWN:
+					_pObj->Set_posY(-_tHitPoint.fY);
+					break;
+				case DIR_UP:
+					_pObj->Set_posY(_tHitPoint.fY);
+					break;
+				case DIR_LEFT:
+					_pObj->Set_posX(_tHitPoint.fX);
+					break;
+				case DIR_RIGHT:
+					_pObj->Set_posX(-_tHitPoint.fX);
+					break;
+				default:
+					break;
+				}
+			}
+
+			break;
+		case CItem::ITEM_SOULHEART:
+			_pObj->Set_Dead();
+			++m_fSoulHp;
+			break;
 		default:
 			break;
+		}
+		break;
+	case OBJ_DOOR:
+		if(dynamic_cast<CDoor*>(_pObj)->Get_bOpen())
+		{
+			switch (_tHitPoint.eDirection)
+			{
+			case DIR_DOWN:
+				m_tInfo.fY = 520.f;
+				break;
+			case DIR_UP:
+				m_tInfo.fY = 170.f;
+				break;
+			case DIR_LEFT:
+				m_tInfo.fX -= _tHitPoint.fX;
+				break;
+			case DIR_RIGHT:
+				m_tInfo.fX += _tHitPoint.fX;
+				break;
+			default:
+				break;
+			}
 		}
 		break;
 	default:
@@ -240,12 +322,13 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
 }
 
-
-
-
 void CPlayer::Key_Input()
 {
-	
+	if (CKeyMgr::Get_Instance()->Key_Press(VK_BACK))
+	{
+		CSceneMgr::Get_Instance()->Scene_Change(CSceneMgr::SC_MENU);
+	}
+
 	if (CKeyMgr::Get_Instance()->Key_Press('A'))
 	{
 		if (CKeyMgr::Get_Instance()->Key_Press('W'))

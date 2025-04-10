@@ -19,6 +19,8 @@ public:
 
 private:
 	CObj*		m_pPlayer;
+	vector<int> m_vecHp;
+
 	ITEMINFO*	m_tItemInfo;
 	TCHAR		m_pCoin[16];
 	TCHAR		m_pBomb[16];

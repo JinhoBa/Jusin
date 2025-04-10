@@ -2,6 +2,7 @@
 
 #include "CObj.h"
 #include "CUI.h"
+#include "CScene.h"
 
 template<typename T>
 class CAbstractFactory
@@ -26,5 +27,14 @@ public:
 
 		return pUI;
 	}
+
+	static CScene* Create_Scene()
+	{
+		CScene* pScene = new T;
+		pScene->Initialize();
+
+		return pScene;
+	}
+
 };
 
