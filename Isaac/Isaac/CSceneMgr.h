@@ -3,7 +3,7 @@
 class CSceneMgr
 {
 public:
-	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_STAGE1, SC_END };
+	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_STAGE1, SC_BOSS, SC_END };
 
 private:
 	CSceneMgr();

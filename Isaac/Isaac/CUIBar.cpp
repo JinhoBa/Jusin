@@ -82,7 +82,7 @@ void CUIBar::Render(HDC hDC)
 	{
 		
 		BitBlt(hDC,
-			600 + 40 * i,
+			600 + 40 * (int)i,
 			30,
 			40, 40,
 			hMemDC,

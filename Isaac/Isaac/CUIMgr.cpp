@@ -45,8 +45,6 @@ void CUIMgr::Late_Update()
 			int Result = (*iter)->Late_Update();
 			if (Result == 1)
 			{
-				if (m_UIList[i].empty())
-					break;
 				Safe_Delete<CUI*>(*iter);
 				iter = m_UIList[i].erase(iter);
 			}

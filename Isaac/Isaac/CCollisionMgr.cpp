@@ -101,6 +101,8 @@ void CCollisionMgr::Collision_Tile(list<CObj*> DstList, vector<CObj*> vecSrc)
 		{
 			for (int i = iMinX; i < iMaxX; ++i)
 			{
+				if (TILEX * j + i > 192)
+					continue;
 				if(Check_Tile(Dst, vecSrc[TILEX * j + i], &fWidth, &fHeight))
 				{
 					DIRECTION eDstDir;

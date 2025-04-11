@@ -51,7 +51,7 @@ void CTileMgr::Late_Update()
 
 void CTileMgr::Render(HDC hDC)
 {
-	if(!m_bTileRender)
+	if(m_bTileRender)
 	{
 		// ¼öÁ÷
 		for (int x = 0; x <= TILEX; ++x) {

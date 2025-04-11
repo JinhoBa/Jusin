@@ -142,6 +142,18 @@
     <Filter Include="01. Obj\01. Bullet\MonsterBullet">
       <UniqueIdentifier>{e0b570d8-e5e0-488a-bc6b-020e711b4c6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Scene\03. BossStage">
+      <UniqueIdentifier>{a3def05f-8d1f-41df-a48c-f667e2f4c4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07. UI\02. BossHp">
+      <UniqueIdentifier>{d8f77655-d710-49df-96b7-6969f9bc5632}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04. Item\05. Cyclops">
+      <UniqueIdentifier>{27ac0717-46a6-4ecf-b268-fe69755db27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Effect\ItemEffect">
+      <UniqueIdentifier>{fac09e07-a255-469f-9f1d-41edc7835a94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -276,8 +288,20 @@
     <ClInclude Include="CBoss.h">
       <Filter>01. Obj\03. Monster\02. Boss</Filter>
     </ClInclude>
+    <ClInclude Include="CBossStage.h">
+      <Filter>03. Scene\03. BossStage</Filter>
+    </ClInclude>
     <ClInclude Include="CMonsterBullet.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>01. Obj\01. Bullet\MonsterBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CBossHp.h">
+      <Filter>07. UI\02. BossHp</Filter>
+    </ClInclude>
+    <ClInclude Include="CCyclops.h">
+      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+    </ClInclude>
+    <ClInclude Include="CItemEffect.h">
+      <Filter>01. Obj\02. Effect\ItemEffect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -398,8 +422,20 @@
     <ClCompile Include="CBoss.cpp">
       <Filter>01. Obj\03. Monster\02. Boss</Filter>
     </ClCompile>
+    <ClCompile Include="CBossStage.cpp">
+      <Filter>03. Scene\03. BossStage</Filter>
+    </ClCompile>
     <ClCompile Include="CMonsterBullet.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>01. Obj\01. Bullet\MonsterBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CBossHp.cpp">
+      <Filter>07. UI\02. BossHp</Filter>
+    </ClCompile>
+    <ClCompile Include="CCyclops.cpp">
+      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+    </ClCompile>
+    <ClCompile Include="CItemEffect.cpp">
+      <Filter>01. Obj\02. Effect\ItemEffect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

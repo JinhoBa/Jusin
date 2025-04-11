@@ -21,6 +21,7 @@ void CBombEffect::Initialize()
 	Set_CollisionBoxSize(150.f, 150.f);
 
 	m_tStat.fAttack = 5.f;
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/explosion.bmp", L"explosion");
 }
 
 void CBombEffect::Late_Initialize()
@@ -79,7 +80,7 @@ void CBombEffect::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_TILE:
-		if (1 == dynamic_cast<CTile*>(_pObj)->Get_Option())
+		if (2 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
 			dynamic_cast<CTile*>(_pObj)->Set_DrawID(0);
 			dynamic_cast<CTile*>(_pObj)->Set_OptionID(0);

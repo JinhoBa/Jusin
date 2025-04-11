@@ -17,9 +17,8 @@ CBombFly::~CBombFly()
 
 void CBombFly::Initialize()
 {
-	m_fSpeed = 1.5f;
 
-	Set_Stat(3.f, 1.f, 0.f);
+	Set_Stat(3.f, 1.f, 0.f, 1.5f);
 	m_tInfo.fCX = 30.f;
 	m_tInfo.fCY = 30.f;
 
@@ -45,7 +44,7 @@ int CBombFly::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CBombEffect>(L"explosion", m_tInfo.fX, m_tInfo.fY, 192.f, 192.f));
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CBombEffect>(L"explosion", m_tInfo.fX, m_tInfo.fY, 192.f, 192.f, 10));
 		return DEAD;
 	}
         

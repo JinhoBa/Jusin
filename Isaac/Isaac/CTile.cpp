@@ -2,6 +2,7 @@
 #include "CTile.h"
 #include "Define.h"
 #include "CBmpMgr.h"
+#include "CBullet.h"
 
 CTile::CTile() : m_iDrawID(0), m_iOption(0)
 {
@@ -23,6 +24,7 @@ void CTile::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Poo.bmp", L"Poo");
 
 	m_eID = OBJ_TILE;
+	Set_Frame(0, 4, 0);
 }
 
 int CTile::Update()
@@ -41,6 +43,7 @@ int CTile::Late_Update()
 		break;
 	case 3:
 		m_pFrameKey = L"Fire";
+		__super::Move_Frame();
 		break;
 	case 4:
 		m_pFrameKey = L"Poo";
@@ -51,6 +54,7 @@ int CTile::Late_Update()
 	default:
 		break;
 	}
+	
 
 	return NOEVENT;
 }
@@ -153,7 +157,7 @@ void CTile::Render(HDC hDC)
 		(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
 		hMemDC,							// 복사할 이미지 dc
 		//m_tFrame.iStart * (int)m_tInfo.fCX + m_tFrame.iStart * 10.f,
-		0,
+		(int)m_tInfo.fCX * m_tFrame.iStart,
 		0,// * m_tFrame.iMotion,								// 복사할 이미지의 left, top
 		(int)m_tInfo.fCX,//(int)m_tInfo.fCX,				// 복사할 이미지의 가로
 		(int)m_tInfo.fCY,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
@@ -166,6 +170,56 @@ void CTile::Release()
 
 void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	switch (_pObj->Get_ObjID())
+	{
+		/*case OBJ_MONSTER:
+			switch (_tHitPoint.eDirection)
+			{
+			case DIR_DOWN:
+				_pObj->Set_posY(_tHitPoint.fY);
+				break;
+			case DIR_UP:
+				_pObj->Set_posY(-_tHitPoint.fY);
+				break;
+			case DIR_LEFT:
+				_pObj->Set_posX(-_tHitPoint.fX);
+				break;
+			case DIR_RIGHT:
+				_pObj->Set_posX(_tHitPoint.fX);
+				break;
+			default:
+				break;
+
+			}
+			break;*/
+
+	
+
+	case OBJ_BULLET:
+		if (CBullet::BULLET_PLAYER != dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
+			break;
+		switch (m_iDrawID)
+		{
+		case 3:
+			m_iDrawID = 0;
+			m_iOption = 0;
+			break;
+
+		case 4:
+			if (m_tFrame.iStart < 4)
+				++m_tFrame.iStart;
+			else
+				m_iOption = 4;
+			break;
+
+		default:
+			break;
+		}
+
+		break;
+	default:
+		break;
+	}
 }
 
 void CTile::Late_Initialize()

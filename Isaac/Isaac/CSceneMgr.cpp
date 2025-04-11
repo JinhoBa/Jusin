@@ -7,6 +7,7 @@
 #include "CTileMgr.h"
 #include "CAbstractFactory.h"
 #include "CUIMgr.h"
+#include "CBossStage.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
@@ -72,6 +73,15 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 			m_pScene = m_vecScene[SC_STAGE1];
 			break;
 
+		case CSceneMgr::SC_BOSS:
+			if (!m_vecScene[SC_BOSS])
+				m_vecScene[SC_BOSS] = CAbstractFactory<CBossStage>::Create_Scene();
+			else
+				Set_Data(m_vecScene[SC_BOSS]);
+
+			m_pScene = m_vecScene[SC_BOSS];
+			break;
+
 		case CSceneMgr::SC_END:
 			break;
 		}
@@ -98,6 +108,8 @@ void CSceneMgr::Render(HDC hDC)
 
 void CSceneMgr::Release()
 {
+	CTileMgr::Get_Instance()->Release();
+
 	for(int i = 0; i < m_vecScene.size(); ++i)
 	{
 		if (!m_vecScene[i])
@@ -118,5 +130,6 @@ void CSceneMgr::Set_Data(CScene* _pScene)
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pObj);
 
 	CTileMgr::Get_Instance()->Set_vecTile(_pScene->Get_VecTile());
+	
 }
 

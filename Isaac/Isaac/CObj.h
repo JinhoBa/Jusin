@@ -1,6 +1,7 @@
 #pragma once
 #include "Define.h"
-
+#include "CAbstractFactory.h"
+#include "CSceneMgr.h"
 class CObj
 {
 public:
@@ -27,11 +28,12 @@ public:
 	void Set_posY(float _fY) { m_tInfo.fX += _fY; }
 	void Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	void Set_Dead() { m_bDead = true; }
-	void Set_Stat(float _fHp, float _fAttack, float _fIntersection)
+	void Set_Stat(float _fHp, float _fAttack, float _fIntersection, float _fSpeed)
 	{ 
 		m_tStat.fHp = _fHp;
 		m_tStat.fAttack = _fAttack;
 		m_tStat.fIntersection = _fIntersection;
+		m_fSpeed = _fSpeed;
 	}
 	void Set_Hp(float _fAttack) { m_tStat.fHp -= _fAttack; }
 	void Set_Frame(int _iStart, int _iEnd, int _iMotion)
@@ -68,29 +70,31 @@ public:
 	void Set_Target(CObj* _pTarget) { m_pTarget = _pTarget; }
 
 	template<typename T>
-	CObj* Create_Bullet(float _fX, float _fY, float _fCX, float _fCY, float _fAngle, float _fHp, float _fAttack, float _fIntersection)
+	CObj* Create_Bullet(float _fX, float _fY, float _fCX, float _fCY, float _fAngle, float _fHp, float _fAttack, float _fIntersection, float _fSpeed)
 	{
 		CObj* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Info(_fX, _fY, _fCX, _fCY);
 		pObj->Set_Angle(_fAngle);
-		pObj->Set_Stat(_fHp, _fAttack, _fIntersection);
+		pObj->Set_Stat(_fHp, _fAttack, _fIntersection, _fSpeed);
 		pObj->Update_Rect();
 		
 		return pObj;
 	}
 
 	template<typename T>
-	CObj* Create_Effect(const TCHAR* _pFileKey, float _fX, float _fY, float _fCX, float _fCY)
+	CObj* Create_Effect(const TCHAR* _pFileKey, float _fX, float _fY, float _fCX, float _fCY, int _iEnd)
 	{
 		CObj* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Info(_fX, _fY, _fCX, _fCY);
 		pObj->Set_FrameKey(_pFileKey);
+		pObj->Set_Frame(0, _iEnd, 0);
 		pObj->Update_Rect();
 
 		return pObj;
 	}
+	
 	
 public:
 	void		Update_Rect();

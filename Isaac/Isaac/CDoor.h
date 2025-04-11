@@ -10,6 +10,13 @@ public:
 	~CDoor();
 
 public:
+	void Set_Door(int _iFrameMotion, const TCHAR* _pFileKey, CSceneMgr::SCENEID _eID) 
+	{
+		Set_FramMotion(_iFrameMotion);
+		Set_FrameKey(_pFileKey);
+		Set_SceneID(_eID);
+	}
+
 	void Set_SceneID(CSceneMgr::SCENEID _eSceneID) { m_eSceneID = _eSceneID; }
 	bool Get_bOpen() { return m_bOpen; }
 public:

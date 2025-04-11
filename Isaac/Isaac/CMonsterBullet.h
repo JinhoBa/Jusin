@@ -25,5 +25,8 @@ public:
 
 	void Collision(CObj* _pObj, HITPOINT _tHitPoint) override;
 
+private:
+	float m_fDistance;
+
 };
 

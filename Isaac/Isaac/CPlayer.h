@@ -56,6 +56,6 @@ private:
 	MSTATE m_eCurState;
 	MSTATE m_ePreState;
 
-	
+	vector <bool> m_vecItem;
 };
 

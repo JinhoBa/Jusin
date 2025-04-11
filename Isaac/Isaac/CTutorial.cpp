@@ -17,6 +17,8 @@
 #include "CBomb.h"
 #include "CBox.h"
 #include "CBoss.h"
+#include "CHeart.h"
+#include "CCyclops.h"
 
 CTutorial::CTutorial()
 {
@@ -34,18 +36,22 @@ void CTutorial::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_nomal.bmp", L"Door_nomal");
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create_Obj(400.f, 300.f, 50.f, 40.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 200.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 200.f, 32.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
 
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(200.f, 200.f, 32.f, 32.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBomb>::Create_Obj(300.f, 200.f, 50.f, 50.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(300.f, 300.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(200.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(250.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(300.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(350.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(400.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(200.f, 300.f, 32.f, 32.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCyclops>::Create_Obj(200.f, 300.f, 50.f, 50.f));
 
 
 
-	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(WINCX * 0.5f, 125.f, 50.f, 50.f);
-	pDoor->Set_FramMotion(0);
+	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_BOTTOMX, DOOR_BOTTOMY, 50.f, 50.f);
+	pDoor->Set_FramMotion(3);
 	pDoor->Set_FrameKey(L"Door_nomal");
 	dynamic_cast<CDoor*>(pDoor)->Set_SceneID(CSceneMgr::SC_STAGE1);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);

@@ -57,7 +57,7 @@ int CBombBullet::Late_Update()
 
 	if (m_dwTime + 1500 < GetTickCount64())
 	{
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CBombEffect>(L"explosion", m_tInfo.fX, m_tInfo.fY, 192.f, 192.f));
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CBombEffect>(L"explosion", m_tInfo.fX, m_tInfo.fY, 192.f, 192.f, 10));
 		m_bDead = true;
 	}
 		

@@ -13,7 +13,8 @@ CEffect::~CEffect()
 
 void CEffect::Initialize()
 {
-	Set_Frame(0, 4, 0);
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/RedBullet_death.bmp", L"RedBullet_death");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/bullet_dead.bmp", L"bullet_death");
 	m_tFrame.dwFrameSpeed = 50;
 }
 
@@ -48,8 +49,8 @@ void CEffect::Render(HDC hDC)
 	GdiTransparentBlt(hDC,/// 복사 받을 dc
 		m_tRect.left,		// 복사 받을 위치 좌표 left
 		m_tRect.top,					// 복사 받을 위치 좌표 top
-		50,				// 복사 받을 가로 사이즈
-		50,				// 복사 받을 세로 사이즈
+		(int)m_tInfo.fCX,				// 복사 받을 가로 사이즈
+		(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
 		hMemDC,							// 복사할 이미지 dc
 		(int)m_tInfo.fCX * m_tFrame.iStart,
 		(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top

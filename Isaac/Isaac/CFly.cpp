@@ -17,9 +17,7 @@ CFly::~CFly()
 
 void CFly::Initialize()
 {
-	m_fSpeed = 1.f;
-
-	Set_Stat(3.f, 1.f, 0.f);
+	Set_Stat(3.f, 1.f, 0.f, 1.f);
 	m_tInfo.fCX = 32.f;
 	m_tInfo.fCY = 30.f;
 

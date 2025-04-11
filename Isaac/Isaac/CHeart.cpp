@@ -35,6 +35,8 @@ int CHeart::Update()
 		return DEAD;
 
 	__super::Update_Rect();
+
+	return NOEVENT;
 }
 
 int CHeart::Late_Update()

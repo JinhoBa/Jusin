@@ -12,6 +12,8 @@
 #include "CSceneMgr.h"
 #include "CBox.h"
 #include "CDoor.h"
+#include "CMonsterBullet.h"
+#include "CItemEffect.h"
 
 
 CPlayer::CPlayer()
@@ -20,6 +22,7 @@ CPlayer::CPlayer()
 	ZeroMemory(&m_tBodyInfo, sizeof(INFO));
 	ZeroMemory(&m_tBodyFrame, sizeof(FRAME));
 	ZeroMemory(&m_tItemInfo, sizeof(ITEMINFO)); 
+	m_vecItem.assign(5, false);
 }
 
 CPlayer::~CPlayer()
@@ -29,13 +32,12 @@ CPlayer::~CPlayer()
 
 void CPlayer::Initialize()
 {
-	m_fSpeed = 4.f;
 	m_tStat.fMaxHp = 8.f;
 
 	// Test code
-	m_fSoulHp = 1.f;
+	m_fSoulHp = 0.f;
 
-	Set_Stat(5.f, 1.f, 300.f);
+	Set_Stat(6.f, 3.5f, 300.f, 4.f);
 	Set_ItemInfo(0, 99, 5);
 
 	m_tInfo.fCX = 50.f;
@@ -61,7 +63,7 @@ void CPlayer::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Hit.bmp", L"Player_Hit");
 
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
-	Set_CollisionBoxSize(40.f, 50.f);
+	Set_CollisionBoxSize(40.f, 45.f);
 
 	m_fAttackPos = 5.f;
 }
@@ -125,7 +127,7 @@ void CPlayer::Render(HDC hDC)
 			m_tRect.left + 6,		// 복사 받을 위치 좌표 left
 			m_tRect.top + 35,					// 복사 받을 위치 좌표 top
 			40,//(int)m_tInfo.fCX,				// 복사 받을 가로 사이즈
-			25,//(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
+			23,//(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
 			hMemDC,							// 복사할 이미지 dc
 			//m_tFrame.iStart * (int)m_tInfo.fCX + m_tFrame.iStart * 10.f,
 			(int)m_tBodyInfo.fCX * m_tBodyFrame.iStart,
@@ -178,7 +180,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_TILE:
-		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option())
+		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option() && 4 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
 			switch (_tHitPoint.eDirection)
 			{
@@ -209,23 +211,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				m_fSoulHp -= 1.f;
 		}
 		m_eCurState = HIT;
-		switch (_tHitPoint.eDirection)
-		{
-		case DIR_DOWN:
-			m_tInfo.fY += _tHitPoint.fY;
-			break;
-		case DIR_UP:
-			m_tInfo.fY -= _tHitPoint.fY;
-			break;
-		case DIR_LEFT:
-			m_tInfo.fX -= _tHitPoint.fX;
-			break;
-		case DIR_RIGHT:
-			m_tInfo.fX += _tHitPoint.fX;
-			break;
-		default:
-			break;
-		}
+		
 		break;
 	case OBJ_BULLET:
 		break;
@@ -255,6 +241,14 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				dynamic_cast<CBox*>(_pObj)->Drop_Item();
 				--m_tItemInfo.iKey;
 			}
+			break;
+
+		case CItem::ITEM_CYCLOPS:
+			m_vecItem[0] = true;
+			m_fAttackPos *= 3.f;
+			m_eCurState = GETITEM;
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CItemEffect>(L"Item_Cyclops", m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, 0));
+			_pObj->Set_Dead();
 			break;
 
 		case CItem::ITEM_HEART:
@@ -305,10 +299,10 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				m_tInfo.fY = 170.f;
 				break;
 			case DIR_LEFT:
-				m_tInfo.fX -= _tHitPoint.fX;
+				m_tInfo.fX = 90.f;
 				break;
 			case DIR_RIGHT:
-				m_tInfo.fX += _tHitPoint.fX;
+				m_tInfo.fX = 710.f;;
 				break;
 			default:
 				break;
@@ -438,7 +432,7 @@ void CPlayer::Key_Input()
 	{
 		CObjMgr::Get_Instance()->Add_CObj(
 			OBJ_BULLET,
-			CObj::Create_Bullet<CBombBullet>(m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, m_fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection)
+			CObj::Create_Bullet<CBombBullet>(m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, m_fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 0.f)
 		);
 		--m_tItemInfo.iBomb;
 	}
@@ -450,7 +444,10 @@ void CPlayer::Key_Input()
 
 	if (GetAsyncKeyState(VK_LBUTTON) && m_dwTime + 500 < GetTickCount64())
 	{
-		
+		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
+		//	m_tInfo.fX + 50.f, m_tInfo.fY,
+		//	34.f, 34.f,
+		//	0 * 3, 0.f, 2, 300.f));
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CGrenadeBullet>(m_fAngle));
 		//m_dwTime = GetTickCount64();
 	}
@@ -463,17 +460,54 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 	{
 		float fX = m_tInfo.fX;
 		float fY = m_tInfo.fY;
-
+		float fAngle(10.f);
+		if (_fAngle > 170.f)
+			fAngle *= -1.f;
 		if (_bX)
+		{
 			fX += m_fAttackPos;
+		}
 		else
 			fY += m_fAttackPos;
 
-		CObjMgr::Get_Instance()->Add_CObj(
-			OBJ_BULLET,
-			CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection)
-		);
-		m_fAttackPos *= -1.f;
+		if(!m_vecItem[0])
+		{
+			if (_bX)
+				fX += m_fAttackPos;
+			else
+				fY += m_fAttackPos;
+
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+			);
+			m_fAttackPos *= -1.f;
+		}
+		else
+		{
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle + fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+			);
+
+			if (_bX)
+				fX -= m_fAttackPos;
+			else
+				fY -= m_fAttackPos;
+
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+			);
+			if (_bX)
+				fX -= m_fAttackPos;
+			else
+				fY -= m_fAttackPos;
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle- fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+			);
+		}
 		m_dwTime = GetTickCount64();
 		m_eCurState = CPlayer::ATTACK;
 	}

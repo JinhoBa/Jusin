@@ -9,6 +9,8 @@
 #include "CKey.h"
 #include "CDoor.h"
 #include "CBoss.h"
+#include "CFly.h"
+#include "CBombFly.h"
 
 CStage1::CStage1()
 {
@@ -22,16 +24,30 @@ CStage1::~CStage1()
 void CStage1::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CKey>::Create_Obj(400.f, 400.f, 42.f, 42.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
+	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Stage1.dat");
 
-	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial2.dat");
-
-	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(WINCX * 0.5f, WINCY - 25.f, 50.f, 50.f);
-	pDoor->Set_FramMotion(3);
-	pDoor->Set_FrameKey(L"Door_nomal");
-	dynamic_cast<CDoor*>(pDoor)->Set_SceneID(CSceneMgr::SC_TUTORIAL);
+	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_TOPX, DOOR_TOPY, 50.f, 50.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(0, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 50.f, 50.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(1, L"Door_nomal", CSceneMgr::SC_BOSS);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+
+
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CKey>::Create_Obj(400.f, 400.f, 42.f, 42.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
+
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(200.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(100.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(150.f, 400.f, 30.f, 30.f));
+
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(700.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(650.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));
+
 }
 
 void CStage1::Update()
@@ -72,8 +88,8 @@ void CStage1::Render(HDC hDC)
 		0, 0,
 		SRCCOPY);
 
-	CObjMgr::Get_Instance()->Render(hDC);
 	CTileMgr::Get_Instance()->Render(hDC);
+	CObjMgr::Get_Instance()->Render(hDC);
 	CUIMgr::Get_Instance()->Render(hDC);
 }
 

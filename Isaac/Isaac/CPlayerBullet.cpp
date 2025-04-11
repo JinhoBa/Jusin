@@ -33,7 +33,10 @@ void CPlayerBullet::Late_Initialize()
 int CPlayerBullet::Update()
 {
 	if (m_bDead)
+	{
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY, 4));
 		return DEAD;
+	}
 	__super::Update_Rect();
 	Set_CollisionBoxPos(m_tInfo.fX - 1.f, m_tInfo.fY);
 
@@ -60,7 +63,6 @@ int CPlayerBullet::Late_Update()
 
 	if (m_tStat.fIntersection < m_fDistance)
 	{
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY));
 		m_bDead = true;
 	}
 	m_fDistance += m_fSpeed;
@@ -96,15 +98,13 @@ void CPlayerBullet::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_TILE:
-		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option())
+		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option() && 4 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
-			CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY));
 			m_bDead = true;
 		}
 		break;
 
 	case OBJ_MONSTER:
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY));
 		_pObj->Set_Hp(m_tStat.fAttack);
 		m_bDead = true;
 		break;

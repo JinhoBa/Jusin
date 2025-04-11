@@ -35,6 +35,8 @@ int CSoulHeart::Update()
 		return DEAD;
 
 	__super::Update_Rect();;
+
+	return NOEVENT;
 }
 
 int CSoulHeart::Late_Update()
