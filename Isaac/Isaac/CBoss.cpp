@@ -9,6 +9,8 @@
 #include "CTools.h"
 #include "CFly.h"
 #include "CBox.h"
+#include "CCyclops.h"
+#include "CSoundMgr.h"
 
 CBoss::CBoss() 
 	: m_bLeft(true), m_bHit(false), m_HitTime(GetTickCount64()), m_MotionTime(GetTickCount64()), m_ePreState(IDLE), m_eCurState(IDLE), m_fTime(0.f), m_fAfterY(0.f)
@@ -51,7 +53,9 @@ int CBoss::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 400.f, 32.f, 32.f));
+		Set_Sound(L"BossClear.mp3", 0.8f);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCyclops>::Create_Obj(400.f, 400.f, 50.f, 50.f));
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 300.f, 32.f, 32.f));
 		return DEAD;
 	}
 
@@ -101,6 +105,8 @@ int CBoss::Late_Update()
 	case CBoss::ATTACK:
 		if (m_MotionTime + 1500 < GetTickCount64())
 		{
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"bloodshoot0.mp3", SOUND_EFFECT, 1.f);
 			Attack(5);
 			Attack(5);
 			Attack(5);
@@ -115,6 +121,8 @@ int CBoss::Late_Update()
 	case CBoss::JUMP_ATTACK:
 		if (m_MotionTime + 2000 < GetTickCount64())
 		{
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"Boss_Smash.mp3", SOUND_EFFECT, 1.f);
 			Set_CollisionBoxSize(110.f, 80.f);
 			m_eCurState = CBoss::IDLE;
 			m_fTime = 0.f;
@@ -127,7 +135,7 @@ int CBoss::Late_Update()
 				{
 					if(m_tInfo.fX > 110.f && WINCX - 110.f > m_tInfo.fX)
 						m_tInfo.fX += 15 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-					m_tInfo.fY -= 15 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
+					m_tInfo.fY -= 15 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 				}
 				m_tFrame.iStart = 2;
 				m_fTime += 0.1;
@@ -136,6 +144,7 @@ int CBoss::Late_Update()
 			{
 				Set_CollisionBoxSize(110.f, 80.f);
 				m_tFrame.iStart = 3;
+				
 			}
 		}
 		break;
@@ -143,6 +152,8 @@ int CBoss::Late_Update()
 	case CBoss::SPOWN:
 		if (m_MotionTime + 4000 < GetTickCount64())
 		{
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"Monster_Grunt_5.mp3", SOUND_EFFECT, 1.f);
 			CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER,
 				CAbstractFactory<CFly>::Create_Obj(m_tInfo.fX+ 50.f, m_tInfo.fY-50.f, 32.f, 30.f));
 			CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER,
@@ -322,9 +333,16 @@ void CBoss::Attack(int _iCount)
 
 	for (int i = 0; i < _iCount; ++i)
 	{
-		float fAttack = float(rand() % 5) + 1.f;
-		float fSpeed = float(rand() % 5)*0.4f + 2.5f;
-		float fRand = float(rand() % 15) + 1.f;
+		random_device rd;               // 하드웨어 기반 난수 생성기
+		mt19937 gen(rd());              // 메르센 트위스터 엔진 초기화
+		uniform_int_distribution<int> dist(0, 4); // 0~99 범위의 난수
+
+		int j = dist(gen);
+
+		float fAttack = float(j) + 1.f;
+		float fSpeed = float(j)*0.4f + 2.5f;
+
+		float fRand = float(j);
 		float fX;
 
 		if (m_bLeft)
@@ -332,7 +350,7 @@ void CBoss::Attack(int _iCount)
 		else
 			fX = m_tInfo.fX + m_tInfo.fCX * 0.2f + fRand;
 
-		float fTmp = (float)(rand() % 10);
+		float fTmp = (float)j;
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
 			fX, m_tInfo.fY - 20.f,
 			34.f, 34.f,

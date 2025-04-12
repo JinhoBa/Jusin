@@ -24,6 +24,14 @@
 #include <iostream>
 #include <string>
 #include <functional>
+#include <random>
+
+#include "fmod.h"
+#include "fmod.hpp"
+#pragma comment(lib, "fmodex_vc.lib")
+
+#include <io.h>
+#include <iostream>
 
 //Debug 해더
 #include <cassert>

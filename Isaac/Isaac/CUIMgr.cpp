@@ -40,8 +40,6 @@ void CUIMgr::Late_Update()
 		for (auto iter = m_UIList[i].begin();
 			iter != m_UIList[i].end();)
 		{
-			
-
 			int Result = (*iter)->Late_Update();
 			if (Result == 1)
 			{

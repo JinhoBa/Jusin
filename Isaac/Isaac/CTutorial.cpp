@@ -19,6 +19,7 @@
 #include "CBoss.h"
 #include "CHeart.h"
 #include "CCyclops.h"
+#include "CSoundMgr.h"
 
 CTutorial::CTutorial()
 {
@@ -31,7 +32,6 @@ CTutorial::~CTutorial()
 
 void CTutorial::Initialize()
 {
-
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/BaseMap.bmp", L"Tutorial");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_nomal.bmp", L"Door_nomal");
 
@@ -40,13 +40,12 @@ void CTutorial::Initialize()
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
 
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(200.f, 230.f, 32.f, 32.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(250.f, 230.f, 32.f, 32.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(300.f, 230.f, 32.f, 32.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(200.f, 230.f, 32.f, 32.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(250.f, 230.f, 32.f, 32.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSoulHeart>::Create_Obj(300.f, 230.f, 32.f, 32.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(350.f, 230.f, 32.f, 32.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(400.f, 230.f, 32.f, 32.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(200.f, 300.f, 32.f, 32.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCyclops>::Create_Obj(200.f, 300.f, 50.f, 50.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(600.f, 300.f, 32.f, 32.f));
 
 
 
@@ -56,9 +55,8 @@ void CTutorial::Initialize()
 	dynamic_cast<CDoor*>(pDoor)->Set_SceneID(CSceneMgr::SC_STAGE1);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
-
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial.dat");
-
+	
 
 	CUIMgr::Get_Instance()->Add_UI(UI_BAR, CAbstractFactory<CUIBar>::Create_UI());
 }
@@ -110,6 +108,12 @@ void CTutorial::Render(HDC hDC)
 
 void CTutorial::Release()
 {
+	for (int i = 0; i < size(m_ObjList); ++i)
+	{
+		for_each(m_ObjList[i].begin(), m_ObjList[i].end(), Safe_Delete<CObj*>);
+		m_ObjList[i].clear();
+	}
+
 	for_each(m_vecTile.begin(), m_vecTile.end(), Safe_Delete<CObj*>);
 	m_vecTile.clear();
 }

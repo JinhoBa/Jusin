@@ -46,7 +46,7 @@ int CMonsterBullet::Update()
 	__super::Update_Rect();
 
 	Set_CollisionBoxPos(m_tInfo.fX - 4.f, m_tInfo.fY);
-	m_tFrame.iStart = m_tStat.fAttack - 1;
+	m_tFrame.iStart = (int)m_tStat.fAttack - 1;
 
 	return NOEVENT;
 }

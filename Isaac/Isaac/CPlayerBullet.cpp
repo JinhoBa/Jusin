@@ -4,6 +4,7 @@
 #include "CObjMgr.h"
 #include "CEffect.h"
 #include "CTile.h"
+#include "CSoundMgr.h"
 
 CPlayerBullet::CPlayerBullet() : m_fDistance(0.f)
 {
@@ -24,6 +25,13 @@ void CPlayerBullet::Initialize()
 	Set_CollisionBoxPos(m_tInfo.fX - 1.f, m_tInfo.fY);
 	Set_CollisionBoxSize(10.f, 10.f);
 	Set_Frame(0, 0, 0);
+
+	
+	srand(time(nullptr));
+	if (rand() % 2 == 0)
+		Set_Sound(L"Tears_Fire_1.mp3", 1.f);
+	else
+		Set_Sound(L"Tears_Fire_0.mp3", 1.f);
 }
 
 void CPlayerBullet::Late_Initialize()
@@ -34,6 +42,7 @@ int CPlayerBullet::Update()
 {
 	if (m_bDead)
 	{
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY, 4));
 		return DEAD;
 	}

@@ -10,6 +10,7 @@
 #include "CCollisionMgr.h"
 #include "CBmpMgr.h"
 #include "CBossHp.h"
+#include "CSoundMgr.h"
 
 CBossStage::CBossStage()
 {
@@ -38,6 +39,11 @@ void CBossStage::Initialize()
 
 	CUIMgr::Get_Instance()->Add_UI(UI_BAR, CAbstractFactory<CUIBar>::Create_UI());
 	CUIMgr::Get_Instance()->Add_UI(UI_BOSSHP, CAbstractFactory<CBossHp>::Create_UI());
+
+	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"bossintro.mp3", SOUND_EFFECT, 1.f);
+
+	CSoundMgr::Get_Instance()->PlayBGM(L"BossStageBGM.mp3", 0.3f);
 }
 
 void CBossStage::Update()

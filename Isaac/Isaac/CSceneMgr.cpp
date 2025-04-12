@@ -8,6 +8,7 @@
 #include "CAbstractFactory.h"
 #include "CUIMgr.h"
 #include "CBossStage.h"
+#include "CSoundMgr.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
@@ -28,12 +29,16 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 
 	if (m_eCurScene != m_ePreScene)
 	{
-		if(m_pScene)
+		if(m_pScene && CSceneMgr::SC_MENU != m_eCurScene)
+		{
 			m_pScene->Save_Data();
+			CSoundMgr::Get_Instance()->StopAll();
+		}
 
 		switch (m_eCurScene)
 		{
 		case CSceneMgr::SC_MENU:
+			CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 01 Those Responsible.mp3", 0.3f);
 			if(!m_vecScene[SC_MENU])
 				m_vecScene[SC_MENU] = CAbstractFactory<CMenu>::Create_Scene();
 			else
@@ -41,21 +46,28 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				m_vecScene[SC_MENU]->Initialize();
 				CUIMgr::Get_Instance()->Delete_UI(UI_BAR);
 				CObjMgr::Get_Instance()->Release();
-				for (int i = 1; i < m_vecScene.size(); ++i)
+				for (int i = 0; i < m_vecScene.size(); ++i)
 				{
 					if (!m_vecScene[i])
 						continue;
 
-					m_vecScene[i]->Release();
-					Safe_Delete<CScene*>(m_vecScene[i]);
+					if (m_vecScene[i]->Get_bSave())
+					{
+						m_vecScene[i]->Release();
+						Safe_Delete<CScene*>(m_vecScene[i]);
+					}
+					else
+					{
+						CTileMgr::Get_Instance()->Release();
+					}
 				}
-				
 			}
 
 			m_pScene = m_vecScene[SC_MENU];
 			break;
 
 		case CSceneMgr::SC_TUTORIAL:
+			CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 05 Sacrificial.mp3", 0.3f);
 			if (!m_vecScene[SC_TUTORIAL])
 				m_vecScene[SC_TUTORIAL] = CAbstractFactory<CTutorial>::Create_Scene();
 			else
@@ -65,6 +77,7 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 			break;
 
 		case CSceneMgr::SC_STAGE1:
+			CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 05 Sacrificial.mp3", 0.3f);
 			if (!m_vecScene[SC_STAGE1])
 				m_vecScene[SC_STAGE1] = CAbstractFactory<CStage1>::Create_Scene();
 			else
@@ -108,16 +121,28 @@ void CSceneMgr::Render(HDC hDC)
 
 void CSceneMgr::Release()
 {
-	CTileMgr::Get_Instance()->Release();
+	m_vecScene[0]->Release();
+	Safe_Delete<CScene*>(m_vecScene[0]);
 
-	for(int i = 0; i < m_vecScene.size(); ++i)
+	for(int i = 1; i < m_vecScene.size(); ++i)
 	{
 		if (!m_vecScene[i])
 			continue;
 
-		m_vecScene[i]->Release();
-		Safe_Delete<CScene*>(m_vecScene[i]);
+		if (m_vecScene[i] == m_pScene)
+		{
+			CObjMgr::Get_Instance()->Release();
+			CTileMgr::Get_Instance()->Release();
+			Safe_Delete<CScene*>(m_vecScene[i]);
+		}
+		else if(m_vecScene[i]->Get_bSave())
+		{
+			m_vecScene[i]->Release();
+			Safe_Delete<CScene*>(m_vecScene[i]);
+		}
+
 	}
+	CUIMgr::Get_Instance()->Release();
 }
 
 

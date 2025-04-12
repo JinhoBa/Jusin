@@ -68,7 +68,7 @@ public:
 	virtual void	Collision(CObj* _pObj, HITPOINT _tHitPoint)PURE;
 public:
 	void Set_Target(CObj* _pTarget) { m_pTarget = _pTarget; }
-
+	void Set_Sound(const TCHAR* _pFileKey, float _fVolume);
 	template<typename T>
 	CObj* Create_Bullet(float _fX, float _fY, float _fCX, float _fCY, float _fAngle, float _fHp, float _fAttack, float _fIntersection, float _fSpeed)
 	{
@@ -102,6 +102,9 @@ public:
 	
 protected:
 	bool		m_bDead;
+
+	int			m_iSoundChennel;
+
 	float		m_fSpeed;
 	float		m_fAngle;
 	

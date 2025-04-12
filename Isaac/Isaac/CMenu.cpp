@@ -5,6 +5,7 @@
 #include "CUIMgr.h"
 #include "CButton.h"
 #include "CUIBar.h"
+#include "CSoundMgr.h"
 
 CMenu::CMenu()
 {
@@ -23,7 +24,7 @@ void CMenu::Initialize()
 	pButton->Initialize();
 
 	CUIMgr::Get_Instance()->Add_UI(UI_BUTTON, pButton);
-	
+	//CSoundMgr::Get_Instance()->PlayBGM(L"Menu_BGM.mp3", 1.f);
 }
 
 void CMenu::Update()
@@ -53,6 +54,7 @@ void CMenu::Render(HDC hDC)
 
 void CMenu::Release()
 {
+	CSoundMgr::Get_Instance()->Release();
 	CUIMgr::Get_Instance()->Delete_UI(UI_BUTTON);
 }
 

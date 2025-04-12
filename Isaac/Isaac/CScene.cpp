@@ -3,7 +3,7 @@
 #include "CTileMgr.h"
 #include "CObjMgr.h"
 
-CScene::CScene()
+CScene::CScene() : m_bSave(false), m_bDoorOpen(false), m_iChennel(0)
 {
 	m_vecTile.reserve(TILEX * TILEY);
 }
@@ -15,6 +15,7 @@ CScene::~CScene()
 
 void CScene::Save_Data()
 {
+	m_bSave = true;
 	m_ObjList[0].clear();
 	m_ObjList[1].clear();
 	Set_ObjList(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), OBJ_ITEM);

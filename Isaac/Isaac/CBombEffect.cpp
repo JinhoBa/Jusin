@@ -2,6 +2,7 @@
 #include "CBombEffect.h"
 #include "CBmpMgr.h"
 #include "CTile.h"
+#include "CSoundMgr.h"
 
 CBombEffect::CBombEffect()
 {
@@ -22,6 +23,8 @@ void CBombEffect::Initialize()
 
 	m_tStat.fAttack = 5.f;
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/explosion.bmp", L"explosion");
+	
+	Set_Sound(L"Explosion.mp3", 1.f);
 }
 
 void CBombEffect::Late_Initialize()
@@ -31,7 +34,10 @@ void CBombEffect::Late_Initialize()
 int CBombEffect::Update()
 {
 	if (m_bDead)
+	{
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
+	}
 
 	__super::Update_Rect();
 	Set_CollisionBoxPos(m_tInfo.fX - 5.f, m_tInfo.fY - 5.f);

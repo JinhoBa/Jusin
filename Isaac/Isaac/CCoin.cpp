@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CCoin.h"
 #include "CBmpMgr.h"
+#include "CSoundMgr.h"
 
 CCoin::CCoin()
 {
@@ -20,9 +21,13 @@ void CCoin::Initialize()
 	m_tFrame.dwTime = GetTickCount64();
 
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
-	Set_CollisionBoxSize(16.f, 16.f);
+	Set_CollisionBoxSize(0.f, 0.f);
+
+	srand(time(nullptr));
+	m_fAngle = (0 == rand() % 2) ? 80.f : 110.f;
 
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Coin.bmp", L"Coin");
+
 }
 
 void CCoin::Late_Initialize()
@@ -32,7 +37,9 @@ void CCoin::Late_Initialize()
 int CCoin::Update()
 {
     if (m_bDead)
+	{
 		return DEAD;
+	}
 
     __super::Update_Rect();
 	__super::Move_Frame();
@@ -42,6 +49,17 @@ int CCoin::Update()
 
 int CCoin::Late_Update()
 {
+	if (m_CreateTime + 500 < GetTickCount64())
+	{
+		Set_CollisionBoxSize(16.f, 16.f);
+	}
+	else
+	{
+		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
+		m_fTime += 0.1f;
+	}
+	
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 
     return NOEVENT;
@@ -71,4 +89,14 @@ void CCoin::Release()
 
 void CCoin::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	switch (_pObj->Get_ObjID())
+	{
+	case OBJ_PLAYER:
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"pennypickup.mp3", SOUND_EFFECT, 1.f);
+		break;
+
+	default:
+		break;
+	}
 }

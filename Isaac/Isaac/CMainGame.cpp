@@ -7,6 +7,7 @@
 #include "CTileMgr.h"
 #include "CCollisionMgr.h"
 #include "CUIMgr.h"
+#include "CSoundMgr.h"
 
 
 CMainGame::CMainGame() : m_hDC(NULL), m_hMemoryDC(NULL), hBitmap(nullptr), hOldBitmap(nullptr), m_iFPS(0), m_dwTime(NULL), m_szFPS(L"")
@@ -29,6 +30,7 @@ void CMainGame::Initialize()
 	m_hDC = GetDC(g_hWnd);
 	
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Back.bmp", L"Back");
+	CSoundMgr::Get_Instance()->Initialize();
 	CSceneMgr::Get_Instance()->Scene_Change(CSceneMgr::SC_MENU);
 }
 
@@ -73,7 +75,6 @@ void CMainGame::Render()
 
 void CMainGame::Release()
 {
-
 	CSceneMgr::Destroy_Instance();
 	CKeyMgr::Destroy_Instance();
 	CObjMgr::Destroy_Instance();
@@ -81,6 +82,7 @@ void CMainGame::Release()
 	CTileMgr::Destory_Instance();
 	CCollisionMgr::Destroy_Instance();
 	CUIMgr::Destroy_Instance();
+	CSoundMgr::Destroy_Instance();
 
 	ReleaseDC(g_hWnd, m_hMemoryDC);
 	ReleaseDC(g_hWnd, m_hDC);

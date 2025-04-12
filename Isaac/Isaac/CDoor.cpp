@@ -2,6 +2,7 @@
 #include "CDoor.h"
 #include "CBmpMgr.h"
 #include "CObjMgr.h"
+#include "CSoundMgr.h"
 
 CDoor::CDoor() : m_bOpen(false), m_eSceneID(CSceneMgr::SC_END)
 {
@@ -16,6 +17,7 @@ CDoor::~CDoor()
 void CDoor::Initialize()
 {
 	__super::Update_Rect();
+
 	
 }
 
@@ -38,7 +40,9 @@ int CDoor::Late_Update()
 		m_bOpen = true;
 
 	if (m_bOpen)
+	{
 		m_tFrame.iStart = 0;
+	}
 
 	return NOEVENT;
 }

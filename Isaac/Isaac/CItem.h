@@ -23,5 +23,7 @@ public:
 	void Collision(CObj* _pObj, HITPOINT _tHitPoint) PURE;
 protected:
 	ITEMID m_eItemID;
+	ULONGLONG m_CreateTime;
+	float m_fTime;
 };
 

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CHeart.h"
 #include "CBmpMgr.h"
+#include "CSoundMgr.h"
 
 CHeart::CHeart()
 {
@@ -20,7 +21,10 @@ void CHeart::Initialize()
 	m_tFrame.dwTime = GetTickCount64();
 
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
-	Set_CollisionBoxSize(32.f, 32.f);
+	Set_CollisionBoxSize(0.f, 0.f);
+
+	srand(time(nullptr));
+	m_fAngle = (0 == rand() % 2) ? 80.f : 110.f;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Heart.bmp", L"Heart");
 }
@@ -32,7 +36,11 @@ void CHeart::Late_Initialize()
 int CHeart::Update()
 {
 	if (m_bDead)
+	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"pennypickup.mp3", SOUND_EFFECT, 1.f);
 		return DEAD;
+	}
 
 	__super::Update_Rect();
 
@@ -41,6 +49,16 @@ int CHeart::Update()
 
 int CHeart::Late_Update()
 {
+	if (m_CreateTime + 500 < GetTickCount64())
+	{
+		Set_CollisionBoxSize(16.f, 16.f);
+	}
+	else
+	{
+		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
+		m_fTime += 0.1f;
+	}
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 
 	return NOEVENT;
@@ -72,4 +90,12 @@ void CHeart::Release()
 
 void CHeart::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	switch (_pObj->Get_ObjID())
+	{
+	case OBJ_PLAYER:
+		break;
+
+	default:
+		break;
+	}
 }

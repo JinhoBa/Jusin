@@ -5,6 +5,7 @@
 #include "CTile.h"
 #include "CTools.h"
 #include "CBullet.h"
+#include "CSoundMgr.h"
 
 CFly::CFly()
 {
@@ -31,6 +32,9 @@ void CFly::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Monster/Fly.bmp", L"Fly");
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_PLAYER, this);
+
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
+	CSoundMgr::Get_Instance()->PlayLoop(L"Fly_Buzz_Loop.mp3", m_iSoundChennel, 0.5f);
 }
 
 void CFly::Late_Initialize()
@@ -40,7 +44,10 @@ void CFly::Late_Initialize()
 int CFly::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
+	{
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
+	}
 	
 	__super::Update_Rect();
 

@@ -14,6 +14,8 @@
 #include "CDoor.h"
 #include "CMonsterBullet.h"
 #include "CItemEffect.h"
+#include "CSoundMgr.h"
+#include "CCoin.h"
 
 
 CPlayer::CPlayer()
@@ -97,7 +99,7 @@ int CPlayer::Late_Update()
 	else if (CPlayer::HIT == m_eCurState)
 	{
 		__super::Move_Frame();
-		if (m_MotionTime + 700 < GetTickCount64())
+		if (m_MotionTime + 500 < GetTickCount64())
 			m_eCurState = IDLE;
 	}
 	else if (CPlayer::GETITEM == m_eCurState)
@@ -205,6 +207,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_MONSTER:
 		if(HIT != m_ePreState)
 		{
+			CSoundMgr::Get_Instance()->PlaySound(L"Isaac_Hurt_Grunt0.mp3", SOUND_EFFECT, 1.f);
 			if (0 >= m_fSoulHp)
 				m_tStat.fHp -= _pObj->Get_Damage();
 			else
@@ -238,7 +241,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			if(0 < m_tItemInfo.iKey && !dynamic_cast<CBox*>(_pObj)->Get_bOpen())
 			{
 				dynamic_cast<CBox*>(_pObj)->Set_Open();
-				dynamic_cast<CBox*>(_pObj)->Drop_Item();
+				dynamic_cast<CBox*>(_pObj)->Drop_Item_Boss();
 				--m_tItemInfo.iKey;
 			}
 			break;
@@ -255,7 +258,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			if(m_tStat.fHp < m_tStat.fMaxHp)
 			{
 				_pObj->Set_Dead();
-				++m_tStat.fHp;
+				m_tStat.fHp+=2;
 			}
 			else
 			{
@@ -442,7 +445,7 @@ void CPlayer::Key_Input()
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMissile>(m_fAngle));
 	}
 
-	if (GetAsyncKeyState(VK_LBUTTON) && m_dwTime + 500 < GetTickCount64())
+	if (GetAsyncKeyState(VK_LBUTTON))
 	{
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
 		//	m_tInfo.fX + 50.f, m_tInfo.fY,
@@ -450,6 +453,7 @@ void CPlayer::Key_Input()
 		//	0 * 3, 0.f, 2, 300.f));
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CGrenadeBullet>(m_fAngle));
 		//m_dwTime = GetTickCount64();
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX+100.f, m_tInfo.fY, 32.f, 32.f));
 	}
 
 }
@@ -485,6 +489,7 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 		}
 		else
 		{
+			m_fAttackPos = 1.f;
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
 				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle + fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)

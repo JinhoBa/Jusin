@@ -20,7 +20,9 @@ public:
 	void Set_Open() { m_bOpen = true; }
 	bool Get_bOpen() { return m_bOpen; }
 	void Drop_Item();
+	void Drop_Item_Boss();
 private:
 	bool m_bOpen;
+	vector<pair<float, float>> m_vecSpownPos;
 };
 

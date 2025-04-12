@@ -11,6 +11,7 @@
 #include "CBoss.h"
 #include "CFly.h"
 #include "CBombFly.h"
+#include "CSoundMgr.h"
 
 CStage1::CStage1()
 {
@@ -48,10 +49,20 @@ void CStage1::Initialize()
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));
 
+	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
+	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", m_iChennel, 1.f);
+
 }
 
 void CStage1::Update()
 {
+	if (!m_bDoorOpen && CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty() )
+	{
+		CSoundMgr::Get_Instance()->StopSound(m_iChennel);
+		CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", m_iChennel, 1.f);
+		m_bDoorOpen = true;
+	}
+	
 	CObjMgr::Get_Instance()->Update();
 	CTileMgr::Get_Instance()->Update();
 	CUIMgr::Get_Instance()->Update();

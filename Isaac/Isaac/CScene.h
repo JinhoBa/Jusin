@@ -46,18 +46,19 @@ public:
 		if(OBJ_DOOR == _eObjID)
 			i = 1;
 
-		if (OBJ_TILE == _eObjID)
-			i = 2;
-
 		return m_ObjList[i];
 	}
 	vector<CObj*> Get_VecTile()
 	{
 		return m_vecTile;
 	}
+	bool Get_bSave() { return m_bSave; }
 
 protected:
-	list<CObj*> m_ObjList[2];
-	vector<CObj*> m_vecTile;
+	list<CObj*>		m_ObjList[2];
+	vector<CObj*>	m_vecTile;
+	bool			m_bSave;
+	bool			m_bDoorOpen;
+	int				m_iChennel;
 };
 

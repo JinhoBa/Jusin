@@ -2,6 +2,7 @@
 #include "CItemEffect.h"
 #include "CBmpMgr.h"
 #include "CObjMgr.h"
+#include "CSoundMgr.h"
 
 CItemEffect::CItemEffect(): m_dwTime(GetTickCount64())
 {
@@ -17,6 +18,8 @@ void CItemEffect::Initialize()
 	Set_Frame(0, 0, 0);
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Player();
+
+	Set_Sound(L"Holy.mp3", 1.f);
 }
 
 void CItemEffect::Late_Initialize()
@@ -27,7 +30,10 @@ void CItemEffect::Late_Initialize()
 int CItemEffect::Update()
 {
 	if (m_bDead)
+	{
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
+	}
 
 	m_tInfo.fX = m_pTarget->Get_Info()->fX;
 	m_tInfo.fY = m_pTarget->Get_Info()->fY;

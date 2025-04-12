@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "CObj.h"
+#include "CSoundMgr.h"
 
 CObj::CObj() 
-	: m_fSpeed(0.f), m_fAngle(0.f), m_bDead(false), m_pTarget(nullptr), m_pFrameKey(nullptr), m_eID(OBJ_END)
+	: m_fSpeed(0.f), m_fAngle(0.f), m_bDead(false), m_pTarget(nullptr), m_pFrameKey(nullptr), m_eID(OBJ_END), m_iSoundChennel(0)
 {
 
 	ZeroMemory(&m_tInfo, sizeof(INFO));
@@ -49,5 +50,8 @@ void CObj::Collision_Render(HDC hDC)
 	);
 }
 
-
-
+void CObj::Set_Sound(const TCHAR* _pFileKey, float _fVolume)
+{
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();	
+	CSoundMgr::Get_Instance()->PlaySound(_pFileKey, m_iSoundChennel, 1.f);
+}

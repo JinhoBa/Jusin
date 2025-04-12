@@ -7,6 +7,7 @@
 #include "CCoin.h"
 #include "CSoulHeart.h"
 #include "CHeart.h"
+#include "CSoundMgr.h"
 
 CBox::CBox() : m_bOpen(false)
 {
@@ -29,6 +30,14 @@ void CBox::Initialize()
 	Set_CollisionBoxSize(m_tInfo.fCX, m_tInfo.fCY);
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Chest.bmp", L"Chest");
+
+	m_vecSpownPos = {
+		{50.0f, 50.0f},  // 우상단
+		{50.0f, -50.0f}, // 우하단
+		{-50.0f, -50.0f}, // 좌하단
+		{-50.0f, 50.0f}   // 좌상단
+	};
+	
 }
 
 void CBox::Late_Initialize()
@@ -38,7 +47,9 @@ void CBox::Late_Initialize()
 int CBox::Update()
 {
 	if (m_bDead)
+	{
 		return DEAD;
+	}
 
 	__super::Update_Rect();
 
@@ -72,6 +83,7 @@ void CBox::Render(HDC hDC)
 
 void CBox::Release()
 {
+	CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 }
 
 void CBox::Collision(CObj* _pObj, HITPOINT _tHitPoint)
@@ -105,8 +117,12 @@ void CBox::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 void CBox::Drop_Item()
 {
 	m_tFrame.iStart = 1;
-	srand(time(nullptr));
-	int i = rand() % 10;
+	Set_Sound(L"Chest_Open.mp3", 1.f);
+	random_device rd;               // 하드웨어 기반 난수 생성기
+	mt19937 gen(rd());              // 메르센 트위스터 엔진 초기화
+	uniform_int_distribution<int> dist(0, 10); // 0~99 범위의 난수
+
+	int i = dist(gen);
 
 	if(5 > i)
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX + 150.f, m_tInfo.fY, 32.f, 32.f));
@@ -123,4 +139,54 @@ void CBox::Drop_Item()
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSoulHeart>::Create_Obj(m_tInfo.fX + 150.f, m_tInfo.fY, 32.f, 32.f));
 	}
 	
+}
+
+void CBox::Drop_Item_Boss()
+{
+	m_tFrame.iStart = 1;
+	Set_Sound(L"Chest_Open.mp3", 1.f);
+	
+
+	for (int j = 0; j < 4; ++j)
+	{
+		CObj* pObj;
+
+		random_device rd;               // 하드웨어 기반 난수 생성기
+		mt19937 gen(rd());              // 메르센 트위스터 엔진 초기화
+		uniform_int_distribution<int> dist(0, 4); // 0~99 범위의 난수
+
+		int i = dist(gen);
+
+		float fAngle(80.f);
+		float fX = m_tInfo.fX + m_vecSpownPos[j].first;
+		float fY = m_tInfo.fY + m_vecSpownPos[j].second;
+		
+		if (m_vecSpownPos[j].first < 0.f)
+			fAngle = 100.f;
+
+		if (0== i)
+		{
+			pObj = CAbstractFactory<CCoin>::Create_Obj(fX, fY, 32.f, 32.f);
+			pObj->Set_Angle(fAngle);
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+		}
+		else if (1 == i)
+		{
+			pObj = CAbstractFactory<CBomb>::Create_Obj(fX, fY, 50.f, 50.f);
+			pObj->Set_Angle(fAngle);
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+		}
+		else if (2==i)
+		{
+			pObj = CAbstractFactory<CHeart>::Create_Obj(fX, fY, 32.f, 32.f);
+			pObj->Set_Angle(fAngle);
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+		}
+		else
+		{
+			pObj = CAbstractFactory<CSoulHeart>::Create_Obj(fX, fY, 32.f, 32.f);
+			pObj->Set_Angle(fAngle);
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+		}
+	}
 }

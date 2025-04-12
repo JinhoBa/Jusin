@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CEffect.h"
 #include "CBmpMgr.h"
+#include "CSoundMgr.h"
 
 CEffect::CEffect()
 {
@@ -16,6 +17,8 @@ void CEffect::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/RedBullet_death.bmp", L"RedBullet_death");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/bullet_dead.bmp", L"bullet_death");
 	m_tFrame.dwFrameSpeed = 50;
+
+	Set_Sound(L"TearImpacts1.mp3", 0.7f);
 }
 
 void CEffect::Late_Initialize()
@@ -25,7 +28,10 @@ void CEffect::Late_Initialize()
 int CEffect::Update()
 {
 	if (m_bDead)
+	{
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
+	}
 
 	__super::Update_Rect();
 

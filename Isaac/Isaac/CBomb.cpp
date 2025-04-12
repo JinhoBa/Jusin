@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "CBomb.h"
 #include "CBmpMgr.h"
+#include "CSoundMgr.h"
 
 CBomb::CBomb()
 {
@@ -20,7 +21,11 @@ void CBomb::Initialize()
 	m_tFrame.dwTime = GetTickCount64();
 
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
-	Set_CollisionBoxSize(m_tInfo.fCX , m_tInfo.fCY);
+
+	Set_CollisionBoxSize(0.f, 0.f);
+
+	srand(time(nullptr));
+	m_fAngle = (0 == rand() % 2) ? 80.f : 110.f;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/bomb.bmp", L"bomb");
 }
@@ -41,6 +46,16 @@ int CBomb::Update()
 
 int CBomb::Late_Update()
 {
+	if (m_CreateTime + 500 < GetTickCount64())
+	{
+		Set_CollisionBoxSize(32.f, 32.f);
+	}
+	else
+	{
+		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
+		m_fTime += 0.1f;
+	}
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 
 	return NOEVENT;
@@ -70,4 +85,14 @@ void CBomb::Release()
 
 void CBomb::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	switch (_pObj->Get_ObjID())
+	{
+	case OBJ_PLAYER:
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"pennypickup.mp3", SOUND_EFFECT, 1.f);
+		break;
+
+	default:
+		break;
+	}
 }

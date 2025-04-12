@@ -154,6 +154,9 @@
     <Filter Include="01. Obj\02. Effect\ItemEffect">
       <UniqueIdentifier>{fac09e07-a255-469f-9f1d-41edc7835a94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="02. Design\08. SoundMgr">
+      <UniqueIdentifier>{960df5ac-96e7-4b32-b1b3-1d256ee9f168}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -303,6 +306,9 @@
     <ClInclude Include="CItemEffect.h">
       <Filter>01. Obj\02. Effect\ItemEffect</Filter>
     </ClInclude>
+    <ClInclude Include="CSoundMgr.h">
+      <Filter>02. Design\08. SoundMgr</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -436,6 +442,9 @@
     </ClCompile>
     <ClCompile Include="CItemEffect.cpp">
       <Filter>01. Obj\02. Effect\ItemEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="CSoundMgr.cpp">
+      <Filter>02. Design\08. SoundMgr</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
