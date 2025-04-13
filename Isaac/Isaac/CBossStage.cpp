@@ -32,8 +32,8 @@ void CBossStage::Initialize()
 		CAbstractFactory<CBoss>::Create_Obj(200.f, 300.f, 120.f, 120.f));
 
 
-	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_RIGHTX, DOOR_RIGHTY, 50.f, 50.f);
-	dynamic_cast<CDoor*>(pDoor)->Set_Door(2, L"Door_nomal", CSceneMgr::SC_STAGE1);
+	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_RIGHTX, DOOR_RIGHTY, 64.f, 64.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(2, L"Door_Boss", CSceneMgr::SC_STAGE1);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 	
 
@@ -44,6 +44,10 @@ void CBossStage::Initialize()
 	CSoundMgr::Get_Instance()->PlaySound(L"bossintro.mp3", SOUND_EFFECT, 1.f);
 
 	CSoundMgr::Get_Instance()->PlayBGM(L"BossStageBGM.mp3", 0.3f);
+
+	CSceneMgr::Get_Instance()->Set_SceneState(9, 6);
+	CSceneMgr::Get_Instance()->Set_SceneState(10, 2);
+
 }
 
 void CBossStage::Update()

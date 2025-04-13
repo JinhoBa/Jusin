@@ -23,8 +23,13 @@ void CTile::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Holl.bmp", L"Holl");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Poo.bmp", L"Poo");
 
+	
+
 	m_eID = OBJ_TILE;
 	Set_Frame(0, 4, 0);
+
+	m_tFrame.dwFrameSpeed = 200;
+	m_tFrame.dwTime = GetTickCount64();
 }
 
 int CTile::Update()

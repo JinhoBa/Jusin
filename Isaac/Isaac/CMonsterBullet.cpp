@@ -94,14 +94,11 @@ void CMonsterBullet::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_TILE:
 		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
-			
 			m_bDead = true;
 		}
 		break;
 
 	case OBJ_PLAYER:
-		
-		_pObj->Set_Hp(m_tStat.fAttack);
 		m_bDead = true;
 		break;
 

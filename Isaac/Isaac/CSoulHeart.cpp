@@ -2,6 +2,7 @@
 #include "CSoulHeart.h"
 #include "CBmpMgr.h"
 #include "CSoundMgr.h"
+#include "CTools.h"
 
 CSoulHeart::CSoulHeart()
 {
@@ -23,8 +24,7 @@ void CSoulHeart::Initialize()
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 	Set_CollisionBoxSize(0.f, 0.f);
 
-	srand(time(nullptr));
-	m_fAngle = (0 == rand() % 2) ? 80.f : 110.f;
+	m_fAngle = (0 == CTools::Get_RandomNumber(1, 2) % 2) ? 80.f : 110.f;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/SoulHeart.bmp", L"SoulHeart");
 }
@@ -56,7 +56,7 @@ int CSoulHeart::Late_Update()
 	else
 	{
 		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
+		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 		m_fTime += 0.1f;
 	}
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);

@@ -24,7 +24,7 @@ void CMenu::Initialize()
 	pButton->Initialize();
 
 	CUIMgr::Get_Instance()->Add_UI(UI_BUTTON, pButton);
-	//CSoundMgr::Get_Instance()->PlayBGM(L"Menu_BGM.mp3", 1.f);
+	CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 01 Those Responsible.mp3", 0.3f);
 }
 
 void CMenu::Update()

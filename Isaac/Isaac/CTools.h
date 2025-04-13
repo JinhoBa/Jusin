@@ -36,5 +36,14 @@ public:
 
 		return 	fDiagonal;
 	}
+
+	static int Get_RandomNumber(int _iMin, int _iMax)
+	{
+		random_device rd;               // 하드웨어 기반 난수 생성기
+		mt19937 gen(rd());              // 메르센 트위스터 엔진 초기화
+		uniform_int_distribution<int> dist(_iMin, _iMax); //범위의 난수
+
+		return dist(gen);
+	}
 };
 

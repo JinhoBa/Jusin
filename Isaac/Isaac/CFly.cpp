@@ -6,6 +6,7 @@
 #include "CTools.h"
 #include "CBullet.h"
 #include "CSoundMgr.h"
+#include "CMonsterDeathEffect.h"
 
 CFly::CFly()
 {
@@ -30,6 +31,7 @@ void CFly::Initialize()
 	Set_CollisionBoxSize(30.f, 30.f);
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Monster/Fly.bmp", L"Fly");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/Blood.bmp", L"Blood");
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_PLAYER, this);
 
@@ -46,6 +48,7 @@ int CFly::Update()
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 60.f,30.f, 0));
 		return DEAD;
 	}
 	

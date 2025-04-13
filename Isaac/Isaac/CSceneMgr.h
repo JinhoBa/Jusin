@@ -3,11 +3,18 @@
 class CSceneMgr
 {
 public:
-	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_STAGE1, SC_BOSS, SC_END };
+	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_STAGE1, SC_BOSS, SC_TREASURE, SC_END };
 
 private:
 	CSceneMgr();
 	~CSceneMgr();
+
+public:
+	void Set_SceneState(int _iIndex, int _iState)
+	{
+		m_vecSceneState[_iIndex] = _iState;
+	}
+	vector<int> Get_vecSceneState() { return m_vecSceneState; }
 
 public:
 	void		Scene_Change(SCENEID eID);
@@ -45,9 +52,10 @@ public:
 	CScene* m_pScene;
 	CScene* m_pTutorial;
 	CScene* m_pStage1;
-	CScene* m_pStage2;
+	CScene* m_pTreasureRoom;
 
 	vector<CScene*> m_vecScene;
+	vector<int> m_vecSceneState;
 
 	SCENEID m_eCurScene;
 	SCENEID m_ePreScene;

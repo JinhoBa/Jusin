@@ -1,8 +1,5 @@
-﻿  CSceneMgr.cpp
-C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp(50,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  (소스 파일 '/CSceneMgr.cpp'을(를) 컴파일하는 중)
-  
-C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp(127,19): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  (소스 파일 '/CSceneMgr.cpp'을(를) 컴파일하는 중)
+﻿  CStage1.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CStage1.cpp(117,19): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CStage1.cpp'을(를) 컴파일하는 중)
   
   Isaac.vcxproj -> C:\Users\Jinho\source\Jusin\Isaac\Debug\Isaac.exe

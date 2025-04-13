@@ -2,6 +2,7 @@
 #include "CKey.h"
 #include "CBmpMgr.h"
 #include "CSoundMgr.h"
+#include "CTools.h"
 
 CKey::CKey()
 {
@@ -23,8 +24,8 @@ void CKey::Initialize()
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 	Set_CollisionBoxSize(0.f, 0.f);
 
-	srand(time(nullptr));
-	m_fAngle = (0 == rand() % 2) ? 80.f : 110.f;
+
+	m_fAngle = (0 == CTools::Get_RandomNumber(1, 2) % 2) ? 80.f : 110.f;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Key.bmp", L"Key");
 }

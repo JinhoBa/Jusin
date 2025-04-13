@@ -25,41 +25,49 @@ CStage1::~CStage1()
 void CStage1::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Gold.bmp", L"Door_Gold");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Boss.bmp", L"Door_Boss");
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Stage1.dat");
 
 	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_TOPX, DOOR_TOPY, 50.f, 50.f);
 	dynamic_cast<CDoor*>(pDoor)->Set_Door(0, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
-	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 50.f, 50.f);
-	dynamic_cast<CDoor*>(pDoor)->Set_Door(1, L"Door_nomal", CSceneMgr::SC_BOSS);
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 64.f, 64.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(1, L"Door_Boss", CSceneMgr::SC_BOSS);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_RIGHTX, DOOR_RIGHTY, 50.f, 50.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(2, L"Door_Gold", CSceneMgr::SC_TREASURE);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
 
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CKey>::Create_Obj(400.f, 400.f, 42.f, 42.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
-
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(200.f, 400.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
+	/*CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(100.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(150.f, 400.f, 30.f, 30.f));
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(700.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(650.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 400.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));*/
 
 	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
-	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", m_iChennel, 1.f);
+	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", SOUND_EFFECT, 1.f);
 
+	CSceneMgr::Get_Instance()->Set_SceneState(7, 2);                                                                                                                                                                                                                                                                                                            
+	CSceneMgr::Get_Instance()->Set_SceneState(9, 4);
+	CSceneMgr::Get_Instance()->Set_SceneState(10, 3);
+	CSceneMgr::Get_Instance()->Set_SceneState(11, 7);
 }
 
 void CStage1::Update()
 {
 	if (!m_bDoorOpen && CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty() )
 	{
-		CSoundMgr::Get_Instance()->StopSound(m_iChennel);
-		CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", m_iChennel, 1.f);
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Open.mp3", SOUND_EFFECT, 1.f);
 		m_bDoorOpen = true;
 	}
 	

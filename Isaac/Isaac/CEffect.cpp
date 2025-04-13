@@ -2,6 +2,7 @@
 #include "CEffect.h"
 #include "CBmpMgr.h"
 #include "CSoundMgr.h"
+#include "CTools.h"
 
 CEffect::CEffect()
 {
@@ -18,7 +19,10 @@ void CEffect::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/bullet_dead.bmp", L"bullet_death");
 	m_tFrame.dwFrameSpeed = 50;
 
-	Set_Sound(L"TearImpacts1.mp3", 0.7f);
+	if(CTools::Get_RandomNumber(0,1))
+		Set_Sound(L"TearImpacts0.mp3", 0.7f);
+	else
+		Set_Sound(L"TearImpacts2.mp3", 0.7f);
 }
 
 void CEffect::Late_Initialize()

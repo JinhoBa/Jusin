@@ -3,6 +3,7 @@
 #include "CBmpMgr.h"
 #include "CObjMgr.h"
 #include "CSoundMgr.h"
+#include "CPlayer.h"
 
 CDoor::CDoor() : m_bOpen(false), m_eSceneID(CSceneMgr::SC_END)
 {
@@ -36,7 +37,7 @@ int CDoor::Update()
 
 int CDoor::Late_Update()
 {
-	if (CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty())
+	if (CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty() && 0 != lstrcmp(L"Door_Gold", m_pFrameKey))
 		m_bOpen = true;
 
 	if (m_bOpen)
@@ -81,4 +82,17 @@ void CDoor::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			break;
 		}
 	}
+	else
+	{
+		switch (_pObj->Get_ObjID())
+		{
+		case OBJ_PLAYER:
+			if (CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty() && dynamic_cast<CPlayer*>(_pObj)->Open_Obj())
+				m_bOpen = true;
+			break;
+		default:
+			break;
+		}
+	}
+
 }

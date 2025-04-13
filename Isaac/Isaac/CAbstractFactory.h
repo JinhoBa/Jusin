@@ -20,6 +20,7 @@ public:
 		return pObj;
 	}
 
+
 	static CUI* Create_UI()
 	{
 		CUI* pUI = new T;

@@ -16,6 +16,7 @@
 #include "CItemEffect.h"
 #include "CSoundMgr.h"
 #include "CCoin.h"
+#include "CGuidedBullet.h"
 
 
 CPlayer::CPlayer()
@@ -37,7 +38,7 @@ void CPlayer::Initialize()
 	m_tStat.fMaxHp = 8.f;
 
 	// Test code
-	m_fSoulHp = 0.f;
+	m_fSoulHp = 2.f;
 
 	Set_Stat(6.f, 3.5f, 300.f, 4.f);
 	Set_ItemInfo(0, 99, 5);
@@ -63,6 +64,7 @@ void CPlayer::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Body.bmp", L"Player_Body");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_GetItem.bmp", L"Player_GetItem");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Hit.bmp", L"Player_Hit");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Death.bmp", L"Player_Death");
 
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
 	Set_CollisionBoxSize(40.f, 45.f);
@@ -85,8 +87,16 @@ int CPlayer::Update()
 int CPlayer::Late_Update()
 {
 	
-	Key_Input();
+	
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
+
+	if (0 >= m_tStat.fHp)
+	{
+		Set_CollisionBoxSize(0.f, 0.f);
+		m_eCurState = CPlayer::DEATH;
+	}
+	else
+		Key_Input();
 
 	Change_Motion();
 
@@ -107,6 +117,12 @@ int CPlayer::Late_Update()
 		__super::Move_Frame();
 		if (m_MotionTime + 1000 < GetTickCount64())
 			m_eCurState = IDLE;
+	}
+	else if (CPlayer::DEATH == m_eCurState)
+	{
+		__super::Move_Frame();
+		if (m_MotionTime + 2000 < GetTickCount64())
+			CSceneMgr::Get_Instance()->Scene_Change(CSceneMgr::SC_MENU);
 	}
 
 	Move_BodyFrame();
@@ -207,7 +223,6 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_MONSTER:
 		if(HIT != m_ePreState)
 		{
-			CSoundMgr::Get_Instance()->PlaySound(L"Isaac_Hurt_Grunt0.mp3", SOUND_EFFECT, 1.f);
 			if (0 >= m_fSoulHp)
 				m_tStat.fHp -= _pObj->Get_Damage();
 			else
@@ -217,6 +232,16 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		
 		break;
 	case OBJ_BULLET:
+		if (dynamic_cast<CBullet*>(_pObj)->Get_BulletID() != CBullet::BULLET_MONSTER)
+			break;
+		if (HIT != m_ePreState)
+		{
+			if (0 >= m_fSoulHp)
+				m_tStat.fHp -= _pObj->Get_Damage();
+			else
+				m_fSoulHp -= 1.f;
+		}
+		m_eCurState = HIT;
 		break;
 	case OBJ_ITEM:
 		switch (dynamic_cast<CItem*>(_pObj)->Get_ItemID())
@@ -254,11 +279,20 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			_pObj->Set_Dead();
 			break;
 
+		case CItem::ITEM_SPOON:
+			m_vecItem[1] = true;
+			m_eCurState = GETITEM;
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CItemEffect>(L"Item_Spoon", m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, 0));
+			_pObj->Set_Dead();
+			break;
+
 		case CItem::ITEM_HEART:
 			if(m_tStat.fHp < m_tStat.fMaxHp)
 			{
 				_pObj->Set_Dead();
-				m_tStat.fHp+=2;
+				m_tStat.fHp += 2.f;
+				if (m_tStat.fHp > m_tStat.fMaxHp)
+					m_tStat.fHp = m_tStat.fMaxHp;
 			}
 			else
 			{
@@ -284,7 +318,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			break;
 		case CItem::ITEM_SOULHEART:
 			_pObj->Set_Dead();
-			++m_fSoulHp;
+			m_fSoulHp += 2.f;
 			break;
 		default:
 			break;
@@ -296,7 +330,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			switch (_tHitPoint.eDirection)
 			{
 			case DIR_DOWN:
-				m_tInfo.fY = 520.f;
+				m_tInfo.fY = 500.f;
 				break;
 			case DIR_UP:
 				m_tInfo.fY = 170.f;
@@ -394,7 +428,10 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 3);
 			}
 
-			Attack(270.f, false);
+			if (m_vecItem[1])
+				Attack<CGuidedBullet>(180.f, false);
+			else
+				Attack<CPlayerBullet>(180.f, false);
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_RIGHT))
 		{
@@ -403,7 +440,11 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 1);
 			}
 
-			Attack(90.f, false);
+			if (m_vecItem[1])
+				Attack<CGuidedBullet>(0.f, false);
+			else
+				Attack<CPlayerBullet>(0.f, false);
+			
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_DOWN))
 		{
@@ -412,7 +453,11 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 0);
 			}
 
-			Attack(180.f, true);
+			if (m_vecItem[1])
+				Attack<CGuidedBullet>(270.f, true);
+			else
+				Attack<CPlayerBullet>(270.f, true);
+
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_UP))
 		{
@@ -420,7 +465,11 @@ void CPlayer::Key_Input()
 			{
 				Set_Frame(1, 1, 2);
 			}
-			Attack(0.f, true);
+
+			if(m_vecItem[1])
+				Attack<CGuidedBullet>(90.f, true);
+			else
+				Attack<CPlayerBullet>(90.f, true);
 
 		}
 	}
@@ -453,11 +502,12 @@ void CPlayer::Key_Input()
 		//	0 * 3, 0.f, 2, 300.f));
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CGrenadeBullet>(m_fAngle));
 		//m_dwTime = GetTickCount64();
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX+100.f, m_tInfo.fY, 32.f, 32.f));
+		//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX+100.f, m_tInfo.fY, 32.f, 32.f));
 	}
 
 }
 
+template<typename T>
 void CPlayer::Attack(float _fAngle, bool _bX)
 {
 	if(m_dwTime + m_fCoolDown < GetTickCount64())
@@ -483,7 +533,7 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+				CObj::Create_Bullet<T>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
 			);
 			m_fAttackPos *= -1.f;
 		}
@@ -492,7 +542,7 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 			m_fAttackPos = 1.f;
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle + fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+				CObj::Create_Bullet<T>(fX, fY, 50.f, 50.f, _fAngle + fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
 			);
 
 			if (_bX)
@@ -502,7 +552,7 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+				CObj::Create_Bullet<T>(fX, fY, 50.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
 			);
 			if (_bX)
 				fX -= m_fAttackPos;
@@ -510,7 +560,7 @@ void CPlayer::Attack(float _fAngle, bool _bX)
 				fY -= m_fAttackPos;
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CPlayerBullet>(fX, fY, 50.f, 50.f, _fAngle- fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
+				CObj::Create_Bullet<T>(fX, fY, 50.f, 50.f, _fAngle- fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f)
 			);
 		}
 		m_dwTime = GetTickCount64();
@@ -545,6 +595,7 @@ void CPlayer::Change_Motion()
 			m_tFrame.dwFrameSpeed = 300;
 			m_tFrame.dwTime = GetTickCount64();
 			break;
+
 		case CPlayer::ATTACK:
 			m_pFrameKey = L"Player_Head";
 			m_tFrame.iStart = 1;
@@ -552,13 +603,17 @@ void CPlayer::Change_Motion()
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();
 			break;
+
 		case CPlayer::HIT:
 			m_pFrameKey = L"Player_Hit";
 			Set_Frame(0, 1, 0);
 			m_tFrame.dwFrameSpeed = 30;
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"Isaac_Hurt_Grunt0.mp3", SOUND_EFFECT, 1.f);
 			break;
+
 		case CPlayer::GETITEM:
 			m_pFrameKey = L"Player_GetItem";
 			Set_Frame(0, 0, 0);
@@ -566,7 +621,13 @@ void CPlayer::Change_Motion()
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();
 			break;
+
 		case CPlayer::DEATH:
+			m_pFrameKey = L"Player_Death";
+			Set_Frame(0, 0, 0);
+			m_tFrame.dwFrameSpeed = 300;
+			m_tFrame.dwTime = GetTickCount64();
+			m_MotionTime = GetTickCount64();
 			break;
 		case CPlayer::MS_END:
 			break;

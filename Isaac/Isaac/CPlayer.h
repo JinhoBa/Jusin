@@ -22,6 +22,18 @@ public:
 	}
 	
 	ITEMINFO* Get_ItemInfo() { return &m_tItemInfo; }
+	void Set_SoulHp(float _fDamage) { m_fSoulHp -= _fDamage; }
+	float Get_SoulHp() { return m_fSoulHp; }
+	
+	bool Open_Obj() 
+	{
+		if (m_tItemInfo.iKey <= 0)
+			return false;
+		
+		--m_tItemInfo.iKey;
+		
+		return true;
+	}
 
 public:
 	void	Initialize() override;
@@ -34,7 +46,10 @@ public:
 	
 private:
 	void	Key_Input();
+
+	template<typename T>
 	void	Attack(float _fAngle, bool _bX);
+
 	void	Change_Motion();
 	void	Move_BodyFrame();
 

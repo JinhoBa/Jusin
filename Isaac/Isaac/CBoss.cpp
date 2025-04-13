@@ -121,8 +121,7 @@ int CBoss::Late_Update()
 	case CBoss::JUMP_ATTACK:
 		if (m_MotionTime + 2000 < GetTickCount64())
 		{
-			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
-			CSoundMgr::Get_Instance()->PlaySound(L"Boss_Smash.mp3", SOUND_EFFECT, 1.f);
+			
 			Set_CollisionBoxSize(110.f, 80.f);
 			m_eCurState = CBoss::IDLE;
 			m_fTime = 0.f;
@@ -139,6 +138,7 @@ int CBoss::Late_Update()
 				}
 				m_tFrame.iStart = 2;
 				m_fTime += 0.1;
+
 			}
 			else
 			{
@@ -307,6 +307,9 @@ void CBoss::Change_Motion()
 			if (m_bLeft)
 				m_fAngle = 100.f;
 
+			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+			CSoundMgr::Get_Instance()->PlaySound(L"Boss_Smash.mp3", SOUND_EFFECT, 1.f);
+
 			break;
 
 		case CBoss::SPOWN:
@@ -333,16 +336,10 @@ void CBoss::Attack(int _iCount)
 
 	for (int i = 0; i < _iCount; ++i)
 	{
-		random_device rd;               // 하드웨어 기반 난수 생성기
-		mt19937 gen(rd());              // 메르센 트위스터 엔진 초기화
-		uniform_int_distribution<int> dist(0, 4); // 0~99 범위의 난수
+		float fAttack = (float)CTools::Get_RandomNumber(1, 4);
+		float fSpeed = 1.5f + (float)CTools::Get_RandomNumber(1, 5) * 0.5f;
 
-		int j = dist(gen);
-
-		float fAttack = float(j) + 1.f;
-		float fSpeed = float(j)*0.4f + 2.5f;
-
-		float fRand = float(j);
+		float fRand = (float)CTools::Get_RandomNumber(0, 10);
 		float fX;
 
 		if (m_bLeft)
@@ -350,10 +347,9 @@ void CBoss::Attack(int _iCount)
 		else
 			fX = m_tInfo.fX + m_tInfo.fCX * 0.2f + fRand;
 
-		float fTmp = (float)j;
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
 			fX, m_tInfo.fY - 20.f,
 			34.f, 34.f,
-			m_fAngle + fRand * 3.f - 25.f, 0.f, fAttack, 300.f, fSpeed));
+			m_fAngle + fRand * 5.f - 50.f, 0.f, fAttack, 300.f, fSpeed));
 	}
 }

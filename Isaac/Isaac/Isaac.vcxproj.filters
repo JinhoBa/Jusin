@@ -157,6 +157,18 @@
     <Filter Include="02. Design\08. SoundMgr">
       <UniqueIdentifier>{960df5ac-96e7-4b32-b1b3-1d256ee9f168}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Scene\04. TreasureRoom">
+      <UniqueIdentifier>{1a08b5d4-8d29-49fd-9a4a-843596897cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\01. Bullet\PlayerBullet\GuidedBullet">
+      <UniqueIdentifier>{d4f10090-0f38-4264-8755-0dec55e32162}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\02. Effect\MonsterDeathEffect">
+      <UniqueIdentifier>{72ea035c-dc1c-4bb7-a527-a8356b41273c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="07. UI\03. MiniMap">
+      <UniqueIdentifier>{60ea1e45-daa9-45a6-9908-0129b80a6b63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -309,6 +321,21 @@
     <ClInclude Include="CSoundMgr.h">
       <Filter>02. Design\08. SoundMgr</Filter>
     </ClInclude>
+    <ClInclude Include="CTreasureRoom.h">
+      <Filter>03. Scene\04. TreasureRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="CPassiveItem.h">
+      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+    </ClInclude>
+    <ClInclude Include="CGuidedBullet.h">
+      <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
+    </ClInclude>
+    <ClInclude Include="CMonsterDeathEffect.h">
+      <Filter>01. Obj\02. Effect\MonsterDeathEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="CMiniMap.h">
+      <Filter>07. UI\03. MiniMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -445,6 +472,21 @@
     </ClCompile>
     <ClCompile Include="CSoundMgr.cpp">
       <Filter>02. Design\08. SoundMgr</Filter>
+    </ClCompile>
+    <ClCompile Include="CTreasureRoom.cpp">
+      <Filter>03. Scene\04. TreasureRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="CPassiveItem.cpp">
+      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+    </ClCompile>
+    <ClCompile Include="CGuidedBullet.cpp">
+      <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CMonsterDeathEffect.cpp">
+      <Filter>01. Obj\02. Effect\MonsterDeathEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="CMiniMap.cpp">
+      <Filter>07. UI\03. MiniMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

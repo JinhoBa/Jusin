@@ -5,6 +5,7 @@
 #include "CEffect.h"
 #include "CTile.h"
 #include "CSoundMgr.h"
+#include "CTools.h"
 
 CPlayerBullet::CPlayerBullet() : m_fDistance(0.f)
 {
@@ -27,8 +28,8 @@ void CPlayerBullet::Initialize()
 	Set_Frame(0, 0, 0);
 
 	
-	srand(time(nullptr));
-	if (rand() % 2 == 0)
+	
+	if ((CTools::Get_RandomNumber(1, 2) % 2) == 0)
 		Set_Sound(L"Tears_Fire_1.mp3", 1.f);
 	else
 		Set_Sound(L"Tears_Fire_0.mp3", 1.f);
@@ -54,8 +55,8 @@ int CPlayerBullet::Update()
 
 int CPlayerBullet::Late_Update()
 {
-	m_tInfo.fX += m_fSpeed * sinf(m_fAngle * PI / 180.f);
-	m_tInfo.fY -= m_fSpeed * cosf(m_fAngle * PI / 180.f);
+	m_tInfo.fX += m_fSpeed * cosf(m_fAngle * PI / 180.f);
+	m_tInfo.fY -= m_fSpeed * sinf(m_fAngle * PI / 180.f);
 
 	if (3 <= m_tStat.fAttack && 5 > m_tStat.fAttack)
 		m_tFrame.iStart = 1;

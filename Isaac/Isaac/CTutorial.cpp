@@ -36,7 +36,7 @@ void CTutorial::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_nomal.bmp", L"Door_nomal");
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create_Obj(400.f, 300.f, 50.f, 40.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 200.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(300.f, 200.f, 32.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
 
@@ -59,6 +59,9 @@ void CTutorial::Initialize()
 	
 
 	CUIMgr::Get_Instance()->Add_UI(UI_BAR, CAbstractFactory<CUIBar>::Create_UI());
+
+	CSceneMgr::Get_Instance()->Set_SceneState(7, 3);
+	CSceneMgr::Get_Instance()->Set_SceneState(10, 1);
 }
 
 void CTutorial::Update()
@@ -106,7 +109,7 @@ void CTutorial::Render(HDC hDC)
 	CUIMgr::Get_Instance()->Render(hDC);
 }
 
-void CTutorial::Release()
+void CTutorial::Release() 
 {
 	for (int i = 0; i < size(m_ObjList); ++i)
 	{
