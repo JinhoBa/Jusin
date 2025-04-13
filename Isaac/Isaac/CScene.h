@@ -54,6 +54,13 @@ public:
 	}
 	bool Get_bSave() { return m_bSave; }
 
+	void Clear_Data()
+	{
+		m_ObjList[0].clear();
+		m_ObjList[1].clear();
+		m_vecTile.clear();
+	}
+
 protected:
 	list<CObj*>		m_ObjList[2];
 	vector<CObj*>	m_vecTile;

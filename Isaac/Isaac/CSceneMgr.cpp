@@ -46,6 +46,7 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				m_vecScene[SC_MENU]->Initialize();
 				CUIMgr::Get_Instance()->Delete_UI(UI_BAR);
 				CObjMgr::Get_Instance()->Release();
+
 				for (int i = 0; i < m_vecScene.size(); ++i)
 				{
 					if (!m_vecScene[i])
@@ -53,7 +54,6 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 
 					if (m_vecScene[i]->Get_bSave())
 					{
-						m_vecScene[i]->Release();
 						Safe_Delete<CScene*>(m_vecScene[i]);
 					}
 					else
@@ -131,13 +131,12 @@ void CSceneMgr::Release()
 
 		if (m_vecScene[i] == m_pScene)
 		{
+			Safe_Delete<CScene*>(m_vecScene[i]);
 			CObjMgr::Get_Instance()->Release();
 			CTileMgr::Get_Instance()->Release();
-			Safe_Delete<CScene*>(m_vecScene[i]);
 		}
 		else if(m_vecScene[i]->Get_bSave())
 		{
-			m_vecScene[i]->Release();
 			Safe_Delete<CScene*>(m_vecScene[i]);
 		}
 
@@ -155,6 +154,8 @@ void CSceneMgr::Set_Data(CScene* _pScene)
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pObj);
 
 	CTileMgr::Get_Instance()->Set_vecTile(_pScene->Get_VecTile());
+
+	_pScene->Clear_Data();
 	
 }
 

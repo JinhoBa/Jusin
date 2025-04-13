@@ -3,6 +3,42 @@
   "WorkspaceRootPath": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Isaac.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\Isaac.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CStage1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSoundMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSoundMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CTutorial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CTutorial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBoss.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CBoss.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,24 +47,12 @@
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CBox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\framework.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CBox.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CItem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CTutorial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CTutorial.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoulHeart.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -59,20 +83,8 @@
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CItem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\Define.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBossStage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CBossStage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSceneMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSoundMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CDoor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -91,32 +103,12 @@
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CObj.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSoundMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CStage1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSound.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Isaac.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\Isaac.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CObj.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CObj.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -139,10 +131,6 @@
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CObjMgr.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CMainGame.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CSceneMgr.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -157,14 +145,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CMenu.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CItemEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CItemEffect.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CEffect.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -183,12 +163,8 @@
       "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CMonsterBullet.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\USERS\\JINHO\\SOURCE\\JUSIN\\ISAAC\\ISAAC\\FMOD.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:ISAAC\\FMOD.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCyclops.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{0E23B31B-E7DF-44DF-9C62-4D560112B6AF}|Isaac\\Isaac.vcxproj|solutionrelative:Isaac\\CCyclops.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\fmod.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Isaac\\fmod.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -198,11 +174,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 210,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "CPlayer.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CPlayer.cpp",
               "RelativeDocumentMoniker": "Isaac\\CPlayer.cpp",
@@ -211,12 +187,11 @@
               "ViewState": "AgIAADQBAAAAAAAAAAAkwD8BAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-11T13:05:25.044Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 6,
               "Title": "CSoundMgr.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.h",
               "RelativeDocumentMoniker": "Isaac\\CSoundMgr.h",
@@ -230,7 +205,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 7,
               "Title": "CSoundMgr.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoundMgr.cpp",
               "RelativeDocumentMoniker": "Isaac\\CSoundMgr.cpp",
@@ -244,41 +219,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CCoin.cpp",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCoin.cpp",
-              "RelativeDocumentMoniker": "Isaac\\CCoin.cpp",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCoin.cpp",
-              "RelativeToolTip": "Isaac\\CCoin.cpp",
-              "ViewState": "AgIAACIAAAAAAAAAAAAIwDwAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T07:36:14.808Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "CUIMgr.cpp",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CUIMgr.cpp",
-              "RelativeDocumentMoniker": "Isaac\\CUIMgr.cpp",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CUIMgr.cpp",
-              "RelativeToolTip": "Isaac\\CUIMgr.cpp",
-              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T08:20:12.857Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 0,
               "Title": "CSceneMgr.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.cpp",
               "RelativeDocumentMoniker": "Isaac\\CSceneMgr.cpp",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.cpp",
-              "RelativeToolTip": "Isaac\\CSceneMgr.cpp",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAuwE8AAABtAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.cpp*",
+              "RelativeToolTip": "Isaac\\CSceneMgr.cpp*",
+              "ViewState": "AgIAACEAAAAAAAAAAAApwDgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T04:47:09.482Z",
               "IsPinned": true,
@@ -286,7 +233,45 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
+              "Title": "CScene.h",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h",
+              "RelativeDocumentMoniker": "Isaac\\CScene.h",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h",
+              "RelativeToolTip": "Isaac\\CScene.h",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADwAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-04-12T02:34:31.218Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CCoin.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCoin.cpp",
+              "RelativeDocumentMoniker": "Isaac\\CCoin.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCoin.cpp",
+              "RelativeToolTip": "Isaac\\CCoin.cpp",
+              "ViewState": "AgIAACIAAAAAAAAAAAAIwDwAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-12T07:36:14.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CUIMgr.cpp",
+              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CUIMgr.cpp",
+              "RelativeDocumentMoniker": "Isaac\\CUIMgr.cpp",
+              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CUIMgr.cpp",
+              "RelativeToolTip": "Isaac\\CUIMgr.cpp",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-04-12T08:20:12.857Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "CCoin.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCoin.h",
               "RelativeDocumentMoniker": "Isaac\\CCoin.h",
@@ -294,12 +279,11 @@
               "RelativeToolTip": "Isaac\\CCoin.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T12:08:53.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T12:08:53.45Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "CItem.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItem.cpp",
               "RelativeDocumentMoniker": "Isaac\\CItem.cpp",
@@ -307,12 +291,11 @@
               "RelativeToolTip": "Isaac\\CItem.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T11:57:53.13Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T11:57:53.13Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "CBox.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBox.h",
               "RelativeDocumentMoniker": "Isaac\\CBox.h",
@@ -320,25 +303,24 @@
               "RelativeToolTip": "Isaac\\CBox.h",
               "ViewState": "AgIAAAUAAAAAAAAAAAAawBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T11:51:26.137Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T11:51:26.137Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "CBoss.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBoss.cpp",
               "RelativeDocumentMoniker": "Isaac\\CBoss.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBoss.cpp",
               "RelativeToolTip": "Isaac\\CBoss.cpp",
-              "ViewState": "AgIAAEgBAAAAAAAAAAAawF4BAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T10:56:37.526Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 20,
               "Title": "CBossStage.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBossStage.cpp",
               "RelativeDocumentMoniker": "Isaac\\CBossStage.cpp",
@@ -346,12 +328,11 @@
               "RelativeToolTip": "Isaac\\CBossStage.cpp",
               "ViewState": "AgIAAB8AAAAAAAAAAADwvy0AAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T10:48:59.704Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T10:48:59.704Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 13,
               "Title": "CSoulHeart.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSoulHeart.cpp",
               "RelativeDocumentMoniker": "Isaac\\CSoulHeart.cpp",
@@ -359,12 +340,11 @@
               "RelativeToolTip": "Isaac\\CSoulHeart.cpp",
               "ViewState": "AgIAACEAAAAAAAAAAAAAAC8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T10:46:10.656Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T10:46:10.656Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 14,
               "Title": "CHeart.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CHeart.cpp",
               "RelativeDocumentMoniker": "Isaac\\CHeart.cpp",
@@ -372,12 +352,11 @@
               "RelativeToolTip": "Isaac\\CHeart.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABYAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T10:45:55.028Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T10:45:55.028Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 15,
               "Title": "CKey.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CKey.cpp",
               "RelativeDocumentMoniker": "Isaac\\CKey.cpp",
@@ -385,12 +364,11 @@
               "RelativeToolTip": "Isaac\\CKey.cpp",
               "ViewState": "AgIAACEAAAAAAAAAAAAAADkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T10:44:48.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T10:44:48.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 16,
               "Title": "CBomb.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBomb.cpp",
               "RelativeDocumentMoniker": "Isaac\\CBomb.cpp",
@@ -398,25 +376,11 @@
               "RelativeToolTip": "Isaac\\CBomb.cpp",
               "ViewState": "AgIAACMAAAAAAAAAAAAqwDMAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T10:44:23.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T10:44:23.437Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "CSound.h",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSound.h",
-              "RelativeDocumentMoniker": "Isaac\\CSound.h",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSound.h",
-              "RelativeToolTip": "Isaac\\CSound.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T09:43:52.476Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 28,
               "Title": "CDoor.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CDoor.h",
               "RelativeDocumentMoniker": "Isaac\\CDoor.h",
@@ -424,12 +388,11 @@
               "RelativeToolTip": "Isaac\\CDoor.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T09:30:07.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T09:30:07.359Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "CDoor.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CDoor.cpp",
               "RelativeDocumentMoniker": "Isaac\\CDoor.cpp",
@@ -437,12 +400,11 @@
               "RelativeToolTip": "Isaac\\CDoor.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAAACsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T09:05:10.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T09:05:10.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "CBox.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBox.cpp",
               "RelativeDocumentMoniker": "Isaac\\CBox.cpp",
@@ -450,12 +412,11 @@
               "RelativeToolTip": "Isaac\\CBox.cpp",
               "ViewState": "AgIAAGsAAAAAAAAAAAAuwH0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T08:49:05.818Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:49:05.818Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 27,
               "Title": "CStage1.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.h",
               "RelativeDocumentMoniker": "Isaac\\CStage1.h",
@@ -463,12 +424,11 @@
               "RelativeToolTip": "Isaac\\CStage1.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T08:08:34.291Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:08:34.291Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 30,
               "Title": "CTutorial.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CTutorial.h",
               "RelativeDocumentMoniker": "Isaac\\CTutorial.h",
@@ -476,12 +436,11 @@
               "RelativeToolTip": "Isaac\\CTutorial.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T08:08:30.827Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:08:30.827Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 33,
               "Title": "CObjMgr.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CObjMgr.h",
               "RelativeDocumentMoniker": "Isaac\\CObjMgr.h",
@@ -489,12 +448,11 @@
               "RelativeToolTip": "Isaac\\CObjMgr.h",
               "ViewState": "AgIAAB4AAAAAAAAAAAAwwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T08:07:23.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:07:23.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 31,
               "Title": "CObjMgr.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CObjMgr.cpp",
               "RelativeDocumentMoniker": "Isaac\\CObjMgr.cpp",
@@ -502,12 +460,11 @@
               "RelativeToolTip": "Isaac\\CObjMgr.cpp",
               "ViewState": "AgIAAHUAAAAAAAAAAAAuwIYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T08:04:55.74Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T08:04:55.74Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "CFly.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CFly.cpp",
               "RelativeDocumentMoniker": "Isaac\\CFly.cpp",
@@ -515,12 +472,11 @@
               "RelativeToolTip": "Isaac\\CFly.cpp",
               "ViewState": "AgIAACcAAAAAAAAAAAAIwC8AAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T07:54:01.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:54:01.102Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "CBombEffect.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CBombEffect.cpp",
               "RelativeDocumentMoniker": "Isaac\\CBombEffect.cpp",
@@ -528,12 +484,11 @@
               "RelativeToolTip": "Isaac\\CBombEffect.cpp",
               "ViewState": "AgIAABkAAAAAAAAAAAAQwCwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T07:51:30.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:51:30.782Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 38,
               "Title": "CPlayerBullet.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CPlayerBullet.h",
               "RelativeDocumentMoniker": "Isaac\\CPlayerBullet.h",
@@ -541,12 +496,11 @@
               "RelativeToolTip": "Isaac\\CPlayerBullet.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T07:18:46.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:18:46.735Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 37,
               "Title": "CPlayerBullet.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CPlayerBullet.cpp",
               "RelativeDocumentMoniker": "Isaac\\CPlayerBullet.cpp",
@@ -554,12 +508,11 @@
               "RelativeToolTip": "Isaac\\CPlayerBullet.cpp",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T07:18:30.246Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:18:30.246Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 25,
               "Title": "CObj.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CObj.cpp",
               "RelativeDocumentMoniker": "Isaac\\CObj.cpp",
@@ -567,12 +520,11 @@
               "RelativeToolTip": "Isaac\\CObj.cpp",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAADcAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T07:09:00.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:09:00.968Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "CObj.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CObj.h",
               "RelativeDocumentMoniker": "Isaac\\CObj.h",
@@ -580,12 +532,11 @@
               "RelativeToolTip": "Isaac\\CObj.h",
               "ViewState": "AgIAAD4AAAAAAAAAAAAAwEYAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T07:08:26.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T07:08:26.185Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 32,
               "Title": "CSceneMgr.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CSceneMgr.h",
               "RelativeDocumentMoniker": "Isaac\\CSceneMgr.h",
@@ -593,25 +544,24 @@
               "RelativeToolTip": "Isaac\\CSceneMgr.h",
               "ViewState": "AgIAAAwAAAAAAAAAAAAuwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T05:52:22.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T05:52:22.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 2,
               "Title": "Isaac.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Isaac.cpp",
               "RelativeDocumentMoniker": "Isaac\\Isaac.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Isaac.cpp",
               "RelativeToolTip": "Isaac\\Isaac.cpp",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAUwFoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T05:47:11.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 26,
               "Title": "CScene.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.cpp",
               "RelativeDocumentMoniker": "Isaac\\CScene.cpp",
@@ -619,12 +569,11 @@
               "RelativeToolTip": "Isaac\\CScene.cpp",
               "ViewState": "AgIAAAYAAAAAAAAAAAAuwBsAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T05:29:23.666Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T05:29:23.666Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 36,
               "Title": "CEffect.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CEffect.cpp",
               "RelativeDocumentMoniker": "Isaac\\CEffect.cpp",
@@ -632,38 +581,37 @@
               "RelativeToolTip": "Isaac\\CEffect.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T04:58:31.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T04:58:31.408Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 4,
               "Title": "CStage1.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.cpp",
               "RelativeDocumentMoniker": "Isaac\\CStage1.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CStage1.cpp",
               "RelativeToolTip": "Isaac\\CStage1.cpp",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAD0AAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAgwBUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T04:55:11.872Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "CTutorial.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CTutorial.cpp",
               "RelativeDocumentMoniker": "Isaac\\CTutorial.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CTutorial.cpp",
               "RelativeToolTip": "Isaac\\CTutorial.cpp",
-              "ViewState": "AgIAABwAAAAAAAAAAAAIwC8AAABKAAAAAAAAAA==",
+              "ViewState": "AgIAAGcAAAAAAAAAAAApwHUAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T04:44:41.566Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 35,
               "Title": "CMenu.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMenu.h",
               "RelativeDocumentMoniker": "Isaac\\CMenu.h",
@@ -671,12 +619,11 @@
               "RelativeToolTip": "Isaac\\CMenu.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T04:09:35.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T04:09:35.514Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 29,
               "Title": "CMenu.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMenu.cpp",
               "RelativeDocumentMoniker": "Isaac\\CMenu.cpp",
@@ -684,12 +631,11 @@
               "RelativeToolTip": "Isaac\\CMenu.cpp",
               "ViewState": "AgIAAAkAAAAAAAAAAAAuwDQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T04:09:18.062Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T04:09:18.062Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 40,
               "Title": "fmod.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\fmod.h",
               "RelativeDocumentMoniker": "Isaac\\fmod.h",
@@ -697,12 +643,11 @@
               "RelativeToolTip": "Isaac\\fmod.h",
               "ViewState": "AgIAADAAAAAAAAAAAAAiwD4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T03:09:08.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T03:09:08.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 39,
               "Title": "CMonsterBullet.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMonsterBullet.cpp",
               "RelativeDocumentMoniker": "Isaac\\CMonsterBullet.cpp",
@@ -710,110 +655,32 @@
               "RelativeToolTip": "Isaac\\CMonsterBullet.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-12T02:36:01.157Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-12T02:36:01.157Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "CScene.h",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h",
-              "RelativeDocumentMoniker": "Isaac\\CScene.h",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CScene.h",
-              "RelativeToolTip": "Isaac\\CScene.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T02:34:31.218Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 1,
               "Title": "CMainGame.cpp",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMainGame.cpp",
               "RelativeDocumentMoniker": "Isaac\\CMainGame.cpp",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CMainGame.cpp",
               "RelativeToolTip": "Isaac\\CMainGame.cpp",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAwwE0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAAApwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-12T02:32:43.201Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 3,
               "Title": "Define.h",
               "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Define.h",
               "RelativeDocumentMoniker": "Isaac\\Define.h",
               "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\Define.h",
               "RelativeToolTip": "Isaac\\Define.h",
-              "ViewState": "AgIAACEAAAAAAAAAAAAgwCwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAApwCwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-04-12T02:18:16.952Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "framework.h",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\framework.h",
-              "RelativeDocumentMoniker": "Isaac\\framework.h",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\framework.h",
-              "RelativeToolTip": "Isaac\\framework.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-12T02:07:29.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CItem.h",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItem.h",
-              "RelativeDocumentMoniker": "Isaac\\CItem.h",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItem.h",
-              "RelativeToolTip": "Isaac\\CItem.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-11T13:08:20.143Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 46,
-              "Title": "CCyclops.cpp",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCyclops.cpp",
-              "RelativeDocumentMoniker": "Isaac\\CCyclops.cpp",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CCyclops.cpp",
-              "RelativeToolTip": "Isaac\\CCyclops.cpp",
-              "ViewState": "AgIAACEAAAAAAAAAAAAcwDMAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-11T13:08:16.375Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
-              "Title": "CItemEffect.cpp",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.cpp",
-              "RelativeDocumentMoniker": "Isaac\\CItemEffect.cpp",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.cpp",
-              "RelativeToolTip": "Isaac\\CItemEffect.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-11T13:01:26.163Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "CItemEffect.h",
-              "DocumentMoniker": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.h",
-              "RelativeDocumentMoniker": "Isaac\\CItemEffect.h",
-              "ToolTip": "C:\\Users\\Jinho\\source\\Jusin\\Isaac\\Isaac\\CItemEffect.h",
-              "RelativeToolTip": "Isaac\\CItemEffect.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-04-11T13:01:26.681Z",
               "EditorCaption": ""
             }
           ]
