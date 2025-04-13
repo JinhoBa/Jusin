@@ -17,6 +17,7 @@
 #include "CSoundMgr.h"
 #include "CCoin.h"
 #include "CGuidedBullet.h"
+#include "CBloodLaser.h"
 
 
 CPlayer::CPlayer()
@@ -496,6 +497,10 @@ void CPlayer::Key_Input()
 
 	if (GetAsyncKeyState(VK_LBUTTON))
 	{
+		//Attack<CBloodLaser>(0.f, false);
+		CObjMgr::Get_Instance()->Add_CObj(
+			OBJ_BULLET,
+			CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX+250.f, m_tInfo.fY, 500.f, 75.f, 0.f, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
 		//	m_tInfo.fX + 50.f, m_tInfo.fY,
 		//	34.f, 34.f,

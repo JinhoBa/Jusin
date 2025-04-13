@@ -9,6 +9,7 @@
 #include "CCollisionMgr.h"
 #include "CCyclops.h"
 #include "CPassiveItem.h"
+#include "CSoundMgr.h"
 
 CTreasureRoom::CTreasureRoom()
 {
@@ -23,7 +24,7 @@ void CTreasureRoom::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/BaseMap.bmp", L"Tutorial");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Gold.bmp", L"Door_Gold");
-
+	CSoundMgr::Get_Instance()->PlaySound(L"TreasureRoomEnter.mp3", SOUND_INTRO, 1.f);
 	CObj* pObj;
 
 	pObj = CAbstractFactory<CPassiveItem>::Create_Obj(400.f, 400.f, 50.f, 50.f);

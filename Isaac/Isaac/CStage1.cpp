@@ -43,14 +43,14 @@ void CStage1::Initialize()
 
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(200.f, 400.f, 32.f, 30.f));
-	/*CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(100.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(150.f, 400.f, 30.f, 30.f));
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(700.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(650.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 400.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));*/
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));
 
 	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);

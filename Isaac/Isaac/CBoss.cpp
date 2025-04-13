@@ -53,6 +53,7 @@ int CBoss::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
+		CSoundMgr::Get_Instance()->StopAll();
 		Set_Sound(L"BossClear.mp3", 0.8f);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCyclops>::Create_Obj(400.f, 400.f, 50.f, 50.f));
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 300.f, 32.f, 32.f));

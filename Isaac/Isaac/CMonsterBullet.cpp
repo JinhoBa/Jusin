@@ -67,7 +67,7 @@ int CMonsterBullet::Late_Update()
 
 void CMonsterBullet::Render(HDC hDC)
 {
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Monster_Bullet");
 
 	GdiTransparentBlt(hDC,/// 복사 받을 dc

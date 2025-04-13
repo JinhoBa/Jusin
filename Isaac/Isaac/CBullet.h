@@ -5,7 +5,7 @@
 class CBullet : public CObj
 {
 public:
-	enum BULLETID { BULLET_PLAYER, BULLET_BOMB,BULLET_MONSTER, BULLET_END };
+	enum BULLETID { BULLET_PLAYER, BULLET_BOMB,BULLET_MONSTER, BULLET_LASER , BULLET_END };
 public:
 	CBullet();
 	virtual ~CBullet();

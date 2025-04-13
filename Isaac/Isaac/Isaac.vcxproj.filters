@@ -169,6 +169,9 @@
     <Filter Include="07. UI\03. MiniMap">
       <UniqueIdentifier>{60ea1e45-daa9-45a6-9908-0129b80a6b63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\01. Bullet\BloodLaser">
+      <UniqueIdentifier>{50e9e9ba-54ac-48e0-b144-aa8b38620560}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -336,6 +339,9 @@
     <ClInclude Include="CMiniMap.h">
       <Filter>07. UI\03. MiniMap</Filter>
     </ClInclude>
+    <ClInclude Include="CBloodLaser.h">
+      <Filter>01. Obj\01. Bullet\BloodLaser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -487,6 +493,9 @@
     </ClCompile>
     <ClCompile Include="CMiniMap.cpp">
       <Filter>07. UI\03. MiniMap</Filter>
+    </ClCompile>
+    <ClCompile Include="CBloodLaser.cpp">
+      <Filter>01. Obj\01. Bullet\BloodLaser</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
