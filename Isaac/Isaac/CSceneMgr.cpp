@@ -36,6 +36,7 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 		if(m_pScene && CSceneMgr::SC_MENU != m_eCurScene)
 		{
 			m_pScene->Save_Data();
+			Set_SceneState(m_eCurScene, 0, -1);
 			CSoundMgr::Get_Instance()->StopAll();
 		}
 		if(CSceneMgr::SC_MENU != m_ePreScene)
@@ -170,6 +171,7 @@ void CSceneMgr::Release()
 
 void CSceneMgr::Set_Data(CScene* _pScene)
 {
+	Set_SceneState(m_eCurScene, 0, 1);
 	for (auto pObj : _pScene->Get_ObjList(OBJ_ITEM))
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 

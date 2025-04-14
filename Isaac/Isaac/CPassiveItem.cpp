@@ -21,6 +21,7 @@ void CPassiveItem::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Item_Cyclops.bmp", L"Item_Cyclops");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Item_Spoon.bmp", L"Item_Spoon");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Item_118.bmp", L"Item_118");
 }
 
 void CPassiveItem::Late_Initialize()

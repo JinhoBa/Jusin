@@ -55,8 +55,7 @@ void CStage1::Initialize()
 	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", SOUND_EFFECT, 1.f);
-
-	CSceneMgr::Get_Instance()->Set_SceneState(7, 2);                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                          
 	CSceneMgr::Get_Instance()->Set_SceneState(9, 4);
 	CSceneMgr::Get_Instance()->Set_SceneState(10, 3);
 	CSceneMgr::Get_Instance()->Set_SceneState(11, 7);

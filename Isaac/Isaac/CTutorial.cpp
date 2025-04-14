@@ -20,6 +20,7 @@
 #include "CHeart.h"
 #include "CCyclops.h"
 #include "CSoundMgr.h"
+#include "CPassiveItem.h"
 
 CTutorial::CTutorial()
 {
@@ -34,6 +35,11 @@ void CTutorial::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/BaseMap.bmp", L"Tutorial");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_nomal.bmp", L"Door_nomal");
+
+	CObj* pObj = CAbstractFactory<CPassiveItem>::Create_Obj(400.f, 400.f, 50.f, 50.f);
+	dynamic_cast<CItem*>(pObj)->Set_Item(L"Item_118", CItem::ITEM_118);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create_Obj(400.f, 300.f, 50.f, 40.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(300.f, 200.f, 32.f, 30.f));

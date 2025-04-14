@@ -201,25 +201,28 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	
 
 	case OBJ_BULLET:
-		if (CBullet::BULLET_PLAYER != dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
-			break;
-		switch (m_iDrawID)
+		if (CBullet::BULLET_PLAYER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID() || 
+			CBullet::BULLET_LASER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
 		{
-		case 3:
-			m_iDrawID = 0;
-			m_iOption = 0;
-			break;
+			switch (m_iDrawID)
+			{
+			case 3:
+				m_iDrawID = 0;
+				m_iOption = 0;
+				break;
 
-		case 4:
-			if (m_tFrame.iStart < 4)
-				++m_tFrame.iStart;
-			else
-				m_iOption = 4;
-			break;
+			case 4:
+				if (m_tFrame.iStart < 3)
+					++m_tFrame.iStart;
+				else
+					m_iOption = 4;
+				break;
 
-		default:
-			break;
+			default:
+				break;
+			}
 		}
+		else
 
 		break;
 	default:

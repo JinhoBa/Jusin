@@ -38,7 +38,6 @@ void CTreasureRoom::Initialize()
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_TreasureRoom.dat");
 
-	CSceneMgr::Get_Instance()->Set_SceneState(10, 2);
 	CSceneMgr::Get_Instance()->Set_SceneState(11, 9);
 }
 

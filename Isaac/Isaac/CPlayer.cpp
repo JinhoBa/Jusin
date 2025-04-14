@@ -21,7 +21,8 @@
 
 
 CPlayer::CPlayer()
-	: m_dwTime(NULL), m_bJump(false), m_fTime(0.f), m_MotionTime(NULL), m_eCurState(IDLE), m_ePreState(MS_END), m_fCoolDown(300.f), m_fAttackPos(0.f), m_fSoulHp(0.f)
+	: m_dwTime(NULL), m_bJump(false), m_fTime(0.f), m_MotionTime(NULL), m_eCurState(IDLE), m_ePreState(MS_END), m_fCoolDown(300.f), m_fAttackPos(0.f), m_fSoulHp(0.f),
+	m_iHeadSize(50)
 {
 	ZeroMemory(&m_tBodyInfo, sizeof(INFO));
 	ZeroMemory(&m_tBodyFrame, sizeof(FRAME));
@@ -62,6 +63,8 @@ void CPlayer::Initialize()
 	m_eCurState = IDLE;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Head.bmp", L"Player_Head");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Head_2.bmp", L"Player_Head_2");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Head_2.bmp", L"Player_Head");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Body.bmp", L"Player_Body");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_GetItem.bmp", L"Player_GetItem");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Player/Player_Hit.bmp", L"Player_Hit");
@@ -155,19 +158,35 @@ void CPlayer::Render(HDC hDC)
 			(int)m_tBodyInfo.fCY,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
 			RGB(255, 0, 255));			// 제거할 이미지 색상 값
 
-		hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Player_Head");
-
-		GdiTransparentBlt(hDC,/// 복사 받을 dc
-			m_tRect.left,		// 복사 받을 위치 좌표 left
-			m_tRect.top,					// 복사 받을 위치 좌표 top
-			50,				// 복사 받을 가로 사이즈
-			50,				// 복사 받을 세로 사이즈
-			hMemDC,							// 복사할 이미지 dc
-			(int)m_tInfo.fCX * m_tFrame.iStart,
-			(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top
-			(int)m_tInfo.fCX,				// 복사할 이미지의 가로
-			(int)m_tInfo.fCY,				// 복사할 이미지의 세로
-			RGB(255, 0, 255));			// 제거할 이미지 색상 값
+		hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
+		if (m_vecItem[2])
+		{
+			GdiTransparentBlt(hDC,/// 복사 받을 dc
+				m_tRect.left - 17,		// 복사 받을 위치 좌표 left
+				m_tRect.top - 30,					// 복사 받을 위치 좌표 top
+				m_iHeadSize,				// 복사 받을 가로 사이즈
+				m_iHeadSize,				// 복사 받을 세로 사이즈
+				hMemDC,							// 복사할 이미지 dc
+				(int)m_tInfo.fCX * m_tFrame.iStart,
+				(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top
+				(int)m_tInfo.fCX,				// 복사할 이미지의 가로
+				(int)m_tInfo.fCY,				// 복사할 이미지의 세로
+				RGB(255, 0, 255));
+		}
+		else
+		{
+			GdiTransparentBlt(hDC,/// 복사 받을 dc
+				m_tRect.left,		// 복사 받을 위치 좌표 left
+				m_tRect.top,					// 복사 받을 위치 좌표 top
+				50,				// 복사 받을 가로 사이즈
+				50,				// 복사 받을 세로 사이즈
+				hMemDC,							// 복사할 이미지 dc
+				(int)m_tInfo.fCX * m_tFrame.iStart,
+				(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top
+				(int)m_tInfo.fCX,				// 복사할 이미지의 가로
+				(int)m_tInfo.fCY,				// 복사할 이미지의 세로
+				RGB(255, 0, 255));			// 제거할 이미지 색상 값
+		}
 
 	}
 	else
@@ -284,6 +303,16 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			m_vecItem[1] = true;
 			m_eCurState = GETITEM;
 			CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CItemEffect>(L"Item_Spoon", m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, 0));
+			_pObj->Set_Dead();
+			break;
+
+		case CItem::ITEM_118:
+			m_vecItem[2] = true;
+			m_eCurState = GETITEM;
+			m_iHeadSize = 80;
+			CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CItemEffect>(L"Item_118", m_tInfo.fX, m_tInfo.fY, 50.f, 50.f, 0));
+			m_pFrameKey = L"Player_Head_2";
+			Set_Frame(0, 0, 0);
 			_pObj->Set_Dead();
 			break;
 
@@ -419,110 +448,134 @@ void CPlayer::Key_Input()
 	{
 		Set_BodyFrame(0, 0, 0);
 	}
+	
 
-	if(HIT != m_eCurState)
-	{
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
+	if (HIT != m_eCurState)
 		{
-			m_ChargeTime = GetTickCount64();
-		}
-		if (CKeyMgr::Get_Instance()->Key_Up(VK_RIGHT))
-		{
-			if (m_ChargeTime + 1000 < GetTickCount64())
+			if(m_vecItem[2])
 			{
-				Laser_Attack(0.f, false);
+				if (CKeyMgr::Get_Instance()->Key_Press(VK_RIGHT)|| 
+					CKeyMgr::Get_Instance()->Key_Press(VK_LEFT)||
+					CKeyMgr::Get_Instance()->Key_Press(VK_UP)||
+					CKeyMgr::Get_Instance()->Key_Press(VK_DOWN))
+					Move_ChargeFrame();
+				else
+				{
+					m_tFrame.iStart = 0;
+				}
+
+				if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
+				{
+					m_ChargeTime = GetTickCount64();
+					m_ChargeMoitonTime = GetTickCount64();
+					
+				}
+				if (CKeyMgr::Get_Instance()->Key_Up(VK_RIGHT))
+				{
+					if (m_ChargeTime + 1000 < GetTickCount64())
+					{
+						Laser_Attack(0.f, false);
+					}
+				}
+
+				if (CKeyMgr::Get_Instance()->Key_Down(VK_LEFT))
+				{
+					m_ChargeTime = GetTickCount64();
+					m_ChargeMoitonTime = GetTickCount64();
+					
+				}
+				if (CKeyMgr::Get_Instance()->Key_Up(VK_LEFT))
+				{
+					if (m_ChargeTime + 1000 < GetTickCount64())
+					{
+						Laser_Attack(180.f, false);
+					}
+				}
+
+				if (CKeyMgr::Get_Instance()->Key_Down(VK_UP))
+				{
+					m_ChargeTime = GetTickCount64();
+					m_ChargeMoitonTime = GetTickCount64();
+					
+				}
+				if (CKeyMgr::Get_Instance()->Key_Up(VK_UP))
+				{
+					if (m_ChargeTime + 1000 < GetTickCount64())
+					{
+						Laser_Attack(90.f, true);
+					}
+				}
+
+				if (CKeyMgr::Get_Instance()->Key_Down(VK_DOWN))
+				{
+					m_ChargeTime = GetTickCount64();
+					m_ChargeMoitonTime = GetTickCount64();
+				}
+				if (CKeyMgr::Get_Instance()->Key_Up(VK_DOWN))
+				{
+					if (m_ChargeTime + 1000 < GetTickCount64())
+					{
+						Laser_Attack(270.f, true);
+					}
+				}
 			}
-		}
 
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_LEFT))
-		{
-			m_ChargeTime = GetTickCount64();
-		}
-		if (CKeyMgr::Get_Instance()->Key_Up(VK_LEFT))
-		{
-			if (m_ChargeTime + 1000 < GetTickCount64())
-			{
-				Laser_Attack(180.f, false);
-			}
-		}
-
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_UP))
-		{
-			m_ChargeTime = GetTickCount64();
-		}
-		if (CKeyMgr::Get_Instance()->Key_Up(VK_UP))
-		{
-			if (m_ChargeTime + 1000 < GetTickCount64())
-			{
-				Laser_Attack(90.f, true);
-			}
-		}
-
-		if (CKeyMgr::Get_Instance()->Key_Down(VK_DOWN))
-		{
-			m_ChargeTime = GetTickCount64();
-		}
-		if (CKeyMgr::Get_Instance()->Key_Up(VK_DOWN))
-		{
-			if (m_ChargeTime + 1000 < GetTickCount64())
-			{
-				Laser_Attack(270.f, true);
-			}
-		}
-
-
-		if (CKeyMgr::Get_Instance()->Key_Press(VK_LEFT))
-		{
-			if (m_tFrame.iMotion != 3)
-			{
-				Set_Frame(1, 1, 3);
-			}
-
-			/*if (m_vecItem[1])
-				Attack<CGuidedBullet>(180.f, false);
 			else
-				Attack<CPlayerBullet>(180.f, false);*/
-		}
-		else if (CKeyMgr::Get_Instance()->Key_Press(VK_RIGHT))
-		{
-			if (m_tFrame.iMotion != 1)
 			{
-				Set_Frame(1, 1, 1);
+				if (CKeyMgr::Get_Instance()->Key_Press(VK_LEFT))
+				{
+					if (m_tFrame.iMotion != 3)
+					{
+						Set_Frame(1, 1, 3);
+					}
+
+					if (m_vecItem[1])
+						Attack<CGuidedBullet>(180.f, false);
+					else
+						Attack<CPlayerBullet>(180.f, false);
+				}
+				else if (CKeyMgr::Get_Instance()->Key_Press(VK_RIGHT))
+				{
+					if (m_tFrame.iMotion != 1)
+					{
+						Set_Frame(1, 1, 1);
+					}
+
+					if (m_vecItem[1])
+						Attack<CGuidedBullet>(0.f, false);
+					else
+						Attack<CPlayerBullet>(0.f, false);
+
+				}
+				else if (CKeyMgr::Get_Instance()->Key_Press(VK_DOWN))
+				{
+					if (m_tFrame.iMotion != 0)
+					{
+						Set_Frame(1, 1, 0);
+					}
+
+					if (m_vecItem[1])
+						Attack<CGuidedBullet>(270.f, true);
+					else
+						Attack<CPlayerBullet>(270.f, true);
+
+				}
+				else if (CKeyMgr::Get_Instance()->Key_Press(VK_UP))
+				{
+					if (m_tFrame.iMotion != 2)
+					{
+						Set_Frame(1, 1, 2);
+					}
+
+					if(m_vecItem[1])
+						Attack<CGuidedBullet>(90.f, true);
+					else
+						Attack<CPlayerBullet>(90.f, true);
+				}
 			}
 
-			/*if (m_vecItem[1])
-				Attack<CGuidedBullet>(0.f, false);
-			else
-				Attack<CPlayerBullet>(0.f, false);*/
-
-		}
-		else if (CKeyMgr::Get_Instance()->Key_Press(VK_DOWN))
-		{
-			if (m_tFrame.iMotion != 0)
-			{
-				Set_Frame(1, 1, 0);
-			}
-
-			/*if (m_vecItem[1])
-				Attack<CGuidedBullet>(270.f, true);
-			else
-				Attack<CPlayerBullet>(270.f, true);*/
-
-		}
-		else if (CKeyMgr::Get_Instance()->Key_Press(VK_UP))
-		{
-			if (m_tFrame.iMotion != 2)
-			{
-				Set_Frame(1, 1, 2);
-			}
-
-			/*if(m_vecItem[1])
-				Attack<CGuidedBullet>(90.f, true);
-			else
-				Attack<CPlayerBullet>(90.f, true);*/
 		}
 
-	}
 	
 
 	if (CKeyMgr::Get_Instance()->Key_Down(VK_LBUTTON))
@@ -636,6 +689,25 @@ void CPlayer::Move_BodyFrame()
 	}
 }
 
+void CPlayer::Move_ChargeFrame()
+{
+	if(m_ChargeTime + 2000 < GetTickCount64())
+	{
+		m_tFrame.iStart = 2;
+	}
+	else
+	{
+		if (m_ChargeMoitonTime + 300 < GetTickCount64())
+		{
+			if (m_tFrame.iStart == 1)
+				++m_tFrame.iStart;
+			else
+				m_tFrame.iStart = 1;
+			m_ChargeMoitonTime = GetTickCount64();
+		}
+	}
+}
+
 
 void CPlayer::Laser_Attack(float _fAngle, bool _bX)
 {
@@ -670,15 +742,32 @@ void CPlayer::Change_Motion()
 		switch (m_eCurState)
 		{
 		case CPlayer::IDLE:
-			m_pFrameKey = L"Player_Head";
-			Set_Frame(0, 1, 0);
+			if(!m_vecItem[2])
+			{
+				m_pFrameKey = L"Player_Head";
+				Set_Frame(0, 1, 0);
+			}
+			else
+			{
+				m_pFrameKey = L"Player_Head_2";
+				Set_Frame(0, 0, 0);
+			}
 			m_tFrame.dwFrameSpeed = 300;
 			m_tFrame.dwTime = GetTickCount64();
 			break;
 
 		case CPlayer::ATTACK:
-			m_pFrameKey = L"Player_Head";
-			m_tFrame.iStart = 1;
+			if (!m_vecItem[2])
+			{
+				m_pFrameKey = L"Player_Head";
+				m_tFrame.iStart = 1;
+			}
+			else
+			{
+				m_pFrameKey = L"Player_Head_2";
+				m_tFrame.iStart = 3;
+			}
+			
 			m_tFrame.dwFrameSpeed = 300;
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();

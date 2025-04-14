@@ -3,7 +3,7 @@
 class CSceneMgr
 {
 public:
-	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_STAGE1, SC_BOSS, SC_TREASURE, SC_END };
+	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_BOSS, SC_STAGE1, SC_TREASURE, SC_END };
 
 private:
 	CSceneMgr();
@@ -13,6 +13,10 @@ public:
 	void Set_SceneState(int _iIndex, int _iState)
 	{
 		m_vecSceneState[_iIndex] = _iState;
+	}
+	void Set_SceneState(int _iIndex, int _iState, int _iValue)
+	{
+		m_vecSceneState[_iIndex] += _iValue;
 	}
 	vector<int> Get_vecSceneState() { return m_vecSceneState; }
 

@@ -47,7 +47,6 @@ void CBossStage::Initialize()
 	
 
 	CSceneMgr::Get_Instance()->Set_SceneState(9, 6);
-	CSceneMgr::Get_Instance()->Set_SceneState(10, 2);
 
 }
 

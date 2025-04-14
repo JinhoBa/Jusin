@@ -23,7 +23,7 @@ void CBloodLaser::Initialize()
 
 	m_eBulletID = BULLET_LASER;
 
-	Set_CollisionBoxPos(m_tInfo.fX - 10.f, m_tInfo.fY);
+	
 	Set_CollisionBoxSize(40.f, 40.f);
 
 	Set_Frame(0, 0, 0);
@@ -35,6 +35,7 @@ void CBloodLaser::Initialize()
 
 void CBloodLaser::Late_Initialize()
 {
+	
 	m_tRenderInfo.fX = m_pTarget->Get_Info()->fX;
 	m_tRenderInfo.fY = m_pTarget->Get_Info()->fY;
 	m_tRenderInfo.fCX = m_pTarget->Get_Info()->fCX;
@@ -129,6 +130,7 @@ int CBloodLaser::Late_Update()
 	default:
 		break;
 	}
+	Set_CollisionBoxPos(m_tRenderInfo.fX + m_tRenderInfo.fCX * 0.5f, m_tRenderInfo.fY + m_tRenderInfo.fCY * 0.5f);
 
 	if (m_fSize > m_fMaxSize)
 	{
@@ -136,24 +138,31 @@ int CBloodLaser::Late_Update()
 		m_dwTime = GetTickCount64();
 		m_fdelta *= -1.f;
 		m_fSize += m_fdelta;
+
+		Set_CollisionBoxSize(m_tRenderInfo.fCX, m_tRenderInfo.fCY);
 	}
 
-	if (m_dwTime + 300 < GetTickCount64())
+	if (m_dwTime + 200 < GetTickCount64())
+	{
 		m_bMaxSize = false;
+		Set_CollisionBoxSize(m_tRenderInfo.fCX, m_tRenderInfo.fCY);
+	}
+	
 
 	if(!m_bMaxSize)
 		m_fSize += m_fdelta;
 	
-	if (m_fSize <= 0)
-		m_bDead;
+	if (m_fSize <= 0.f)
+		m_bDead = true;
 
 	return NOEVENT;
 }
 
 void CBloodLaser::Render(HDC hDC)
 {
-	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
+	__super::Collision_Render(hDC);
 
+	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(hDC,/// 복사 받을 dc
 		m_tRenderInfo.fX,  //+ m_tInfo.fCX * 0.5f,		// 복사 받을 위치 좌표 left
@@ -176,10 +185,15 @@ void CBloodLaser::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
 	switch (_pObj->Get_ObjID())
 	{
+	case OBJ_MONSTER:
+		if(m_tCollisionBox.fCX > 0 && m_tCollisionBox.fCY > 0)
+			_pObj->Set_Hp(m_tStat.fAttack*0.15);
+		break;
+
 	case OBJ_TILE:
-		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option())
+		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option() && 4 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
-			m_bDead = true;
+
 		}
 		break;
 

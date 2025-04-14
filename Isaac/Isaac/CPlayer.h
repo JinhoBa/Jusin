@@ -54,16 +54,19 @@ private:
 
 	void	Change_Motion();
 	void	Move_BodyFrame();
+	void	Move_ChargeFrame();
 
 	bool m_bJump;
 	float m_fTime;
 	float m_fCoolDown;
+	int m_iHeadSize;
 
 	float m_fAttackPos;
 	float m_fSoulHp;
 
 	ULONGLONG m_dwTime;
 	ULONGLONG m_ChargeTime;
+	ULONGLONG m_ChargeMoitonTime;
 	ULONGLONG m_MotionTime;
 
 	INFO m_tBodyInfo;
