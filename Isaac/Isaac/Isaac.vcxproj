@@ -142,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="CAbstractFactory.h" />
     <ClInclude Include="CBloodLaser.h" />
+    <ClInclude Include="CBloodLaserEffect.h" />
     <ClInclude Include="CBmpMgr.h" />
     <ClInclude Include="CBomb.h" />
     <ClInclude Include="CBombBullet.h" />
@@ -199,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CBloodLaser.cpp" />
+    <ClCompile Include="CBloodLaserEffect.cpp" />
     <ClCompile Include="CBmpMgr.cpp" />
     <ClCompile Include="CBomb.cpp" />
     <ClCompile Include="CBombBullet.cpp" />

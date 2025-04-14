@@ -23,6 +23,16 @@ public:
 	void Collision(CObj* _pObj, HITPOINT _tHitPoint) override;
 
 private:
-	long m_top;
+	bool m_bMaxSize;
+	int m_iImageCX;
+	int m_iImageCY;
+	float m_fSize;
+	float m_fMaxSize;
+	DIRECTION m_eDir;
+	float m_fdelta;
+	INFO m_tRenderInfo;
+
+	ULONGLONG m_dwTime;
+	
 };
 

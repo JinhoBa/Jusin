@@ -172,6 +172,9 @@
     <Filter Include="01. Obj\01. Bullet\BloodLaser">
       <UniqueIdentifier>{50e9e9ba-54ac-48e0-b144-aa8b38620560}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\02. Effect\BloodLaserEffect">
+      <UniqueIdentifier>{e0ac652c-1d0a-4e90-b0d5-ffd695fa5aaf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -342,6 +345,9 @@
     <ClInclude Include="CBloodLaser.h">
       <Filter>01. Obj\01. Bullet\BloodLaser</Filter>
     </ClInclude>
+    <ClInclude Include="CBloodLaserEffect.h">
+      <Filter>01. Obj\02. Effect\BloodLaserEffect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -496,6 +502,9 @@
     </ClCompile>
     <ClCompile Include="CBloodLaser.cpp">
       <Filter>01. Obj\01. Bullet\BloodLaser</Filter>
+    </ClCompile>
+    <ClCompile Include="CBloodLaserEffect.cpp">
+      <Filter>01. Obj\02. Effect\BloodLaserEffect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

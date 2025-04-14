@@ -50,6 +50,8 @@ private:
 	template<typename T>
 	void	Attack(float _fAngle, bool _bX);
 
+	void	Laser_Attack(float _fAgle, bool _bX);
+
 	void	Change_Motion();
 	void	Move_BodyFrame();
 
@@ -61,6 +63,7 @@ private:
 	float m_fSoulHp;
 
 	ULONGLONG m_dwTime;
+	ULONGLONG m_ChargeTime;
 	ULONGLONG m_MotionTime;
 
 	INFO m_tBodyInfo;

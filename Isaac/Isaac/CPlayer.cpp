@@ -422,6 +422,55 @@ void CPlayer::Key_Input()
 
 	if(HIT != m_eCurState)
 	{
+		if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
+		{
+			m_ChargeTime = GetTickCount64();
+		}
+		if (CKeyMgr::Get_Instance()->Key_Up(VK_RIGHT))
+		{
+			if (m_ChargeTime + 1000 < GetTickCount64())
+			{
+				Laser_Attack(0.f, false);
+			}
+		}
+
+		if (CKeyMgr::Get_Instance()->Key_Down(VK_LEFT))
+		{
+			m_ChargeTime = GetTickCount64();
+		}
+		if (CKeyMgr::Get_Instance()->Key_Up(VK_LEFT))
+		{
+			if (m_ChargeTime + 1000 < GetTickCount64())
+			{
+				Laser_Attack(180.f, false);
+			}
+		}
+
+		if (CKeyMgr::Get_Instance()->Key_Down(VK_UP))
+		{
+			m_ChargeTime = GetTickCount64();
+		}
+		if (CKeyMgr::Get_Instance()->Key_Up(VK_UP))
+		{
+			if (m_ChargeTime + 1000 < GetTickCount64())
+			{
+				Laser_Attack(90.f, true);
+			}
+		}
+
+		if (CKeyMgr::Get_Instance()->Key_Down(VK_DOWN))
+		{
+			m_ChargeTime = GetTickCount64();
+		}
+		if (CKeyMgr::Get_Instance()->Key_Up(VK_DOWN))
+		{
+			if (m_ChargeTime + 1000 < GetTickCount64())
+			{
+				Laser_Attack(270.f, true);
+			}
+		}
+
+
 		if (CKeyMgr::Get_Instance()->Key_Press(VK_LEFT))
 		{
 			if (m_tFrame.iMotion != 3)
@@ -429,10 +478,10 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 3);
 			}
 
-			if (m_vecItem[1])
+			/*if (m_vecItem[1])
 				Attack<CGuidedBullet>(180.f, false);
 			else
-				Attack<CPlayerBullet>(180.f, false);
+				Attack<CPlayerBullet>(180.f, false);*/
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_RIGHT))
 		{
@@ -441,11 +490,11 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 1);
 			}
 
-			if (m_vecItem[1])
+			/*if (m_vecItem[1])
 				Attack<CGuidedBullet>(0.f, false);
 			else
-				Attack<CPlayerBullet>(0.f, false);
-			
+				Attack<CPlayerBullet>(0.f, false);*/
+
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_DOWN))
 		{
@@ -454,10 +503,10 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 0);
 			}
 
-			if (m_vecItem[1])
+			/*if (m_vecItem[1])
 				Attack<CGuidedBullet>(270.f, true);
 			else
-				Attack<CPlayerBullet>(270.f, true);
+				Attack<CPlayerBullet>(270.f, true);*/
 
 		}
 		else if (CKeyMgr::Get_Instance()->Key_Press(VK_UP))
@@ -467,12 +516,12 @@ void CPlayer::Key_Input()
 				Set_Frame(1, 1, 2);
 			}
 
-			if(m_vecItem[1])
+			/*if(m_vecItem[1])
 				Attack<CGuidedBullet>(90.f, true);
 			else
-				Attack<CPlayerBullet>(90.f, true);
-
+				Attack<CPlayerBullet>(90.f, true);*/
 		}
+
 	}
 	
 
@@ -498,9 +547,9 @@ void CPlayer::Key_Input()
 	if (GetAsyncKeyState(VK_LBUTTON))
 	{
 		//Attack<CBloodLaser>(0.f, false);
-		CObjMgr::Get_Instance()->Add_CObj(
+		/*CObjMgr::Get_Instance()->Add_CObj(
 			OBJ_BULLET,
-			CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX+250.f, m_tInfo.fY, 500.f, 75.f, 0.f, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
+			CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX+250.f, m_tInfo.fY, 500.f, 75.f, 0.f, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));*/
 		//CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
 		//	m_tInfo.fX + 50.f, m_tInfo.fY,
 		//	34.f, 34.f,
@@ -587,6 +636,32 @@ void CPlayer::Move_BodyFrame()
 	}
 }
 
+
+void CPlayer::Laser_Attack(float _fAngle, bool _bX)
+{
+	if (m_dwTime + m_fCoolDown < GetTickCount64())
+	{
+		if (!_bX)
+		{
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 800.f, 50.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
+
+			m_dwTime = GetTickCount64();
+			m_eCurState = CPlayer::ATTACK;
+		}
+		else
+		{
+			CObjMgr::Get_Instance()->Add_CObj(
+				OBJ_BULLET,
+				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 50.f, 800.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
+
+			m_dwTime = GetTickCount64();
+			m_eCurState = CPlayer::ATTACK;
+		}
+	}
+
+}
 
 void CPlayer::Change_Motion()
 {

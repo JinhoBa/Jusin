@@ -78,6 +78,7 @@ public:
 		pObj->Set_Angle(_fAngle);
 		pObj->Set_Stat(_fHp, _fAttack, _fIntersection, _fSpeed);
 		pObj->Update_Rect();
+		pObj->Late_Initialize();
 		
 		return pObj;
 	}
@@ -91,6 +92,7 @@ public:
 		pObj->Set_FrameKey(_pFileKey);
 		pObj->Set_Frame(0, _iEnd, 0);
 		pObj->Update_Rect();
+		pObj->Late_Initialize();
 
 		return pObj;
 	}
