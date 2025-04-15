@@ -3,6 +3,7 @@
 #include "CBmpMgr.h"
 #include "CTile.h"
 #include "CSoundMgr.h"
+#include "CItem.h"
 
 CBombEffect::CBombEffect()
 {
@@ -102,6 +103,7 @@ void CBombEffect::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		break;
 
 	case OBJ_ITEM:
+		if(CItem::ITEM_SLOTMACHINE != dynamic_cast<CItem*>(_pObj)->Get_ItemID())
 		_pObj->Set_Dead();
 		break;
 

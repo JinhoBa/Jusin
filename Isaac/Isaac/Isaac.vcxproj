@@ -162,6 +162,7 @@
     <ClInclude Include="CFly.h" />
     <ClInclude Include="CGuidedBullet.h" />
     <ClInclude Include="CHeart.h" />
+    <ClInclude Include="CHost.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="CItemEffect.h" />
     <ClInclude Include="CKey.h" />
@@ -194,6 +195,7 @@
     <ClInclude Include="CUI.h" />
     <ClInclude Include="CUIBar.h" />
     <ClInclude Include="CUIMgr.h" />
+    <ClInclude Include="CZombie.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Isaac.h" />
     <ClInclude Include="pch.h" />
@@ -223,6 +225,7 @@
     <ClCompile Include="CFly.cpp" />
     <ClCompile Include="CGuidedBullet.cpp" />
     <ClCompile Include="CHeart.cpp" />
+    <ClCompile Include="CHost.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CItemEffect.cpp" />
     <ClCompile Include="CKey.cpp" />
@@ -255,6 +258,7 @@
     <ClCompile Include="CUI.cpp" />
     <ClCompile Include="CUIBar.cpp" />
     <ClCompile Include="CUIMgr.cpp" />
+    <ClCompile Include="CZombie.cpp" />
     <ClCompile Include="Isaac.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

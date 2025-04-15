@@ -123,8 +123,9 @@ void CFly::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		break;
 
 	case OBJ_BULLET:
-		if (CBullet::BULLET_PLAYER != dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
+		if (CBullet::BULLET_MONSTER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
 			break;
+		m_tStat.fHp -= _pObj->Get_Damage();
 		switch (_tHitPoint.eDirection)
 		{
 		case DIR_DOWN:

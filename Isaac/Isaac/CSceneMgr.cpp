@@ -11,6 +11,7 @@
 #include "CSoundMgr.h"
 #include "CTreasureRoom.h"
 #include "CStoreRoom.h"
+#include "CStage2.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
@@ -124,6 +125,16 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				Set_Data(m_vecScene[SC_STOREROOM]);
 
 			m_pScene = m_vecScene[SC_STOREROOM];
+			break;
+
+		case CSceneMgr::SC_STAGE2:
+			CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 05 Sacrificial.mp3", 0.3f);
+			if (!m_vecScene[SC_STAGE2])
+				m_vecScene[SC_STAGE2] = CAbstractFactory<CStage2>::Create_Scene();
+			else
+				Set_Data(m_vecScene[SC_STAGE2]);
+
+			m_pScene = m_vecScene[SC_STAGE2];
 			break;
 
 		case CSceneMgr::SC_END:

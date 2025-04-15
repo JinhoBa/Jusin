@@ -184,6 +184,12 @@
     <Filter Include="03. Scene\06. Stage2">
       <UniqueIdentifier>{6691b2b5-eeea-4997-b589-9a12cdfedb96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\03. Monster\03. Host">
+      <UniqueIdentifier>{5b976919-e3bb-4b4b-8770-1572529032fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Monster\04. Zombie">
+      <UniqueIdentifier>{5486f06b-1dff-4cd2-9930-7f856640491f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -366,6 +372,12 @@
     <ClInclude Include="CStage2.h">
       <Filter>03. Scene\06. Stage2</Filter>
     </ClInclude>
+    <ClInclude Include="CHost.h">
+      <Filter>01. Obj\03. Monster\03. Host</Filter>
+    </ClInclude>
+    <ClInclude Include="CZombie.h">
+      <Filter>01. Obj\03. Monster\04. Zombie</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -532,6 +544,12 @@
     </ClCompile>
     <ClCompile Include="CStage2.cpp">
       <Filter>03. Scene\06. Stage2</Filter>
+    </ClCompile>
+    <ClCompile Include="CHost.cpp">
+      <Filter>01. Obj\03. Monster\03. Host</Filter>
+    </ClCompile>
+    <ClCompile Include="CZombie.cpp">
+      <Filter>01. Obj\03. Monster\04. Zombie</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,2 @@
-﻿  CStage2.cpp
-C:\Users\Jinho\source\Jusin\Isaac\Isaac\CStage2.cpp(108,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  (소스 파일 '/CStage2.cpp'을(를) 컴파일하는 중)
-  
+﻿  CBombEffect.cpp
   Isaac.vcxproj -> C:\Users\Jinho\source\Jusin\Isaac\Debug\Isaac.exe

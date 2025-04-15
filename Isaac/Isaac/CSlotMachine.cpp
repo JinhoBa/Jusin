@@ -164,6 +164,7 @@ void CSlotMachine::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		}
 		break;
 	case OBJ_BULLET:
+		m_eCurState = BROKEN;
 		_pObj->Set_Dead();
 	case OBJ_EFFECT:
 		m_eCurState = BROKEN;

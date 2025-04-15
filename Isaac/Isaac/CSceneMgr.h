@@ -3,7 +3,7 @@
 class CSceneMgr
 {
 public:
-	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_BOSS, SC_STAGE1, SC_TREASURE, SC_STOREROOM, SC_END };
+	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_BOSS, SC_STAGE1, SC_STAGE2, SC_TREASURE, SC_STOREROOM, SC_END };
 
 private:
 	CSceneMgr();
@@ -24,8 +24,12 @@ public:
 		case CSceneMgr::SC_BOSS:
 			iIndex = 9;
 			break;
+		
 		case CSceneMgr::SC_STAGE1:
 			iIndex = 10;
+			break;
+		case CSceneMgr::SC_STAGE2:
+			iIndex = 4;
 			break;
 		case CSceneMgr::SC_TREASURE:
 			iIndex = 11;
@@ -56,6 +60,9 @@ public:
 			break;
 		case CSceneMgr::SC_STAGE1:
 			iIndex = 10;
+			break;
+		case CSceneMgr::SC_STAGE2:
+			iIndex = 4;
 			break;
 		case CSceneMgr::SC_TREASURE:
 			iIndex = 11;

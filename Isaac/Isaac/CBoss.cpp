@@ -221,27 +221,6 @@ void CBoss::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
 	switch (_pObj->Get_ObjID())
 	{
-	/*case OBJ_MONSTER:
-		switch (_tHitPoint.eDirection)
-		{
-		case DIR_DOWN:
-			_pObj->Set_posY(_tHitPoint.fY);
-			break;
-		case DIR_UP:
-			_pObj->Set_posY(-_tHitPoint.fY);
-			break;
-		case DIR_LEFT:
-			_pObj->Set_posX(-_tHitPoint.fX);
-			break;
-		case DIR_RIGHT:
-			_pObj->Set_posX(_tHitPoint.fX);
-			break;
-		default:
-			break;
-			
-		}
-		break;*/
-
 	case OBJ_TILE:
 		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
@@ -268,6 +247,9 @@ void CBoss::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_BULLET:
 		if (CBullet::BULLET_PLAYER != dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
 			break;
+		if(CBullet::BULLET_LASER != dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
+			m_tStat.fHp -= _pObj->Get_Damage();
+
 		m_bHit = true;
 		m_HitTime = GetTickCount64();
 		

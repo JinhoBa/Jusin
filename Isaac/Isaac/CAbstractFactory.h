@@ -16,6 +16,7 @@ public:
 		CObj* pObj = new T;
 		pObj->Initialize();
 		pObj->Set_Info(_fX, _fY, _fCX, _fCY);
+		pObj->Late_Initialize();
 
 		return pObj;
 	}

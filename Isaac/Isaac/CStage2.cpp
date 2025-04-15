@@ -7,6 +7,7 @@
 #include "CSoundMgr.h"
 #include "CUIMgr.h"
 #include "CCollisionMgr.h"
+#include "CHost.h"
 
 CStage2::CStage2()
 {
@@ -20,24 +21,15 @@ CStage2::~CStage2()
 void CStage2::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Gold.bmp", L"Door_Gold");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Boss.bmp", L"Door_Boss");
-	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Stage1.dat");
+	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial.dat");
 
-	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_TOPX, DOOR_TOPY, 50.f, 50.f);
-	dynamic_cast<CDoor*>(pDoor)->Set_Door(0, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
-
-	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 64.f, 64.f);
-	dynamic_cast<CDoor*>(pDoor)->Set_Door(1, L"Door_Boss", CSceneMgr::SC_BOSS);
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
-
-	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_RIGHTX, DOOR_RIGHTY, 50.f, 50.f);
-	dynamic_cast<CDoor*>(pDoor)->Set_Door(2, L"Door_Gold", CSceneMgr::SC_TREASURE);
+	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_BOTTOMX, DOOR_BOTTOMY, 50.f, 50.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(3, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
 
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(200.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(250.f, 300.f, 36.f, 51.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(550.f, 400.f, 36.f, 51.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
 	
 
@@ -45,9 +37,9 @@ void CStage2::Initialize()
 	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", SOUND_EFFECT, 1.f);
 
-	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_BOSS, 4, 0);
-	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STAGE1, 3, 0);
-	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_TREASURE, 7, 0);
+
+	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STAGE2, 3, 0);
+	
 }
 
 void CStage2::Update()

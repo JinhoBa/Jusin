@@ -115,7 +115,6 @@ void CPlayerBullet::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		break;
 
 	case OBJ_MONSTER:
-		_pObj->Set_Hp(m_tStat.fAttack);
 		m_bDead = true;
 		break;
 

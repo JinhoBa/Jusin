@@ -68,6 +68,12 @@ void CTutorial::Initialize()
 	dynamic_cast<CDoor*>(pDoor)->Set_SceneID(CSceneMgr::SC_STOREROOM);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_TOPX, DOOR_TOPY, 50.f, 50.f);
+	pDoor->Set_FramMotion(0);
+	pDoor->Set_FrameKey(L"Door_nomal");
+	dynamic_cast<CDoor*>(pDoor)->Set_SceneID(CSceneMgr::SC_STAGE2);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial.dat");
 	
 
@@ -75,6 +81,7 @@ void CTutorial::Initialize()
 
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_TUTORIAL, 3, 0);
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STAGE1, 1, 0);
+	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STAGE2, 1, 0);
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STOREROOM, 10, 0);
 }
 

@@ -5,6 +5,7 @@
 #include "CTools.h"
 #include "CTile.h"
 #include "CBombEffect.h"
+#include "CBullet.h"
 
 CBombFly::CBombFly() : m_fDirX(0.f), m_fDirY(0.f)
 {
@@ -122,6 +123,9 @@ void CBombFly::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		break;
 
 	case OBJ_BULLET:
+		if (CBullet::BULLET_MONSTER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
+			break;
+		m_tStat.fHp -= _pObj->Get_Damage();
 		break;
 	default:
 		break;
