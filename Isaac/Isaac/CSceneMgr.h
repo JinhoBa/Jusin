@@ -3,20 +3,72 @@
 class CSceneMgr
 {
 public:
-	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_BOSS, SC_STAGE1, SC_TREASURE, SC_END };
+	enum SCENEID { SC_MENU, SC_TUTORIAL, SC_BOSS, SC_STAGE1, SC_TREASURE, SC_STOREROOM, SC_END };
 
 private:
 	CSceneMgr();
 	~CSceneMgr();
 
 public:
-	void Set_SceneState(int _iIndex, int _iState)
+	void Set_SceneState(SCENEID _eID, int _iState, int _iValue)
 	{
-		m_vecSceneState[_iIndex] = _iState;
+		int iIndex(0);
+		switch (_eID)
+		{
+		case CSceneMgr::SC_MENU:
+			
+			break;
+		case CSceneMgr::SC_TUTORIAL:
+			iIndex = 7;
+			break;
+		case CSceneMgr::SC_BOSS:
+			iIndex = 9;
+			break;
+		case CSceneMgr::SC_STAGE1:
+			iIndex = 10;
+			break;
+		case CSceneMgr::SC_TREASURE:
+			iIndex = 11;
+			break;
+		case CSceneMgr::SC_STOREROOM:
+			iIndex = 6;
+			break;
+		case CSceneMgr::SC_END:
+			break;
+		default:
+			break;
+		}
+		m_vecSceneState[iIndex] = _iState;
 	}
-	void Set_SceneState(int _iIndex, int _iState, int _iValue)
+	void Set_SceneState(SCENEID _eID, int _iValue)
 	{
-		m_vecSceneState[_iIndex] += _iValue;
+		int iIndex(0);
+		switch (_eID)
+		{
+		case CSceneMgr::SC_MENU:
+
+			break;
+		case CSceneMgr::SC_TUTORIAL:
+			iIndex = 7;
+			break;
+		case CSceneMgr::SC_BOSS:
+			iIndex = 9;
+			break;
+		case CSceneMgr::SC_STAGE1:
+			iIndex = 10;
+			break;
+		case CSceneMgr::SC_TREASURE:
+			iIndex = 11;
+			break;
+		case CSceneMgr::SC_STOREROOM:
+			iIndex = 6;
+			break;
+		case CSceneMgr::SC_END:
+			break;
+		default:
+			break;
+		}
+		m_vecSceneState[iIndex] += _iValue;
 	}
 	vector<int> Get_vecSceneState() { return m_vecSceneState; }
 

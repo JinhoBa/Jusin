@@ -17,7 +17,7 @@ CMiniMap::~CMiniMap()
 void CMiniMap::Initialize()
 {
     m_tInfo.fCX = 30.f;
-    m_tInfo.fCY = 20.f;
+    m_tInfo.fCY = 21.f;
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/Map_UI.bmp", L"Map_UI");
 }
 
@@ -49,9 +49,9 @@ void CMiniMap::Render(HDC hDC)
 
 		GdiTransparentBlt(hDC,/// 복사 받을 dc
 			40 * (i%3) + 100,		// 복사 받을 위치 좌표 left
-			20 * (i / 3),					// 복사 받을 위치 좌표 top
+			21 * (i / 3),					// 복사 받을 위치 좌표 top
 			60,				// 복사 받을 가로 사이즈
-			40,				// 복사 받을 세로 사이즈
+			42,				// 복사 받을 세로 사이즈
 			hMemDC,							// 복사할 이미지 dc
 			(int)m_tInfo.fCX * ((m_vecSceneState[i]-1) % 3),
 			(int)m_tInfo.fCY * ((m_vecSceneState[i]-1) / 3),			// 복사할 이미지의 left, top

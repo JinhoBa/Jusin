@@ -25,7 +25,7 @@ void CBomb::Initialize()
 
 	Set_CollisionBoxSize(0.f, 0.f);
 
-	m_fAngle = (0 == CTools::Get_RandomNumber(1, 2) % 2) ? 80.f : 110.f;
+	__super::Initialize();
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/bomb.bmp", L"bomb");
 }
@@ -46,17 +46,8 @@ int CBomb::Update()
 
 int CBomb::Late_Update()
 {
-	if (m_CreateTime + 500 < GetTickCount64())
-	{
-		Set_CollisionBoxSize(32.f, 32.f);
-	}
-	else
-	{
-		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5 * 9.8 * m_fTime * m_fTime;
-		m_fTime += 0.1f;
-	}
-	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
+	Spown_Move();
+	Set_CollisionBoxPos(m_tInfo.fX-12.f, m_tInfo.fY-12.f);
 
 	return NOEVENT;
 }
@@ -77,6 +68,7 @@ void CBomb::Render(HDC hDC)
 		(int)m_tInfo.fCX,//(int)m_tInfo.fCX,				// 복사할 이미지의 가로
 		(int)m_tInfo.fCY,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
 		RGB(255, 0, 255));
+
 }
 
 void CBomb::Release()
@@ -85,6 +77,7 @@ void CBomb::Release()
 
 void CBomb::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	__super::Collision(_pObj, _tHitPoint);
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_PLAYER:

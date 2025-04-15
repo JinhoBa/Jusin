@@ -25,7 +25,7 @@ public:
 		m_tInfo.fCY = _fCY;
 	}
 	void Set_posX(float _fX) { m_tInfo.fX += _fX; }
-	void Set_posY(float _fY) { m_tInfo.fX += _fY; }
+	void Set_posY(float _fY) { m_tInfo.fY += _fY; }
 	void Set_Angle(float _fAngle) { m_fAngle = _fAngle; }
 	void Set_Dead() { m_bDead = true; }
 	void Set_Stat(float _fHp, float _fAttack, float _fIntersection, float _fSpeed)

@@ -160,7 +160,7 @@ int CBloodLaser::Late_Update()
 
 void CBloodLaser::Render(HDC hDC)
 {
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 

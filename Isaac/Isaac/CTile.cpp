@@ -212,7 +212,7 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				break;
 
 			case 4:
-				if (m_tFrame.iStart < 3)
+				if (m_tFrame.iStart < 4)
 					++m_tFrame.iStart;
 				else
 					m_iOption = 4;

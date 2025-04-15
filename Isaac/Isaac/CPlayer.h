@@ -20,7 +20,10 @@ public:
 		m_tBodyFrame.iEnd = _iEnd;
 		m_tBodyFrame.iMotion = _iMotion;
 	}
-	
+	void Set_Coin(int _iCoin)
+	{
+		m_tItemInfo.iCoin += _iCoin;
+	}
 	ITEMINFO* Get_ItemInfo() { return &m_tItemInfo; }
 	void Set_SoulHp(float _fDamage) { m_fSoulHp -= _fDamage; }
 	float Get_SoulHp() { return m_fSoulHp; }

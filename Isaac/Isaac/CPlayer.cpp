@@ -43,7 +43,7 @@ void CPlayer::Initialize()
 	m_fSoulHp = 2.f;
 
 	Set_Stat(6.f, 3.5f, 300.f, 4.f);
-	Set_ItemInfo(0, 99, 5);
+	Set_ItemInfo(99, 99, 5);
 
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 40.f;
@@ -218,8 +218,16 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_TILE:
-		if (0 != dynamic_cast<CTile*>(_pObj)->Get_Option() && 4 != dynamic_cast<CTile*>(_pObj)->Get_Option())
+		switch (dynamic_cast<CTile*>(_pObj)->Get_Option())
 		{
+		case 0:
+			break;
+		case 4:
+			m_eCurState = HIT;
+			break;
+		case 1:
+		case 2:
+		case 3:
 			switch (_tHitPoint.eDirection)
 			{
 			case DIR_DOWN:
@@ -237,7 +245,10 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			default:
 				break;
 			}
+		default:
+			break;
 		}
+
 		break;
 
 	case OBJ_MONSTER:

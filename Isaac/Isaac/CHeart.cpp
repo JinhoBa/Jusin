@@ -24,13 +24,14 @@ void CHeart::Initialize()
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 	Set_CollisionBoxSize(0.f, 0.f);
 
-	m_fAngle = (0 == CTools::Get_RandomNumber(1,2) % 2) ? 80.f : 110.f;
+	__super::Initialize();
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/Heart.bmp", L"Heart");
 }
 
 void CHeart::Late_Initialize()
 {
+	
 }
 
 int CHeart::Update()
@@ -49,16 +50,8 @@ int CHeart::Update()
 
 int CHeart::Late_Update()
 {
-	if (m_CreateTime + 500 < GetTickCount64())
-	{
-		Set_CollisionBoxSize(16.f, 16.f);
-	}
-	else
-	{
-		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
-		m_fTime += 0.1f;
-	}
+	
+	Spown_Move();
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
 
 	return NOEVENT;
@@ -66,7 +59,6 @@ int CHeart::Late_Update()
 
 void CHeart::Render(HDC hDC)
 {
-	//__super::Collision_Render(hDC);
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Heart");
 
@@ -90,9 +82,30 @@ void CHeart::Release()
 
 void CHeart::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	__super::Collision(_pObj, _tHitPoint);
 	switch (_pObj->Get_ObjID())
 	{
 	case OBJ_PLAYER:
+		switch (_tHitPoint.eDirection)
+		{
+		case DIR_RIGHT:
+			m_fItemSpeedX = 3.f;
+			break;
+
+		case DIR_LEFT:
+			m_fItemSpeedX = -3.f;
+			break;
+
+		case DIR_UP:
+			m_fItemSpeedY = -3.f;
+			break;
+
+		case DIR_DOWN:
+			m_fItemSpeedY = 3.f;
+			break;
+		default:
+			break;
+		}
 		break;
 
 	default:

@@ -5,7 +5,7 @@
 class CItem : public CObj
 {
 public:
-	enum ITEMID{ITEM_COIN, ITEM_BOMB, ITEM_KEY, ITEM_BOX, ITEM_HEART, ITEM_SOULHEART,ITEM_CYCLOPS, ITEM_SPOON, ITEM_118, ITEM_END};
+	enum ITEMID{ITEM_COIN, ITEM_BOMB, ITEM_KEY, ITEM_BOX, ITEM_HEART, ITEM_SOULHEART,ITEM_CYCLOPS, ITEM_SPOON, ITEM_118, ITEM_SLOTMACHINE, ITEM_END};
 public:
 	CItem();
 	virtual ~CItem();
@@ -17,17 +17,25 @@ public:
 		__super::Set_FrameKey(_pFramekey);
 		m_eItemID = _eItemID;
 	}
+	void Spown_Move();
+	void Slip();
 public:
-	void Initialize() PURE;
+	void Initialize();
 	void Late_Initialize() PURE;
 	int Update() PURE;
 	int Late_Update() PURE;
 	void Render(HDC hDC) PURE;
 	void Release() PURE;
-	void Collision(CObj* _pObj, HITPOINT _tHitPoint) PURE;
+	void Collision(CObj* _pObj, HITPOINT _tHitPoint);
+
 protected:
 	ITEMID m_eItemID;
-	ULONGLONG m_CreateTime;
+	int		m_iDropTime;
 	float m_fTime;
+	float m_fItemSpeedX;
+	float m_fItemSpeedY;
+
+	ULONGLONG m_CreateTime;
+	
 };
 

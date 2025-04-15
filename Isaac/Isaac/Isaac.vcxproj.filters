@@ -148,9 +148,6 @@
     <Filter Include="07. UI\02. BossHp">
       <UniqueIdentifier>{d8f77655-d710-49df-96b7-6969f9bc5632}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\04. Item\05. Cyclops">
-      <UniqueIdentifier>{27ac0717-46a6-4ecf-b268-fe69755db27b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\02. Effect\ItemEffect">
       <UniqueIdentifier>{fac09e07-a255-469f-9f1d-41edc7835a94}</UniqueIdentifier>
     </Filter>
@@ -174,6 +171,18 @@
     </Filter>
     <Filter Include="01. Obj\02. Effect\BloodLaserEffect">
       <UniqueIdentifier>{e0ac652c-1d0a-4e90-b0d5-ffd695fa5aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\05. StoreRoom">
+      <UniqueIdentifier>{0d1a93e2-1393-4fec-8f47-da4fe1121670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04. Item\05. PasiveItem">
+      <UniqueIdentifier>{27ac0717-46a6-4ecf-b268-fe69755db27b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\04. Item\06. SlotMachine">
+      <UniqueIdentifier>{02e22115-cccd-4c21-9f6a-f8152cbcd77f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\06. Stage2">
+      <UniqueIdentifier>{6691b2b5-eeea-4997-b589-9a12cdfedb96}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -319,7 +328,7 @@
       <Filter>07. UI\02. BossHp</Filter>
     </ClInclude>
     <ClInclude Include="CCyclops.h">
-      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+      <Filter>01. Obj\04. Item\05. PasiveItem</Filter>
     </ClInclude>
     <ClInclude Include="CItemEffect.h">
       <Filter>01. Obj\02. Effect\ItemEffect</Filter>
@@ -331,7 +340,7 @@
       <Filter>03. Scene\04. TreasureRoom</Filter>
     </ClInclude>
     <ClInclude Include="CPassiveItem.h">
-      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+      <Filter>01. Obj\04. Item\05. PasiveItem</Filter>
     </ClInclude>
     <ClInclude Include="CGuidedBullet.h">
       <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
@@ -347,6 +356,15 @@
     </ClInclude>
     <ClInclude Include="CBloodLaserEffect.h">
       <Filter>01. Obj\02. Effect\BloodLaserEffect</Filter>
+    </ClInclude>
+    <ClInclude Include="CStoreRoom.h">
+      <Filter>03. Scene\05. StoreRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="CSlotMachine.h">
+      <Filter>01. Obj\04. Item\06. SlotMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="CStage2.h">
+      <Filter>03. Scene\06. Stage2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -477,7 +495,7 @@
       <Filter>07. UI\02. BossHp</Filter>
     </ClCompile>
     <ClCompile Include="CCyclops.cpp">
-      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+      <Filter>01. Obj\04. Item\05. PasiveItem</Filter>
     </ClCompile>
     <ClCompile Include="CItemEffect.cpp">
       <Filter>01. Obj\02. Effect\ItemEffect</Filter>
@@ -489,7 +507,7 @@
       <Filter>03. Scene\04. TreasureRoom</Filter>
     </ClCompile>
     <ClCompile Include="CPassiveItem.cpp">
-      <Filter>01. Obj\04. Item\05. Cyclops</Filter>
+      <Filter>01. Obj\04. Item\05. PasiveItem</Filter>
     </ClCompile>
     <ClCompile Include="CGuidedBullet.cpp">
       <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
@@ -505,6 +523,15 @@
     </ClCompile>
     <ClCompile Include="CBloodLaserEffect.cpp">
       <Filter>01. Obj\02. Effect\BloodLaserEffect</Filter>
+    </ClCompile>
+    <ClCompile Include="CStoreRoom.cpp">
+      <Filter>03. Scene\05. StoreRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="CSlotMachine.cpp">
+      <Filter>01. Obj\04. Item\06. SlotMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="CStage2.cpp">
+      <Filter>03. Scene\06. Stage2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

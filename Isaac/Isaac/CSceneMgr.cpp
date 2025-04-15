@@ -10,6 +10,7 @@
 #include "CBossStage.h"
 #include "CSoundMgr.h"
 #include "CTreasureRoom.h"
+#include "CStoreRoom.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
@@ -35,8 +36,8 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 		
 		if(m_pScene && CSceneMgr::SC_MENU != m_eCurScene)
 		{
+			Set_SceneState(m_ePreScene, -1);
 			m_pScene->Save_Data();
-			Set_SceneState(m_eCurScene, 0, -1);
 			CSoundMgr::Get_Instance()->StopAll();
 		}
 		if(CSceneMgr::SC_MENU != m_ePreScene)
@@ -80,8 +81,6 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				m_vecScene[SC_TUTORIAL] = CAbstractFactory<CTutorial>::Create_Scene();
 			else
 			{
-				CSceneMgr::Get_Instance()->Set_SceneState(7, 3);
-				CSceneMgr::Get_Instance()->Set_SceneState(10, 2);
 				Set_Data(m_vecScene[SC_TUTORIAL]);
 			}
 
@@ -94,8 +93,6 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				m_vecScene[SC_STAGE1] = CAbstractFactory<CStage1>::Create_Scene();
 			else
 			{
-				CSceneMgr::Get_Instance()->Set_SceneState(10, 3);
-				CSceneMgr::Get_Instance()->Set_SceneState(11, 8);
 				Set_Data(m_vecScene[SC_STAGE1]);
 			}
 
@@ -118,6 +115,15 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				Set_Data(m_vecScene[SC_TREASURE]);
 
 			m_pScene = m_vecScene[SC_TREASURE];
+			break;
+
+		case CSceneMgr::SC_STOREROOM:
+			if (!m_vecScene[SC_STOREROOM])
+				m_vecScene[SC_STOREROOM] = CAbstractFactory<CStoreRoom>::Create_Scene();
+			else
+				Set_Data(m_vecScene[SC_STOREROOM]);
+
+			m_pScene = m_vecScene[SC_STOREROOM];
 			break;
 
 		case CSceneMgr::SC_END:
@@ -171,7 +177,8 @@ void CSceneMgr::Release()
 
 void CSceneMgr::Set_Data(CScene* _pScene)
 {
-	Set_SceneState(m_eCurScene, 0, 1);
+	
+	Set_SceneState(m_eCurScene, 1);
 	for (auto pObj : _pScene->Get_ObjList(OBJ_ITEM))
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 

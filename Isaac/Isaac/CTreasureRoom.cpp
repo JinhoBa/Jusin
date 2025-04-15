@@ -22,7 +22,7 @@ CTreasureRoom::~CTreasureRoom()
 
 void CTreasureRoom::Initialize()
 {
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/BaseMap.bmp", L"Tutorial");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/BaseMap1.bmp", L"BaseMap1");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Gold.bmp", L"Door_Gold");
 	CSoundMgr::Get_Instance()->PlaySound(L"TreasureRoomEnter.mp3", SOUND_INTRO, 1.f);
 	CObj* pObj;
@@ -38,7 +38,7 @@ void CTreasureRoom::Initialize()
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_TreasureRoom.dat");
 
-	CSceneMgr::Get_Instance()->Set_SceneState(11, 9);
+	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_TREASURE, 9, 0);
 }
 
 void CTreasureRoom::Update()
@@ -56,16 +56,22 @@ void CTreasureRoom::Late_Update()
 
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_DOOR));
 	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CTileMgr::Get_Instance()->Get_vecTile());
+	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CTileMgr::Get_Instance()->Get_vecTile());
 	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CTileMgr::Get_Instance()->Get_vecTile());
+	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CTileMgr::Get_Instance()->Get_vecTile());
 	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT), CTileMgr::Get_Instance()->Get_vecTile());
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER));
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
 }
 
 void CTreasureRoom::Render(HDC hDC)
 {
-
-	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Tutorial");
+	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"BaseMap1");
 
 	BitBlt(hDC,
 		0,
@@ -77,9 +83,6 @@ void CTreasureRoom::Render(HDC hDC)
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 	CUIMgr::Get_Instance()->Render(hDC);
-
-	
-
 }
 
 void CTreasureRoom::Release()

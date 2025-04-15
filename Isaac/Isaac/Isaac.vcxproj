@@ -180,9 +180,12 @@
     <ClInclude Include="CPlayerBullet.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneMgr.h" />
+    <ClInclude Include="CSlotMachine.h" />
     <ClInclude Include="CSoulHeart.h" />
     <ClInclude Include="CSoundMgr.h" />
     <ClInclude Include="CStage1.h" />
+    <ClInclude Include="CStage2.h" />
+    <ClInclude Include="CStoreRoom.h" />
     <ClInclude Include="CTile.h" />
     <ClInclude Include="CTileMgr.h" />
     <ClInclude Include="CTools.h" />
@@ -238,9 +241,12 @@
     <ClCompile Include="CPlayerBullet.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneMgr.cpp" />
+    <ClCompile Include="CSlotMachine.cpp" />
     <ClCompile Include="CSoulHeart.cpp" />
     <ClCompile Include="CSoundMgr.cpp" />
     <ClCompile Include="CStage1.cpp" />
+    <ClCompile Include="CStage2.cpp" />
+    <ClCompile Include="CStoreRoom.cpp" />
     <ClCompile Include="CTile.cpp" />
     <ClCompile Include="CTileMgr.cpp" />
     <ClCompile Include="CTools.cpp" />
