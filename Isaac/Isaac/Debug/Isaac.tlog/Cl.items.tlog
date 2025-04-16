@@ -11,6 +11,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBossStage.cpp;C:\Users\Jinho\source\Jus
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBox.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBox.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CButton.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CButton.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCharger.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCharger.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCoin.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCoin.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCollisionMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCollisionMgr.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCyclops.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCyclops.obj
@@ -52,5 +53,6 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTutorial.cpp;C:\Users\Jinho\source\Jusi
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CUI.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CUI.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CUIBar.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CUIBar.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CUIMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CUIMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CZombie.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CZombie.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\Isaac.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\Isaac.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\pch.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\pch.obj

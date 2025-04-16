@@ -5,7 +5,7 @@
 #include "CSoundMgr.h"
 #include "CPlayer.h"
 
-CDoor::CDoor() : m_bOpen(false), m_eSceneID(CSceneMgr::SC_END)
+CDoor::CDoor() : m_bOpen(false), m_eSceneID(CSceneMgr::SC_END), m_iImgCX(0), m_iImgCY(0)
 {
 	m_tFrame.iStart = 1;
 }
@@ -29,7 +29,7 @@ void CDoor::Late_Initialize()
 int CDoor::Update()
 {
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY);
-	Set_CollisionBoxSize(m_tInfo.fCX, m_tInfo.fCY);
+	Set_CollisionBoxSize(m_tInfo.fCX+10, m_tInfo.fCY+10);
 	__super::Update_Rect();
 
 	return NOEVENT;
@@ -45,18 +45,34 @@ int CDoor::Late_Update()
 		m_tFrame.iStart = 0;
 	}
 
+	if (0 == m_tFrame.iMotion || 3 == m_tFrame.iMotion)
+	{
+		m_iImgCX = 30 + (int)m_tInfo.fCX;
+		m_iImgCY = 10 + (int)m_tInfo.fCY;
+	}
+	else if(1 == m_tFrame.iMotion || 2 == m_tFrame.iMotion)
+	{
+		m_iImgCX = 10 + (int)m_tInfo.fCX;
+		m_iImgCY = 30 + (int)m_tInfo.fCY;
+	}
+
 	return NOEVENT;
 }
 
 void CDoor::Render(HDC hDC)
 {
+	//__super::Collision_Render(hDC);
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
+
+	int left = (m_iImgCX - (int)m_tInfo.fCX) *0.5;
+	int top = (m_iImgCY - (int)m_tInfo.fCY) * 0.5;
+
 	GdiTransparentBlt(hDC,/// 복사 받을 dc
-		m_tRect.left,		// 복사 받을 위치 좌표 left
-		m_tRect.top,					// 복사 받을 위치 좌표 top
-		(int)m_tInfo.fCX,				// 복사 받을 가로 사이즈
-		(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
+		m_tRect.left- left,		// 복사 받을 위치 좌표 left
+		m_tRect.top - top,					// 복사 받을 위치 좌표 top
+		m_iImgCX,				// 복사 받을 가로 사이즈
+		m_iImgCY,				// 복사 받을 세로 사이즈
 		hMemDC,							// 복사할 이미지 dc
 		(int)m_tInfo.fCX* m_tFrame.iStart,
 		(int)m_tInfo.fCY* m_tFrame.iMotion,								// 복사할 이미지의 left, top

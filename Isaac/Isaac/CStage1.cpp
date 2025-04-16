@@ -33,7 +33,7 @@ void CStage1::Initialize()
 	dynamic_cast<CDoor*>(pDoor)->Set_Door(0, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
-	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 64.f, 64.f);
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX-10, DOOR_LEFTY, 64.f, 64.f);
 	dynamic_cast<CDoor*>(pDoor)->Set_Door(1, L"Door_Boss", CSceneMgr::SC_BOSS);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 

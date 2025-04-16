@@ -18,7 +18,7 @@ CHost::~CHost()
 
 void CHost::Initialize()
 {
-	Set_Stat(20.f, 1.f, 800.f, 1.f);
+	Set_Stat(10.f, 1.f, 800.f, 1.f);
 
 	Set_Frame(0, 2, 0);
 	m_tFrame.dwFrameSpeed = 2000;
@@ -30,7 +30,7 @@ void CHost::Initialize()
 
 void CHost::Late_Initialize()
 {
-	Set_CollisionBoxPos(m_tInfo.fX + 10.f, m_tInfo.fY);
+	Set_CollisionBoxPos(m_tInfo.fX +15, m_tInfo.fY+20);
 	Set_CollisionBoxSize(30.f, 30.f);
 }
 
@@ -55,7 +55,7 @@ int CHost::Late_Update()
 	if (1 == m_tFrame.iStart && 0 == m_iPreFrame)
 		Attack();
 	if(1 == m_tFrame.iStart)
-		Set_CollisionBoxSize(30.f, 30.f);
+		Set_CollisionBoxSize(30.f, 50.f);
 	else
 		Set_CollisionBoxSize(30.f, 20.f);
 	m_iPreFrame = m_tFrame.iStart;
@@ -71,8 +71,8 @@ void CHost::Render(HDC hDC)
 	GdiTransparentBlt(hDC,/// 복사 받을 dc
 		m_tRect.left,		// 복사 받을 위치 좌표 left
 		m_tRect.top,					// 복사 받을 위치 좌표 top
-		50,				// 복사 받을 가로 사이즈
-		50,				// 복사 받을 세로 사이즈
+		70,				// 복사 받을 가로 사이즈
+		80,				// 복사 받을 세로 사이즈
 		hMemDC,							// 복사할 이미지 dc
 		(int)m_tInfo.fCX * m_tFrame.iStart,
 		(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top

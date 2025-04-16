@@ -11,22 +11,22 @@
 
 #define VK_MAX		0xff
 
-#define TILEX		16
-#define TILEY		12
+#define TILEX		14
+#define TILEY		10
 
-#define TILECX		50
-#define TILECY		50
+#define TILECX		58
+#define TILECY		58
 
 #define DOOR_TOPX		400.f
-#define DOOR_TOPY		125.f
+#define DOOR_TOPY		120.f
 
 #define DOOR_BOTTOMX	400.f
-#define DOOR_BOTTOMY	575.f
+#define DOOR_BOTTOMY	576.f
 
 #define DOOR_LEFTX		25.f
 #define DOOR_LEFTY		350.f
 
-#define DOOR_RIGHTX		775.f
+#define DOOR_RIGHTX		780.f
 #define DOOR_RIGHTY		350.f
 
 

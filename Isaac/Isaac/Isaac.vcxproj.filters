@@ -154,9 +154,6 @@
     <Filter Include="02. Design\08. SoundMgr">
       <UniqueIdentifier>{960df5ac-96e7-4b32-b1b3-1d256ee9f168}</UniqueIdentifier>
     </Filter>
-    <Filter Include="03. Scene\04. TreasureRoom">
-      <UniqueIdentifier>{1a08b5d4-8d29-49fd-9a4a-843596897cb4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="01. Obj\01. Bullet\PlayerBullet\GuidedBullet">
       <UniqueIdentifier>{d4f10090-0f38-4264-8755-0dec55e32162}</UniqueIdentifier>
     </Filter>
@@ -189,6 +186,12 @@
     </Filter>
     <Filter Include="01. Obj\03. Monster\04. Zombie">
       <UniqueIdentifier>{5486f06b-1dff-4cd2-9930-7f856640491f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\04. TreasureRoom">
+      <UniqueIdentifier>{1a08b5d4-8d29-49fd-9a4a-843596897cb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Monster\05. Charger">
+      <UniqueIdentifier>{b949ce05-1d07-43b1-9980-cb8bb67ba350}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -378,6 +381,9 @@
     <ClInclude Include="CZombie.h">
       <Filter>01. Obj\03. Monster\04. Zombie</Filter>
     </ClInclude>
+    <ClInclude Include="CCharger.h">
+      <Filter>01. Obj\03. Monster\05. Charger</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -550,6 +556,9 @@
     </ClCompile>
     <ClCompile Include="CZombie.cpp">
       <Filter>01. Obj\03. Monster\04. Zombie</Filter>
+    </ClCompile>
+    <ClCompile Include="CCharger.cpp">
+      <Filter>01. Obj\03. Monster\05. Charger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

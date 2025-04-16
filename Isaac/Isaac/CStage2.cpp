@@ -8,6 +8,7 @@
 #include "CUIMgr.h"
 #include "CCollisionMgr.h"
 #include "CHost.h"
+#include "CZombie.h"
 
 CStage2::CStage2()
 {
@@ -21,15 +22,19 @@ CStage2::~CStage2()
 void CStage2::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
-	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial.dat");
+	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Stage2.dat");
 
 	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_BOTTOMX, DOOR_BOTTOMY, 50.f, 50.f);
 	dynamic_cast<CDoor*>(pDoor)->Set_Door(3, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
 
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(250.f, 300.f, 36.f, 51.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(550.f, 400.f, 36.f, 51.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(200.f, 370.f, 36.f, 51.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CHost>::Create_Obj(600.f, 370.f, 36.f, 51.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(200.f, 450.f, 40.f, 40.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(600.f, 450.f, 40.f, 40.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(300.f, 200.f, 40.f, 40.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(500.f, 200.f, 40.f, 40.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
 	
 
@@ -75,6 +80,7 @@ void CStage2::Late_Update()
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
+	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER));
 	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
 }
 

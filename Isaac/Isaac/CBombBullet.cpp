@@ -18,7 +18,7 @@ CBombBullet::~CBombBullet()
 
 void CBombBullet::Initialize()
 {
-	m_eBulletID = BULLET_BOMB;
+	m_eBulletID = BULLET_PLAYER;
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/bomb.bmp", L"bomb");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Effect/explosion.bmp", L"explosion");

@@ -4,7 +4,7 @@
 #include "CBmpMgr.h"
 #include "CBullet.h"
 
-CTile::CTile() : m_iDrawID(0), m_iOption(0)
+CTile::CTile() : m_iDrawID(0), m_iOption(0), m_iIMGCX(0), m_iIMGCY(0)
 {
 }
 
@@ -45,13 +45,16 @@ int CTile::Late_Update()
 	{
 	case 1:
 		m_pFrameKey = L"Rock";
+		Set_ImageSize(40, 40);
 		break;
 	case 3:
 		m_pFrameKey = L"Fire";
+		Set_ImageSize(50, 50);
 		__super::Move_Frame();
 		break;
 	case 4:
 		m_pFrameKey = L"Poo";
+		Set_ImageSize(48, 48);
 		break;
 	case 5:
 		m_pFrameKey = L"Holl";
@@ -162,10 +165,10 @@ void CTile::Render(HDC hDC)
 		(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
 		hMemDC,							// 복사할 이미지 dc
 		//m_tFrame.iStart * (int)m_tInfo.fCX + m_tFrame.iStart * 10.f,
-		(int)m_tInfo.fCX * m_tFrame.iStart,
+		m_iIMGCX * m_tFrame.iStart,
 		0,// * m_tFrame.iMotion,								// 복사할 이미지의 left, top
-		(int)m_tInfo.fCX,//(int)m_tInfo.fCX,				// 복사할 이미지의 가로
-		(int)m_tInfo.fCY,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
+		m_iIMGCX,//(int)m_tInfo.fCX,				// 복사할 이미지의 가로
+		m_iIMGCY,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
 		RGB(255, 0, 255));
 }
 
@@ -215,7 +218,7 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				if (m_tFrame.iStart < 4)
 					++m_tFrame.iStart;
 				else
-					m_iOption = 4;
+					m_iOption = 0;
 				break;
 
 			default:

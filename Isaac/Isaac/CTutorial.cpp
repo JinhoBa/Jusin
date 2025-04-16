@@ -21,6 +21,8 @@
 #include "CCyclops.h"
 #include "CSoundMgr.h"
 #include "CPassiveItem.h"
+#include "CZombie.h"
+#include "CCharger.h"
 
 CTutorial::CTutorial()
 {
@@ -42,14 +44,19 @@ void CTutorial::Initialize()
 
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create_Obj(400.f, 300.f, 50.f, 40.f));
+	
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 200.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 500.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(500.f, 400.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(600.f, 200.f, 32.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(300.f, 200.f, 32.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));
 
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(200.f, 230.f, 32.f, 32.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(350.f, 230.f, 32.f, 32.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(400.f, 230.f, 32.f, 32.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSoulHeart>::Create_Obj(300.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(350.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(400.f, 230.f, 32.f, 32.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSoulHeart>::Create_Obj(300.f, 230.f, 32.f, 32.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(350.f, 230.f, 32.f, 32.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CHeart>::Create_Obj(400.f, 230.f, 32.f, 32.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(600.f, 300.f, 32.f, 32.f));

@@ -13,6 +13,11 @@ public:
 
 	void Set_DrawID(int _iDrawID) { m_iDrawID = _iDrawID; }
 	void Set_OptionID(int _iOptionID) { m_iOption = _iOptionID; }
+	void Set_ImageSize(int _iCX, int _iCY)
+	{
+		m_iIMGCX = _iCX;
+		m_iIMGCY = _iCY;
+	}
 
 public:
 	void	Initialize() override;
@@ -26,7 +31,8 @@ public:
 private:
 	int m_iDrawID;
 	int m_iOption;
-
+	int m_iIMGCX;
+	int m_iIMGCY;
 	// CObj을(를) 통해 상속됨
 	void Collision(CObj* _pObj, HITPOINT _tHitPoint) override;
 };

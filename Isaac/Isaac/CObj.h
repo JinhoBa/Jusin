@@ -16,6 +16,7 @@ public:
 	const STAT* Get_Stat() { return &m_tStat; }
 	const OBJID Get_ObjID() { return m_eID; }
 	const float Get_Damage() { return m_tStat.fAttack; }
+	const int Get_FrameMotion() { return m_tFrame.iMotion; }
 
 	void Set_Info(float _fX, float _fY, float _fCX, float _fCY)
 	{

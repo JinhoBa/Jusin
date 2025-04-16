@@ -22,7 +22,7 @@
 
 CPlayer::CPlayer()
 	: m_dwTime(NULL), m_bJump(false), m_fTime(0.f), m_MotionTime(NULL), m_eCurState(IDLE), m_ePreState(MS_END), m_fCoolDown(300.f), m_fAttackPos(0.f), m_fSoulHp(0.f),
-	m_iHeadSize(50)
+	m_iHeadSize(50), m_ChargeMoitonTime(NULL), m_ChargeTime(NULL)
 {
 	ZeroMemory(&m_tBodyInfo, sizeof(INFO));
 	ZeroMemory(&m_tBodyFrame, sizeof(FRAME));
@@ -92,7 +92,7 @@ int CPlayer::Late_Update()
 {
 	
 	
-	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
+	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 5.f);
 
 	if (0 >= m_tStat.fHp)
 	{
@@ -146,10 +146,10 @@ void CPlayer::Render(HDC hDC)
 		hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Player_Body");
 
 		GdiTransparentBlt(hDC,/// 복사 받을 dc
-			m_tRect.left + 6,		// 복사 받을 위치 좌표 left
-			m_tRect.top + 35,					// 복사 받을 위치 좌표 top
+			m_tRect.left + 8,		// 복사 받을 위치 좌표 left
+			m_tRect.top + 31,					// 복사 받을 위치 좌표 top
 			40,//(int)m_tInfo.fCX,				// 복사 받을 가로 사이즈
-			23,//(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
+			20,//(int)m_tInfo.fCY,				// 복사 받을 세로 사이즈
 			hMemDC,							// 복사할 이미지 dc
 			//m_tFrame.iStart * (int)m_tInfo.fCX + m_tFrame.iStart * 10.f,
 			(int)m_tBodyInfo.fCX * m_tBodyFrame.iStart,
@@ -162,10 +162,10 @@ void CPlayer::Render(HDC hDC)
 		if (m_vecItem[2])
 		{
 			GdiTransparentBlt(hDC,/// 복사 받을 dc
-				m_tRect.left - 17,		// 복사 받을 위치 좌표 left
-				m_tRect.top - 30,					// 복사 받을 위치 좌표 top
-				m_iHeadSize,				// 복사 받을 가로 사이즈
-				m_iHeadSize,				// 복사 받을 세로 사이즈
+				m_tRect.left - 19,		// 복사 받을 위치 좌표 left
+				m_tRect.top - 45,					// 복사 받을 위치 좌표 top
+				m_iHeadSize+10,				// 복사 받을 가로 사이즈
+				m_iHeadSize+10,				// 복사 받을 세로 사이즈
 				hMemDC,							// 복사할 이미지 dc
 				(int)m_tInfo.fCX * m_tFrame.iStart,
 				(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top
@@ -176,10 +176,10 @@ void CPlayer::Render(HDC hDC)
 		else
 		{
 			GdiTransparentBlt(hDC,/// 복사 받을 dc
-				m_tRect.left,		// 복사 받을 위치 좌표 left
-				m_tRect.top,					// 복사 받을 위치 좌표 top
-				50,				// 복사 받을 가로 사이즈
-				50,				// 복사 받을 세로 사이즈
+				m_tRect.left-3,		// 복사 받을 위치 좌표 left
+				m_tRect.top-10,					// 복사 받을 위치 좌표 top
+				60,				// 복사 받을 가로 사이즈
+				55,				// 복사 받을 세로 사이즈
 				hMemDC,							// 복사할 이미지 dc
 				(int)m_tInfo.fCX * m_tFrame.iStart,
 				(int)m_tInfo.fCY * m_tFrame.iMotion,			// 복사할 이미지의 left, top
@@ -205,6 +205,7 @@ void CPlayer::Render(HDC hDC)
 			50,				// 복사할 이미지의 세로
 			RGB(255, 0, 255));
 	}
+	
 }
 
 
@@ -371,16 +372,20 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			switch (_tHitPoint.eDirection)
 			{
 			case DIR_DOWN:
-				m_tInfo.fY = 500.f;
+				if(0 == _pObj->Get_FrameMotion())
+					m_tInfo.fY = 490.f;
 				break;
 			case DIR_UP:
-				m_tInfo.fY = 170.f;
+				if (3 == _pObj->Get_FrameMotion())
+					m_tInfo.fY = 170.f;
 				break;
 			case DIR_LEFT:
-				m_tInfo.fX = 90.f;
+				if (2 == _pObj->Get_FrameMotion())
+					m_tInfo.fX = 90.f;
 				break;
 			case DIR_RIGHT:
-				m_tInfo.fX = 710.f;;
+				if (1 == _pObj->Get_FrameMotion())
+					m_tInfo.fX = 710.f;;
 				break;
 			default:
 				break;

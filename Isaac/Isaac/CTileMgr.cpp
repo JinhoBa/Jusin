@@ -27,7 +27,7 @@ void CTileMgr::Initialize()
 			float fX = float((TILECX >> 1) + (TILECX * j));
 			float fY = float((TILECY >> 1) + (TILECY * i));
 
-			m_vecTile.push_back(CAbstractFactory<CTile>::Create_Obj(fX, fY, TILECX, TILECY));
+			m_vecTile.push_back(CAbstractFactory<CTile>::Create_Obj(fX - 3.f, fY + 29.f, TILECX, TILECY));
 		}
 	}
 }
@@ -55,14 +55,14 @@ void CTileMgr::Render(HDC hDC)
 	{
 		// 수직
 		for (int x = 0; x <= TILEX; ++x) {
-			MoveToEx(hDC, x * TILECX, 0, NULL);       // 시작점 설정
-			LineTo(hDC, x * TILECX, WINCY);   // 끝점까지 선 그리기
+			MoveToEx(hDC, x * TILECX-3, 0, NULL);       // 시작점 설정
+			LineTo(hDC, x * TILECX-3, WINCY);   // 끝점까지 선 그리기
 		}
 
 		// 수평선 그리기
 		for (int y = 0; y <= TILEY; ++y) {
-			MoveToEx(hDC, 0, y * TILECY, NULL);      // 시작점 설정
-			LineTo(hDC, WINCX, y * TILECY);   // 끝점까지 선 그리기
+			MoveToEx(hDC, 0, y * TILECY + 29.f, NULL);      // 시작점 설정
+			LineTo(hDC, WINCX, y * TILECY + 29.f);   // 끝점까지 선 그리기
 		}
 	}
 	for (auto pTile : m_vecTile)

@@ -4,13 +4,12 @@
 
 class CDoor : public CObj
 {
-	enum DOORDIR{UP, LEFT, RIGHT, DOWN};
 public:
 	CDoor();
 	~CDoor();
 
 public:
-	void Set_Door(int _iFrameMotion, const TCHAR* _pFileKey, CSceneMgr::SCENEID _eID) 
+	void Set_Door(int _iFrameMotion, const TCHAR* _pFileKey, CSceneMgr::SCENEID _eID)
 	{
 		Set_FramMotion(_iFrameMotion);
 		Set_FrameKey(_pFileKey);
@@ -31,6 +30,9 @@ public:
 
 private:
 	bool m_bOpen;
+	int m_iImgCX;
+	int m_iImgCY;
+
 	CSceneMgr::SCENEID m_eSceneID;
 };
 

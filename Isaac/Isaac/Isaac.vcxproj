@@ -154,6 +154,7 @@
     <ClInclude Include="CBox.h" />
     <ClInclude Include="CBullet.h" />
     <ClInclude Include="CButton.h" />
+    <ClInclude Include="CCharger.h" />
     <ClInclude Include="CCoin.h" />
     <ClInclude Include="CCollisionMgr.h" />
     <ClInclude Include="CCyclops.h" />
@@ -217,6 +218,7 @@
     <ClCompile Include="CBox.cpp" />
     <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CButton.cpp" />
+    <ClCompile Include="CCharger.cpp" />
     <ClCompile Include="CCoin.cpp" />
     <ClCompile Include="CCollisionMgr.cpp" />
     <ClCompile Include="CCyclops.cpp" />
