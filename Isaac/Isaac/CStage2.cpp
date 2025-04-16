@@ -22,10 +22,16 @@ CStage2::~CStage2()
 void CStage2::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/nomalMap1.bmp", L"nomalMap");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Devil.bmp", L"Door_Devil");
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Stage2.dat");
+
 
 	CObj* pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_BOTTOMX, DOOR_BOTTOMY, 50.f, 50.f);
 	dynamic_cast<CDoor*>(pDoor)->Set_Door(3, L"Door_nomal", CSceneMgr::SC_TUTORIAL);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+
+	pDoor = CAbstractFactory<CDoor>::Create_Obj(DOOR_TOPX, DOOR_TOPY, 50.f, 50.f);
+	dynamic_cast<CDoor*>(pDoor)->Set_Door(0, L"Door_Devil",CSceneMgr::SC_DEVILROOM);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
 
@@ -44,6 +50,7 @@ void CStage2::Initialize()
 
 
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STAGE2, 3, 0);
+	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_DEVILROOM, 0, 0);
 	
 }
 

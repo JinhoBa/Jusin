@@ -158,6 +158,7 @@
     <ClInclude Include="CCoin.h" />
     <ClInclude Include="CCollisionMgr.h" />
     <ClInclude Include="CCyclops.h" />
+    <ClInclude Include="CDevilRoom.h" />
     <ClInclude Include="CDoor.h" />
     <ClInclude Include="CEffect.h" />
     <ClInclude Include="CFly.h" />
@@ -222,6 +223,7 @@
     <ClCompile Include="CCoin.cpp" />
     <ClCompile Include="CCollisionMgr.cpp" />
     <ClCompile Include="CCyclops.cpp" />
+    <ClCompile Include="CDevilRoom.cpp" />
     <ClCompile Include="CDoor.cpp" />
     <ClCompile Include="CEffect.cpp" />
     <ClCompile Include="CFly.cpp" />

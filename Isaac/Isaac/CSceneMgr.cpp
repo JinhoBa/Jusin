@@ -12,6 +12,7 @@
 #include "CTreasureRoom.h"
 #include "CStoreRoom.h"
 #include "CStage2.h"
+#include "CDevilRoom.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
@@ -135,6 +136,16 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 				Set_Data(m_vecScene[SC_STAGE2]);
 
 			m_pScene = m_vecScene[SC_STAGE2];
+			break;
+
+		case CSceneMgr::SC_DEVILROOM:
+			CSoundMgr::Get_Instance()->PlayBGM(L"Danny Baranowsky - The Binding of Isaac - 05 Sacrificial.mp3", 0.3f);
+			if (!m_vecScene[SC_DEVILROOM])
+				m_vecScene[SC_DEVILROOM] = CAbstractFactory<CDevilRoom>::Create_Scene();
+			else
+				Set_Data(m_vecScene[SC_DEVILROOM]);
+
+			m_pScene = m_vecScene[SC_DEVILROOM];
 			break;
 
 		case CSceneMgr::SC_END:

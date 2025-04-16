@@ -369,6 +369,12 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_DOOR:
 		if(dynamic_cast<CDoor*>(_pObj)->Get_bOpen())
 		{
+			if (!lstrcmp(dynamic_cast<CDoor*>(_pObj)->Get_FrameKey(), L"Door_Devil"))
+			{
+				m_tStat.fHp -= 1.f;
+				m_eCurState = HIT;
+			}
+
 			switch (_tHitPoint.eDirection)
 			{
 			case DIR_DOWN:

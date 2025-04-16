@@ -193,6 +193,9 @@
     <Filter Include="01. Obj\03. Monster\05. Charger">
       <UniqueIdentifier>{b949ce05-1d07-43b1-9980-cb8bb67ba350}</UniqueIdentifier>
     </Filter>
+    <Filter Include="03. Scene\07. DevilRoom">
+      <UniqueIdentifier>{da3861f2-e765-448b-8797-df2b1dec2a37}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -384,6 +387,9 @@
     <ClInclude Include="CCharger.h">
       <Filter>01. Obj\03. Monster\05. Charger</Filter>
     </ClInclude>
+    <ClInclude Include="CDevilRoom.h">
+      <Filter>03. Scene\07. DevilRoom</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -559,6 +565,9 @@
     </ClCompile>
     <ClCompile Include="CCharger.cpp">
       <Filter>01. Obj\03. Monster\05. Charger</Filter>
+    </ClCompile>
+    <ClCompile Include="CDevilRoom.cpp">
+      <Filter>03. Scene\07. DevilRoom</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
