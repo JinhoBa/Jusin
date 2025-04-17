@@ -43,7 +43,7 @@ void CPlayer::Initialize()
 	m_fSoulHp = 2.f;
 
 	Set_Stat(6.f, 3.5f, 300.f, 4.f);
-	Set_ItemInfo(99, 99, 5);
+	Set_ItemInfo(10, 1, 0);
 
 	m_tInfo.fCX = 50.f;
 	m_tInfo.fCY = 40.f;
@@ -73,6 +73,7 @@ void CPlayer::Initialize()
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 10.f);
 	Set_CollisionBoxSize(40.f, 45.f);
 
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 	m_fAttackPos = 5.f;
 }
 
@@ -90,8 +91,6 @@ int CPlayer::Update()
 
 int CPlayer::Late_Update()
 {
-	
-	
 	Set_CollisionBoxPos(m_tInfo.fX, m_tInfo.fY + 5.f);
 
 	if (0 >= m_tStat.fHp)
@@ -106,9 +105,17 @@ int CPlayer::Late_Update()
 
 	if(CPlayer::ATTACK == m_eCurState)
 	{
-		__super::Move_Frame();
-		if (m_dwTime + m_fCoolDown < GetTickCount64())
-			m_eCurState = IDLE;
+		if (m_vecItem[2] == true)
+		{
+			m_tFrame.iStart = 3;
+			if (m_dwTime + 800 < GetTickCount64())
+				m_eCurState = IDLE;
+		}else
+		{
+			__super::Move_Frame();
+			if (m_dwTime + m_fCoolDown < GetTickCount64())
+				m_eCurState = IDLE;
+		}
 	}
 	else if (CPlayer::HIT == m_eCurState)
 	{
@@ -127,6 +134,10 @@ int CPlayer::Late_Update()
 		__super::Move_Frame();
 		if (m_MotionTime + 2000 < GetTickCount64())
 			CSceneMgr::Get_Instance()->Scene_Change(CSceneMgr::SC_MENU);
+	}
+	else if (CPlayer::ATTACK_LASER == m_eCurState)
+	{
+		
 	}
 
 	Move_BodyFrame();
@@ -278,6 +289,10 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 	case OBJ_ITEM:
 		switch (dynamic_cast<CItem*>(_pObj)->Get_ItemID())
 		{
+		case CItem::ITEM_SLOTMACHINE:
+			CSoundMgr::Get_Instance()->PlaySound(L"Coin_Slot.mp3", m_iSoundChennel, 1.f);
+			break;
+
 		case CItem::ITEM_COIN:
 			_pObj->Set_Dead();
 			++m_tItemInfo.iCoin;
@@ -289,17 +304,15 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			break;
 
 		case CItem::ITEM_KEY:
-			m_eCurState = GETITEM;
 			_pObj->Set_Dead();
 			++m_tItemInfo.iKey;
 			break;
 
 		case CItem::ITEM_BOX:
-			if(0 < m_tItemInfo.iKey && !dynamic_cast<CBox*>(_pObj)->Get_bOpen())
+			if( !dynamic_cast<CBox*>(_pObj)->Get_bOpen())
 			{
 				dynamic_cast<CBox*>(_pObj)->Set_Open();
 				dynamic_cast<CBox*>(_pObj)->Drop_Item_Boss();
-				--m_tItemInfo.iKey;
 			}
 			break;
 

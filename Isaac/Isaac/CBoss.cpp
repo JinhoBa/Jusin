@@ -11,6 +11,7 @@
 #include "CBox.h"
 #include "CCyclops.h"
 #include "CSoundMgr.h"
+#include "CEndHole.h"
 
 CBoss::CBoss() 
 	: m_bLeft(true), m_bHit(false), m_HitTime(GetTickCount64()), m_MotionTime(GetTickCount64()), m_ePreState(IDLE), m_eCurState(IDLE), m_fTime(0.f), m_fAfterY(0.f)
@@ -55,8 +56,10 @@ int CBoss::Update()
 	{
 		CSoundMgr::Get_Instance()->StopAll();
 		Set_Sound(L"BossClear.mp3", 0.8f);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCyclops>::Create_Obj(400.f, 400.f, 50.f, 50.f));
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 300.f, 32.f, 32.f));
+
+		CObj* pDoor = CAbstractFactory<CEndHole>::Create_Obj(400.f, 250.f, 40.f, 40.f);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 		return DEAD;
 	}
 

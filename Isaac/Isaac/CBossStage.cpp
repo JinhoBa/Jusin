@@ -26,6 +26,8 @@ void CBossStage::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/Boss_Room.bmp", L"Boss_Room");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_nomal.bmp", L"Door_nomal");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Boss/Boss_CutScene.bmp", L"Boss_CutScene");
+	
+
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_BossStage.dat");
 
@@ -57,6 +59,7 @@ void CBossStage::Update()
 		m_bFirst = false;
 		CSoundMgr::Get_Instance()->PlayBGM(L"BossStageBGM.mp3", 0.3f);
 	}
+	
 
 	if(!m_bFirst)
 	{
@@ -92,7 +95,7 @@ void CBossStage::Late_Update()
 
 void CBossStage::Render(HDC hDC)
 {
-	if (!m_bFirst)
+	if (!m_bFirst )
 	{
 		HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Boss_Room");
 

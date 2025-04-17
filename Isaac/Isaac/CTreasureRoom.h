@@ -18,5 +18,8 @@ public:
 
 	void Release() override;
 
+private:
+	bool m_bFirst;
+	ULONGLONG m_dwTime;
 };
 

@@ -17,6 +17,7 @@ public:
 		__super::Set_FrameKey(_pFramekey);
 		m_eItemID = _eItemID;
 	}
+	void Set_Stop() { m_bMove = false; }
 	void Spown_Move();
 	void Slip();
 public:
@@ -30,6 +31,9 @@ public:
 
 protected:
 	ITEMID m_eItemID;
+
+	bool m_bMove;
+
 	int		m_iDropTime;
 	float m_fTime;
 	float m_fItemSpeedX;

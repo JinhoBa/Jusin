@@ -157,9 +157,6 @@
     <Filter Include="01. Obj\01. Bullet\PlayerBullet\GuidedBullet">
       <UniqueIdentifier>{d4f10090-0f38-4264-8755-0dec55e32162}</UniqueIdentifier>
     </Filter>
-    <Filter Include="01. Obj\02. Effect\MonsterDeathEffect">
-      <UniqueIdentifier>{72ea035c-dc1c-4bb7-a527-a8356b41273c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="07. UI\03. MiniMap">
       <UniqueIdentifier>{60ea1e45-daa9-45a6-9908-0129b80a6b63}</UniqueIdentifier>
     </Filter>
@@ -195,6 +192,21 @@
     </Filter>
     <Filter Include="03. Scene\07. DevilRoom">
       <UniqueIdentifier>{da3861f2-e765-448b-8797-df2b1dec2a37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\06. DeadEffect">
+      <UniqueIdentifier>{3fe15608-606b-489b-ace2-7de9ef72c9f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\06. DeadEffect\MonsterDeathEffect">
+      <UniqueIdentifier>{72ea035c-dc1c-4bb7-a527-a8356b41273c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\05. Door\EndHole">
+      <UniqueIdentifier>{2308ffbf-a198-4512-9b7c-35149cd366bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\08. Ending">
+      <UniqueIdentifier>{01ecfd91-6e94-463a-8ea3-908e7607ade0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\03. Monster\06. Mulligan">
+      <UniqueIdentifier>{081982e6-e6b6-4a75-8c43-742031699878}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -358,7 +370,7 @@
       <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
     </ClInclude>
     <ClInclude Include="CMonsterDeathEffect.h">
-      <Filter>01. Obj\02. Effect\MonsterDeathEffect</Filter>
+      <Filter>01. Obj\06. DeadEffect\MonsterDeathEffect</Filter>
     </ClInclude>
     <ClInclude Include="CMiniMap.h">
       <Filter>07. UI\03. MiniMap</Filter>
@@ -389,6 +401,15 @@
     </ClInclude>
     <ClInclude Include="CDevilRoom.h">
       <Filter>03. Scene\07. DevilRoom</Filter>
+    </ClInclude>
+    <ClInclude Include="CEndHole.h">
+      <Filter>01. Obj\05. Door\EndHole</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnding.h">
+      <Filter>03. Scene\08. Ending</Filter>
+    </ClInclude>
+    <ClInclude Include="CMulligan.h">
+      <Filter>01. Obj\03. Monster\06. Mulligan</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -537,7 +558,7 @@
       <Filter>01. Obj\01. Bullet\PlayerBullet\GuidedBullet</Filter>
     </ClCompile>
     <ClCompile Include="CMonsterDeathEffect.cpp">
-      <Filter>01. Obj\02. Effect\MonsterDeathEffect</Filter>
+      <Filter>01. Obj\06. DeadEffect\MonsterDeathEffect</Filter>
     </ClCompile>
     <ClCompile Include="CMiniMap.cpp">
       <Filter>07. UI\03. MiniMap</Filter>
@@ -568,6 +589,15 @@
     </ClCompile>
     <ClCompile Include="CDevilRoom.cpp">
       <Filter>03. Scene\07. DevilRoom</Filter>
+    </ClCompile>
+    <ClCompile Include="CEndHole.cpp">
+      <Filter>01. Obj\05. Door\EndHole</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnding.cpp">
+      <Filter>03. Scene\08. Ending</Filter>
+    </ClCompile>
+    <ClCompile Include="CMulligan.cpp">
+      <Filter>01. Obj\03. Monster\06. Mulligan</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

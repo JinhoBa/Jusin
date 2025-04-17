@@ -1,2 +1,18 @@
-﻿  CPlayer.cpp
+﻿  CEnding.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CEnding.cpp(45,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CEnding.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\Define.h(45,3): warning C4150: 불완전한 형식 'CObj'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/CEnding.cpp'을(를) 컴파일하는 중)
+      C:\Users\Jinho\source\Jusin\Isaac\Isaac\CScene.h(3,7):
+      'CObj' 선언을 참조하십시오.
+      C:\Users\Jinho\source\Jusin\Isaac\Isaac\Define.h(45,3):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\Jinho\source\Jusin\Isaac\Isaac\CEnding.cpp(47,72):
+          컴파일되는 함수 템플릿 인스턴스화 'void Safe_Delete<CObj*>(T &)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=CObj *
+          ]
+  
   Isaac.vcxproj -> C:\Users\Jinho\source\Jusin\Isaac\Debug\Isaac.exe

@@ -26,6 +26,8 @@ void CZombie::Initialize()
 	m_tFrame.dwTime = GetTickCount64();
 	m_eCurState = CZombie::LEFT;
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Monster/Zombie.bmp", L"Zombie");
+
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 }
 
 void CZombie::Late_Initialize()
@@ -41,7 +43,9 @@ int CZombie::Update()
 	if (m_bDead || m_fMeatHp < 0.f)
 	{
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 60.f, 30.f, 0));
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_2.mp3", SOUND_EFFECT, 1.f);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f, 16.f, 0));
 		return DEAD;
 	}
 
@@ -76,6 +80,7 @@ int CZombie::Late_Update()
 	case CZombie::MEAT:
 		if (m_tFrame.dwTime + 1000 < GetTickCount64())
 		{
+			CSoundMgr::Get_Instance()->PlaySound(L"Scared_Whimper_2.mp3", m_iSoundChennel, 1.f);
 			m_eCurState = CZombie::RESURRECTION;
 			m_tStat.fHp = 1.f;
 		}
@@ -84,6 +89,7 @@ int CZombie::Late_Update()
 	case CZombie::RESURRECTION:
 		if (m_tFrame.iStart == 6)
 		{
+			
 			m_eCurState = CZombie::RIGHT;
 			m_tStat.fHp = 10.f;
 			m_fMeatHp = 10.f;

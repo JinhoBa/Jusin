@@ -9,6 +9,7 @@
 #include "CCollisionMgr.h"
 #include "CHost.h"
 #include "CZombie.h"
+#include "CSoulHeart.h"
 
 CStage2::CStage2()
 {
@@ -41,7 +42,10 @@ void CStage2::Initialize()
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(600.f, 450.f, 40.f, 40.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(300.f, 200.f, 40.f, 40.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CZombie>::Create_Obj(500.f, 200.f, 40.f, 40.f));
-	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(150.f, 400.f, 32.f, 30.f));
+
+	CObj* pObj = CAbstractFactory<CSoulHeart>::Create_Obj(100.f, 170.f, 32.f, 32.f);
+	dynamic_cast<CItem*>(pObj)->Set_Stop();
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 	
 
 	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();

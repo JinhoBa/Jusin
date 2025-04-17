@@ -2,7 +2,7 @@
 #include "CObj.h"
 class CPlayer : public CObj
 {
-	enum MSTATE {IDLE, ATTACK, HIT, GETITEM, DEATH, MS_END};
+	enum MSTATE {IDLE, ATTACK, ATTACK_LASER, HIT, GETITEM, DEATH, MS_END};
 public:
 	CPlayer();
 	virtual ~CPlayer();

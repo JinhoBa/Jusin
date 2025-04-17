@@ -7,8 +7,10 @@
 #include "CCollisionMgr.h"
 #include "CDoor.h"
 #include "CCharger.h"
+#include "CItem.h"
+#include "CPassiveItem.h"
 
-CDevilRoom::CDevilRoom()
+CDevilRoom::CDevilRoom() : m_bClear(false)
 {
 }
 
@@ -24,7 +26,7 @@ void CDevilRoom::Initialize()
 
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 200.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 500.f, 32.f, 30.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 300.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(500.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(600.f, 200.f, 32.f, 30.f));
 
@@ -52,6 +54,14 @@ void CDevilRoom::Update()
 
 void CDevilRoom::Late_Update()
 {
+	if (!m_bClear && CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER).empty())
+	{
+		m_bClear = true;
+		CObj* pObj = CAbstractFactory<CPassiveItem>::Create_Obj(400.f, 400.f, 50.f, 50.f);
+		dynamic_cast<CItem*>(pObj)->Set_Item(L"Item_118", CItem::ITEM_118);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+	}
+
 	CObjMgr::Get_Instance()->Late_Update();
 	CTileMgr::Get_Instance()->Late_Update();
 	CUIMgr::Get_Instance()->Late_Update();

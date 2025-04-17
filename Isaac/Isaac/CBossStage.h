@@ -13,7 +13,7 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
-	
+
 private:
 	bool m_bFirst;
 	ULONGLONG m_dwTime;

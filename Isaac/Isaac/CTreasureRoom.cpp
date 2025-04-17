@@ -11,7 +11,7 @@
 #include "CPassiveItem.h"
 #include "CSoundMgr.h"
 
-CTreasureRoom::CTreasureRoom()
+CTreasureRoom::CTreasureRoom() : m_bFirst(true), m_dwTime(GetTickCount64())
 {
 }
 
@@ -27,8 +27,12 @@ void CTreasureRoom::Initialize()
 	CSoundMgr::Get_Instance()->PlaySound(L"TreasureRoomEnter.mp3", SOUND_INTRO, 1.f);
 	CObj* pObj;
 
-	pObj = CAbstractFactory<CPassiveItem>::Create_Obj(400.f, 400.f, 50.f, 50.f);
+	pObj = CAbstractFactory<CPassiveItem>::Create_Obj(300.f, 400.f, 50.f, 50.f);
 	dynamic_cast<CItem*>(pObj)->Set_Item(L"Item_Spoon", CItem::ITEM_SPOON);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+
+	pObj = CAbstractFactory<CPassiveItem>::Create_Obj(500.f, 400.f, 50.f, 50.f);
+	dynamic_cast<CItem*>(pObj)->Set_Item(L"Item_Cyclops", CItem::ITEM_CYCLOPS);
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 
 	pObj = CAbstractFactory<CDoor>::Create_Obj(DOOR_LEFTX, DOOR_LEFTY, 50.f, 50.f);
@@ -43,6 +47,11 @@ void CTreasureRoom::Initialize()
 
 void CTreasureRoom::Update()
 {
+	if (m_bFirst && m_dwTime + 5000 < GetTickCount64())
+	{
+		m_bFirst = false;
+		CSoundMgr::Get_Instance()->PlayBGM(L"TresureRoomBGM.mp3", 0.3f);
+	}
 	CObjMgr::Get_Instance()->Update();
 	CTileMgr::Get_Instance()->Update();
 	CUIMgr::Get_Instance()->Update();

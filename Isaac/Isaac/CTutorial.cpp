@@ -45,10 +45,10 @@ void CTutorial::Initialize()
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_PLAYER, CAbstractFactory<CPlayer>::Create_Obj(400.f, 300.f, 50.f, 40.f));
 	
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 200.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 500.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(500.f, 400.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(600.f, 200.f, 32.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 200.f, 32.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 500.f, 32.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(500.f, 400.f, 32.f, 30.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(600.f, 200.f, 32.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(300.f, 200.f, 32.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(200.f, 200.f, 30.f, 30.f));
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBoss>::Create_Obj(600.f, 300.f, 120.f, 120.f));

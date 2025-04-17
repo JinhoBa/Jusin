@@ -48,7 +48,7 @@ int CFly::Update()
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 60.f,30.f, 0));
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f,16.f, 0));
 		return DEAD;
 	}
 	

@@ -7,8 +7,9 @@
 #include "CTools.h"
 #include "CBullet.h"
 #include "CTile.h"
+#include "CSoundMgr.h"
 
-CCharger::CCharger() : m_ePreState(ST_END), m_eCurState(ST_END), m_fOffX(0.f), m_fOffY(0.f)
+CCharger::CCharger() : m_ePreState(ST_END), m_eCurState(ST_END), m_fOffX(0.f), m_fOffY(0.f), m_eStateDIR(ST_END)
 {
 }
 
@@ -19,7 +20,7 @@ CCharger::~CCharger()
 
 void CCharger::Initialize()
 {
-	Set_Stat(10.f, 1.f, 800.f, 1.4f);
+	Set_Stat(10.f, 1.f, 800.f, 1.6f);
 
 	Set_Frame(0, 3, 0);
 	m_tFrame.dwFrameSpeed = 500;
@@ -27,6 +28,8 @@ void CCharger::Initialize()
 	
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Monster/Charger.bmp", L"Charger");
+
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 }
 
 void CCharger::Late_Initialize()
@@ -55,8 +58,10 @@ int CCharger::Update()
 {
 	if (m_bDead || m_tStat.fHp <= 0.f)
 	{
-		//CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 60.f, 30.f, 0));
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_0.mp3", SOUND_EFFECT, 1.f);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f, 16.f, 0));
 		return DEAD;
 	}
 
@@ -173,7 +178,7 @@ void CCharger::Render(HDC hDC)
 		(int)m_tInfo.fCX,				// 복사할 이미지의 가로
 		(int)m_tInfo.fCY,				// 복사할 이미지의 세로
 		RGB(255, 0, 255));
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 }
 
 void CCharger::Release()

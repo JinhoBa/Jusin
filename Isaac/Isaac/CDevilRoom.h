@@ -14,5 +14,7 @@ public:
 	void Render(HDC hDC) override;
 	void Release() override;
 
+private:
+	bool m_bClear;
 };
 

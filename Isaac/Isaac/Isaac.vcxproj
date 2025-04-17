@@ -161,6 +161,8 @@
     <ClInclude Include="CDevilRoom.h" />
     <ClInclude Include="CDoor.h" />
     <ClInclude Include="CEffect.h" />
+    <ClInclude Include="CEndHole.h" />
+    <ClInclude Include="CEnding.h" />
     <ClInclude Include="CFly.h" />
     <ClInclude Include="CGuidedBullet.h" />
     <ClInclude Include="CHeart.h" />
@@ -175,6 +177,7 @@
     <ClInclude Include="CMonster.h" />
     <ClInclude Include="CMonsterBullet.h" />
     <ClInclude Include="CMonsterDeathEffect.h" />
+    <ClInclude Include="CMulligan.h" />
     <ClInclude Include="CMyBmp.h" />
     <ClInclude Include="CObj.h" />
     <ClInclude Include="CObjMgr.h" />
@@ -226,6 +229,8 @@
     <ClCompile Include="CDevilRoom.cpp" />
     <ClCompile Include="CDoor.cpp" />
     <ClCompile Include="CEffect.cpp" />
+    <ClCompile Include="CEndHole.cpp" />
+    <ClCompile Include="CEnding.cpp" />
     <ClCompile Include="CFly.cpp" />
     <ClCompile Include="CGuidedBullet.cpp" />
     <ClCompile Include="CHeart.cpp" />
@@ -240,6 +245,7 @@
     <ClCompile Include="CMonster.cpp" />
     <ClCompile Include="CMonsterBullet.cpp" />
     <ClCompile Include="CMonsterDeathEffect.cpp" />
+    <ClCompile Include="CMulligan.cpp" />
     <ClCompile Include="CMyBmp.cpp" />
     <ClCompile Include="CObj.cpp" />
     <ClCompile Include="CObjMgr.cpp" />

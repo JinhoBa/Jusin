@@ -26,6 +26,7 @@ void CHost::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Monster/Host.bmp", L"Host");
 	
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 }
 
 void CHost::Late_Initialize()
@@ -39,7 +40,9 @@ int CHost::Update()
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 60.f, 30.f, 0));
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_1.mp3", SOUND_EFFECT, 1.f);
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f, 16.f, 0));
 		return DEAD;
 	}
 

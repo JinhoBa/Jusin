@@ -3,7 +3,7 @@
 #include "CTools.h"
 #include "CTile.h"
 
-CItem::CItem() : m_eItemID(ITEM_END), m_CreateTime(GetTickCount64()), m_fTime(0.f), m_fItemSpeedX(0.f), m_iDropTime(0), m_fItemSpeedY(0.f)
+CItem::CItem() : m_eItemID(ITEM_END), m_CreateTime(GetTickCount64()), m_fTime(0.f), m_fItemSpeedX(0.f), m_iDropTime(0), m_fItemSpeedY(0.f), m_bMove(true)
 {
 }
 
@@ -84,9 +84,12 @@ void CItem::Spown_Move()
 	}
 	else
 	{
-		m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-		m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
-		m_fTime += 0.1f;
+		if(m_bMove)
+		{
+			m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+			m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
+			m_fTime += 0.1f;
+		}
 	}
 }
 

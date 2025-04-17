@@ -3,6 +3,10 @@
 #include "Define.h"
 #include "CBmpMgr.h"
 #include "CBullet.h"
+#include "CTools.h"
+#include "CCoin.h"
+#include "CObjMgr.h"
+#include "CSoundMgr.h"
 
 CTile::CTile() : m_iDrawID(0), m_iOption(0), m_iIMGCX(0), m_iIMGCY(0)
 {
@@ -22,6 +26,7 @@ void CTile::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Rock.bmp", L"Rock");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Holl.bmp", L"Holl");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Poo.bmp", L"Poo");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/MapObj/Wood.bmp", L"Wood");
 
 	
 
@@ -58,6 +63,9 @@ int CTile::Late_Update()
 		break;
 	case 5:
 		m_pFrameKey = L"Holl";
+		break;
+	case 6:
+		m_pFrameKey = L"Wood";
 		break;
 	default:
 		break;
@@ -210,15 +218,23 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			switch (m_iDrawID)
 			{
 			case 3:
-				m_iDrawID = 0;
-				m_iOption = 0;
+				m_iDrawID = 6;
+				m_iOption = 1;
+				Set_Frame(0, 0, 0);
+				CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+				CSoundMgr::Get_Instance()->PlaySound(L"Firedeath_hiss.mp3", SOUND_EFFECT, 0.5f);
 				break;
 
 			case 4:
 				if (m_tFrame.iStart < 4)
 					++m_tFrame.iStart;
 				else
+				{
+					if(0 == CTools::Get_RandomNumber(0, 1))
+						CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX, m_tInfo.fY, 32.f, 32.f));
 					m_iOption = 0;
+					m_iDrawID = 0;
+				}
 				break;
 
 			default:

@@ -52,6 +52,11 @@ void CStage1::Initialize()
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(600.f, 400.f, 32.f, 30.f));
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CBombFly>::Create_Obj(650.f, 400.f, 30.f, 30.f));
 
+
+	CObj* pObj = CAbstractFactory<CKey>::Create_Obj(100.f, 500.f, 42.f, 42.f);
+	dynamic_cast<CItem*>(pObj)->Set_Stop();
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+
 	m_iChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 	CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 	CSoundMgr::Get_Instance()->PlaySound(L"Door_Heavy_Close.mp3", SOUND_EFFECT, 1.f);

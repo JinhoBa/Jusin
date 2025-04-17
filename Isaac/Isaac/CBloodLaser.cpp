@@ -5,6 +5,7 @@
 #include "CObjMgr.h"
 #include "CAbstractFactory.h"
 #include "CBloodLaserEffect.h"
+#include "CSoundMgr.h"
 
 CBloodLaser::CBloodLaser() : m_iImageCX(0), m_iImageCY(0), m_eDir(DIR_END), m_fdelta(0.f), m_fSize(0.f), m_fMaxSize(0.f), m_bMaxSize(false), m_dwTime(NULL)
 {
@@ -31,6 +32,9 @@ void CBloodLaser::Initialize()
 	m_tFrame.dwTime = GetTickCount64();
 
 	m_pTarget = CObjMgr::Get_Instance()->Get_Player();
+	
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
+	CSoundMgr::Get_Instance()->PlaySound(L"Blood_Laser.mp3", m_iSoundChennel, 1.f);
 }
 
 void CBloodLaser::Late_Initialize()

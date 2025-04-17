@@ -33,6 +33,8 @@ void CSlotMachine::Initialize()
 
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Item/SlotMachine.bmp", L"SlotMachine");
 
+
+	
 	//m_vecSpownPos = {
 	//	{50.0f, 50.0f},  // 우상단
 	//	{50.0f, -50.0f}, // 우하단
@@ -70,7 +72,7 @@ int CSlotMachine::Late_Update()
 		{
 			m_eCurState = STOP;
 			int iTmp = CTools::Get_RandomNumber(0, 4);
-
+			
 			if (0 < iTmp && iTmp < 5)
 			{
 				Drop_Item(iTmp);
@@ -90,6 +92,7 @@ int CSlotMachine::Late_Update()
 		break;
 
 	case STOP:
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		if (m_dwTime + 1000 < GetTickCount64())
 		{
 			m_eCurState = IDLE;
@@ -159,8 +162,11 @@ void CSlotMachine::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		if (m_eCurState == IDLE && 0 < dynamic_cast<CPlayer*>(_pObj)->Get_ItemInfo()->iCoin  )
 		{
 			dynamic_cast<CPlayer*>(_pObj)->Set_Coin(-1);
+			m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
+			CSoundMgr::Get_Instance()->PlayLoop(L"slottouched.mp3", m_iSoundChennel, 1.f);
 			m_eCurState = MOVE;
 			m_tFrame.iMotion = 0;
+
 		}
 		break;
 	case OBJ_BULLET:
@@ -176,6 +182,11 @@ void CSlotMachine::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 
 void CSlotMachine::Drop_Item(int i)
 {
+	if(0<i && i <5)
+	{
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"slotspawn2.mp3", SOUND_EFFECT, 1.f);
+	}
 	switch (i)
 	{
 	case 1: // 하트
@@ -191,7 +202,10 @@ void CSlotMachine::Drop_Item(int i)
 		break;
 
 	case 4:  // 동전
+	for(int j=0; j < 10; ++j)
+	{
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX, m_tInfo.fY, 32.f, 32.f));
+	}
 		break;
 
 	default:
