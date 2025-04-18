@@ -5,6 +5,9 @@
 #include "CObjMgr.h"
 #include "CMonsterDeathEffect.h"
 #include "CTools.h"
+#include "CTile.h"
+#include "CFly.h"
+#include "CMonsterBullet.h"
 
 CMulligan::CMulligan()
 {
@@ -40,7 +43,7 @@ void CMulligan::Late_Initialize()
 
 int CMulligan::Update()
 {
-	if (m_bDead || m_tStat.fHp <= 0.f)
+	if (m_bDead)
 	{
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
@@ -64,6 +67,8 @@ int CMulligan::Late_Update()
 		m_eCurState = LEFT;
 
 	Move();
+
+	
 
 	Set_CollisionBoxPos(m_tInfo.fX + 5.f, m_tInfo.fY + 7.f);
 
@@ -95,6 +100,39 @@ void CMulligan::Release()
 
 void CMulligan::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
+	switch (_pObj->Get_ObjID())
+	{
+	case OBJ_TILE:
+		if(2 == dynamic_cast<CTile*>(_pObj)->Get_Option())
+		{
+			m_fAngle = CTools::Get_Angle(m_pTarget, &m_tInfo);
+			Set_CollisionBoxSize(0.f, 0.f);
+			for(int i = 0; i < 4; ++i)
+			{
+				CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(m_tInfo.fX+i*30 , m_tInfo.fY, 32.f, 30.f));
+			}
+			m_bDead = true;
+		}
+		break;
+
+	case OBJ_BULLET:
+		m_tStat.fHp -= _pObj->Get_Damage();
+		if (m_tStat.fHp <= 0.f)
+		{
+			for (int i = 0; i < 4; ++i)
+			{
+				CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
+					m_tInfo.fX, m_tInfo.fY,
+					34.f, 34.f,
+					90.f * (float)i, 0.f, m_tStat.fAttack, 800.f, 5.f));
+			}
+			m_bDead = true;
+		}
+		break;
+
+	default:
+		break;
+	}
 }
 
 void CMulligan::Change_Motion()
@@ -125,7 +163,7 @@ void CMulligan::Change_Motion()
 
 void CMulligan::Move()
 {
-	if(CTools::Get_Distance(m_pTarget, &m_tInfo) < 200.f)
+	if(CTools::Get_Distance(m_pTarget, &m_tInfo) < 150.f)
 	{
 		m_fAngle = CTools::Get_Angle(m_pTarget, &m_tInfo);
 		m_tInfo.fX += -m_fSpeed * cosf(m_fAngle * PI / 180.f);

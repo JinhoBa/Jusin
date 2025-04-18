@@ -293,6 +293,26 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			CSoundMgr::Get_Instance()->PlaySound(L"Coin_Slot.mp3", m_iSoundChennel, 1.f);
 			break;
 
+		case CItem::ITEM_NPC:
+			switch (_tHitPoint.eDirection)
+			{
+			case DIR_DOWN:
+				m_tInfo.fY += _tHitPoint.fY;
+				break;
+			case DIR_UP:
+				m_tInfo.fY -= _tHitPoint.fY;
+				break;
+			case DIR_LEFT:
+				m_tInfo.fX -= _tHitPoint.fX;
+				break;
+			case DIR_RIGHT:
+				m_tInfo.fX += _tHitPoint.fX;
+				break;
+			default:
+				break;
+			}
+			break;
+
 		case CItem::ITEM_COIN:
 			_pObj->Set_Dead();
 			++m_tItemInfo.iCoin;
@@ -379,6 +399,7 @@ void CPlayer::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			break;
 		}
 		break;
+
 	case OBJ_DOOR:
 		if(dynamic_cast<CDoor*>(_pObj)->Get_bOpen())
 		{

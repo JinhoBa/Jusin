@@ -10,8 +10,10 @@
 #include "CUIMgr.h"
 #include "CCollisionMgr.h"
 #include "CSlotMachine.h"
+#include "CSellNPC.h"
+#include "CSellGame.h"
 
-CStoreRoom::CStoreRoom()
+CStoreRoom::CStoreRoom() : m_bStart(false)
 {
 }
 
@@ -37,44 +39,63 @@ void CStoreRoom::Initialize()
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSlotMachine>::Create_Obj(320.f, 370.f, 50.f, 50.f));
 
-	
-
-	
-
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSellNPC>::Create_Obj(600.f, 200.f, 50.f, 50.f));
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_TreasureRoom.dat");
 
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STOREROOM, 12, 0);
+
+
+	pSellGame = new CSellGame;
+	pSellGame->Initialize();
 }
 
 void CStoreRoom::Update()
 {
-	CObjMgr::Get_Instance()->Update();
-	CTileMgr::Get_Instance()->Update();
-	CUIMgr::Get_Instance()->Update();
+	if (m_bStart)
+	{
+		if (DEAD == pSellGame->Update())
+		{
+			m_bStart = false;
+			CObjMgr::Get_Instance()->Get_Player()->Set_posY(10.f);
+		}
+			
+	}else
+	{
+		CObjMgr::Get_Instance()->Update();
+		CTileMgr::Get_Instance()->Update();
+		CUIMgr::Get_Instance()->Update();
+	}
 }
 
 void CStoreRoom::Late_Update()
 {
-	CObjMgr::Get_Instance()->Late_Update();
-	CTileMgr::Get_Instance()->Late_Update();
-	CUIMgr::Get_Instance()->Late_Update();
+	if (m_bStart)
+	{
+		pSellGame->Late_Update();
+	}
+	else
+	{
+		CObjMgr::Get_Instance()->Late_Update();
+		CTileMgr::Get_Instance()->Late_Update();
+		CUIMgr::Get_Instance()->Late_Update();
 
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_DOOR));
-	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CTileMgr::Get_Instance()->Get_vecTile());
-	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CTileMgr::Get_Instance()->Get_vecTile());
-	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CTileMgr::Get_Instance()->Get_vecTile());
-	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CTileMgr::Get_Instance()->Get_vecTile());
-	CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT), CTileMgr::Get_Instance()->Get_vecTile());
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
-	CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_DOOR));
+		CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CTileMgr::Get_Instance()->Get_vecTile());
+		CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CTileMgr::Get_Instance()->Get_vecTile());
+		CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CTileMgr::Get_Instance()->Get_vecTile());
+		CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CTileMgr::Get_Instance()->Get_vecTile());
+		CCollisionMgr::Get_Instance()->Collision_Tile(CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT), CTileMgr::Get_Instance()->Get_vecTile());
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_PLAYER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_MONSTER), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_BULLET));
+		CCollisionMgr::Get_Instance()->Collision_Obj(CObjMgr::Get_Instance()->Get_ObjList(OBJ_ITEM), CObjMgr::Get_Instance()->Get_ObjList(OBJ_EFFECT));
+	}
 }
 
 void CStoreRoom::Render(HDC hDC)
@@ -92,6 +113,10 @@ void CStoreRoom::Render(HDC hDC)
 	CTileMgr::Get_Instance()->Render(hDC);
 	CObjMgr::Get_Instance()->Render(hDC);
 	CUIMgr::Get_Instance()->Render(hDC);
+
+	if (m_bStart)
+		pSellGame->Render(hDC);
+		
 }
 
 void CStoreRoom::Release()
@@ -104,4 +129,6 @@ void CStoreRoom::Release()
 
 	for_each(m_vecTile.begin(), m_vecTile.end(), Safe_Delete<CObj*>);
 	m_vecTile.clear();
+
+	Safe_Delete<CSellGame*>(pSellGame);
 }

@@ -85,6 +85,7 @@ public:
 		m_vecSceneState[iIndex] += _iValue;
 	}
 	vector<int> Get_vecSceneState() { return m_vecSceneState; }
+	CScene* Get_CurScene() { return m_pScene; }
 
 public:
 	void		Scene_Change(SCENEID eID);

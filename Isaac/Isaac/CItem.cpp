@@ -86,9 +86,22 @@ void CItem::Spown_Move()
 	{
 		if(m_bMove)
 		{
+			
 			m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
 			m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 			m_fTime += 0.1f;
+
+			if (m_tInfo.fX < TILECX * 0.5f)
+			{
+				m_tInfo.fX = TILECX * 0.5f;
+				m_bMove = false;
+			}
+			else if (m_tInfo.fX > WINCX - TILECX * 0.5f)
+			{
+				m_tInfo.fX = WINCX - TILECX * 0.5f;
+				m_bMove = false;
+			}
+
 		}
 	}
 }

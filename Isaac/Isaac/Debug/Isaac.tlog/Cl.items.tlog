@@ -9,11 +9,13 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBoss.cpp;C:\Users\Jinho\source\Jusin\Is
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBossHp.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBossHp.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBossStage.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBossStage.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBox.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBox.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBtn.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBtn.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CButton.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CButton.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCharger.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCharger.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCoin.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCoin.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCollisionMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCollisionMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCursor.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCursor.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CCyclops.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CCyclops.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDevilRoom.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CDevilRoom.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDoor.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CDoor.obj
@@ -24,6 +26,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CFly.cpp;C:\Users\Jinho\source\Jusin\Isa
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CGuidedBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CGuidedBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CHeart.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CHeart.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CHost.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CHost.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CImage.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CImage.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CItem.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CItem.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CItemEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CItemEffect.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CKey.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CKey.obj
@@ -34,6 +37,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMiniMap.cpp;C:\Users\Jinho\source\Jusin
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonster.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMonster.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonsterBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMonsterBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonsterDeathEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMonsterDeathEffect.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMulligan.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMulligan.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMyBmp.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMyBmp.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObj.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CObj.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObjMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CObjMgr.obj
@@ -42,6 +46,8 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CPlayer.cpp;C:\Users\Jinho\source\Jusin\
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CPlayerBullet.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CPlayerBullet.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CScene.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CScene.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSceneMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSellGame.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSellGame.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSellNPC.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSellNPC.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSlotMachine.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSlotMachine.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSoulHeart.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSoulHeart.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSoundMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CSoundMgr.obj

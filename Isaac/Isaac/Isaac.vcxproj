@@ -152,11 +152,13 @@
     <ClInclude Include="CBossHp.h" />
     <ClInclude Include="CBossStage.h" />
     <ClInclude Include="CBox.h" />
+    <ClInclude Include="CBtn.h" />
     <ClInclude Include="CBullet.h" />
     <ClInclude Include="CButton.h" />
     <ClInclude Include="CCharger.h" />
     <ClInclude Include="CCoin.h" />
     <ClInclude Include="CCollisionMgr.h" />
+    <ClInclude Include="CCursor.h" />
     <ClInclude Include="CCyclops.h" />
     <ClInclude Include="CDevilRoom.h" />
     <ClInclude Include="CDoor.h" />
@@ -167,6 +169,7 @@
     <ClInclude Include="CGuidedBullet.h" />
     <ClInclude Include="CHeart.h" />
     <ClInclude Include="CHost.h" />
+    <ClInclude Include="CImage.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="CItemEffect.h" />
     <ClInclude Include="CKey.h" />
@@ -186,6 +189,8 @@
     <ClInclude Include="CPlayerBullet.h" />
     <ClInclude Include="CScene.h" />
     <ClInclude Include="CSceneMgr.h" />
+    <ClInclude Include="CSellGame.h" />
+    <ClInclude Include="CSellNPC.h" />
     <ClInclude Include="CSlotMachine.h" />
     <ClInclude Include="CSoulHeart.h" />
     <ClInclude Include="CSoundMgr.h" />
@@ -220,11 +225,13 @@
     <ClCompile Include="CBossHp.cpp" />
     <ClCompile Include="CBossStage.cpp" />
     <ClCompile Include="CBox.cpp" />
+    <ClCompile Include="CBtn.cpp" />
     <ClCompile Include="CBullet.cpp" />
     <ClCompile Include="CButton.cpp" />
     <ClCompile Include="CCharger.cpp" />
     <ClCompile Include="CCoin.cpp" />
     <ClCompile Include="CCollisionMgr.cpp" />
+    <ClCompile Include="CCursor.cpp" />
     <ClCompile Include="CCyclops.cpp" />
     <ClCompile Include="CDevilRoom.cpp" />
     <ClCompile Include="CDoor.cpp" />
@@ -235,6 +242,7 @@
     <ClCompile Include="CGuidedBullet.cpp" />
     <ClCompile Include="CHeart.cpp" />
     <ClCompile Include="CHost.cpp" />
+    <ClCompile Include="CImage.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CItemEffect.cpp" />
     <ClCompile Include="CKey.cpp" />
@@ -254,6 +262,8 @@
     <ClCompile Include="CPlayerBullet.cpp" />
     <ClCompile Include="CScene.cpp" />
     <ClCompile Include="CSceneMgr.cpp" />
+    <ClCompile Include="CSellGame.cpp" />
+    <ClCompile Include="CSellNPC.cpp" />
     <ClCompile Include="CSlotMachine.cpp" />
     <ClCompile Include="CSoulHeart.cpp" />
     <ClCompile Include="CSoundMgr.cpp" />

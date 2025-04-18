@@ -1,5 +1,6 @@
 #pragma once
 #include "CScene.h"
+class CSellGame;
 
 class CStoreRoom : public CScene
 {
@@ -14,5 +15,12 @@ public:
 	void Render(HDC hDC) override;
 	void Release() override;
 
+public:
+	void Set_Start() { m_bStart = true; }
+	void Set_End() { m_bStart = false; }
+
+private:
+	bool m_bStart;
+	CSellGame* pSellGame;
 };
 

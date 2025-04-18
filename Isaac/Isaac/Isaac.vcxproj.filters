@@ -208,6 +208,24 @@
     <Filter Include="01. Obj\03. Monster\06. Mulligan">
       <UniqueIdentifier>{081982e6-e6b6-4a75-8c43-742031699878}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\07. NPC">
+      <UniqueIdentifier>{c7c1b8d7-f9bc-4d3c-89ef-0154bfee9687}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01. Obj\07. NPC\00. SellNPC">
+      <UniqueIdentifier>{81810242-d991-4d04-bba0-af2acd98edfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. SellGame">
+      <UniqueIdentifier>{790763dc-f88c-4c0b-a8e8-4a5f3f7e74b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. SellGame\00. Image">
+      <UniqueIdentifier>{cd121838-bfeb-4b69-9ea6-9f8e065a2fd5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. SellGame\00. Image\Cursor">
+      <UniqueIdentifier>{4a909857-55c2-4d61-82c8-d6563f4a0b39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="08. SellGame\01. Btn">
+      <UniqueIdentifier>{03663535-dc02-4873-a88e-f7b3d0887b13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -411,6 +429,21 @@
     <ClInclude Include="CMulligan.h">
       <Filter>01. Obj\03. Monster\06. Mulligan</Filter>
     </ClInclude>
+    <ClInclude Include="CSellNPC.h">
+      <Filter>01. Obj\07. NPC\00. SellNPC</Filter>
+    </ClInclude>
+    <ClInclude Include="CSellGame.h">
+      <Filter>08. SellGame</Filter>
+    </ClInclude>
+    <ClInclude Include="CImage.h">
+      <Filter>08. SellGame\00. Image</Filter>
+    </ClInclude>
+    <ClInclude Include="CCursor.h">
+      <Filter>08. SellGame\00. Image\Cursor</Filter>
+    </ClInclude>
+    <ClInclude Include="CBtn.h">
+      <Filter>08. SellGame\01. Btn</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -598,6 +631,21 @@
     </ClCompile>
     <ClCompile Include="CMulligan.cpp">
       <Filter>01. Obj\03. Monster\06. Mulligan</Filter>
+    </ClCompile>
+    <ClCompile Include="CSellNPC.cpp">
+      <Filter>01. Obj\07. NPC\00. SellNPC</Filter>
+    </ClCompile>
+    <ClCompile Include="CSellGame.cpp">
+      <Filter>08. SellGame</Filter>
+    </ClCompile>
+    <ClCompile Include="CImage.cpp">
+      <Filter>08. SellGame\00. Image</Filter>
+    </ClCompile>
+    <ClCompile Include="CCursor.cpp">
+      <Filter>08. SellGame\00. Image\Cursor</Filter>
+    </ClCompile>
+    <ClCompile Include="CBtn.cpp">
+      <Filter>08. SellGame\01. Btn</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

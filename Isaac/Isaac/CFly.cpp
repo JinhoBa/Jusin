@@ -74,7 +74,7 @@ int CFly::Late_Update()
 
 void CFly::Render(HDC hDC)
 {
-	//__super::Collison_Render(hDC);
+	//__super::Collision_Render(hDC);
 
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Fly");
 
@@ -121,6 +121,27 @@ void CFly::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			}
 		}
 		break;
+		
+	case OBJ_MONSTER:
+		switch (_tHitPoint.eDirection)
+		{
+		case DIR_DOWN:
+			m_tInfo.fY += _tHitPoint.fY+1;
+			break;
+		case DIR_UP:
+			m_tInfo.fY -= _tHitPoint.fY+1;
+			break;
+		case DIR_LEFT:
+			m_tInfo.fX -= _tHitPoint.fX+1;
+			break;
+		case DIR_RIGHT:
+			m_tInfo.fX += _tHitPoint.fX+1;
+			break;
+		default:
+			break;
+		}
+		break;
+
 
 	case OBJ_BULLET:
 		if (CBullet::BULLET_MONSTER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
