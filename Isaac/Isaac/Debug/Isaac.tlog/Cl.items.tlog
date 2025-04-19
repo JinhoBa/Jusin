@@ -31,6 +31,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CItem.cpp;C:\Users\Jinho\source\Jusin\Is
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CItemEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CItemEffect.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CKey.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CKey.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CKeyMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CKeyMgr.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CLoading.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CLoading.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMainGame.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMainGame.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMenu.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMenu.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMiniMap.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMiniMap.obj
@@ -39,6 +40,7 @@ C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonsterBullet.cpp;C:\Users\Jinho\source
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMonsterDeathEffect.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMonsterDeathEffect.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMulligan.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMulligan.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CMyBmp.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CMyBmp.obj
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CNumber.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CNumber.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObj.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CObj.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CObjMgr.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CObjMgr.obj
 C:\Users\Jinho\source\Jusin\Isaac\Isaac\CPassiveItem.cpp;C:\Users\Jinho\source\Jusin\Isaac\Isaac\Debug\CPassiveItem.obj

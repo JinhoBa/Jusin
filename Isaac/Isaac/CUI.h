@@ -23,7 +23,13 @@ public:
 		m_tRect.bottom = long(m_tInfo.fY + m_tInfo.fCY / 2.f);
 
 	}
-
+	void Set_Info(float _fX, float _fY, float _fCX, float _fCY)
+	{
+		m_tInfo.fX = _fX;
+		m_tInfo.fY = _fY;
+		m_tInfo.fCX = _fCX;
+		m_tInfo.fCY = _fCY;
+	}
 protected:
 	INFO m_tInfo;
 	RECT m_tRect;

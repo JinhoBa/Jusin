@@ -4,6 +4,9 @@
 #include "CKeyMgr.h"
 #include "CImage.h"
 #include "CTools.h"
+#include "CObjMgr.h"
+#include "CPlayer.h"
+#include "CSoundMgr.h"
 
 CSellGame::CSellGame() 
 	: m_fX(0.f), m_fY(0.f), m_fRadius(0.f), m_fAngle(0.f), m_eCurState(STATE_END), m_ePreState(STATE_END), m_bShuffle(false), 
@@ -28,6 +31,7 @@ void CSellGame::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/SellGame/PooImg.bmp", L"PooImg");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/SellGame/Cursor.bmp", L"Cursor");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/MainCursor.bmp", L"MainCursor");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/ResultUI.bmp", L"ResultUI");
 
 
 	m_vecResult.push_back(false);
@@ -63,6 +67,11 @@ void CSellGame::Initialize()
 	m_pMainCursor->Set_Info(0.f, 0.f, 24.f, 24.f);
 	m_pMainCursor->Set_FrameKey(L"MainCursor");
 
+	m_pResultUI = new CImage;
+	m_pResultUI->Set_Info(360.f, 220.f, 100.f, 40.f);
+	m_pResultUI->Set_FrameKey(L"ResultUI");
+
+
 	m_ImageList.push_back(m_pSeller);
 	m_ImageList.push_back(m_pSkeleton1);
 	m_ImageList.push_back(m_pSkeleton2);
@@ -73,6 +82,12 @@ void CSellGame::Initialize()
 	m_vecSkeletons.push_back(m_pSkeleton3->Get_Info());
 
 	Set_Random_Index();
+
+	m_iCount = 10;
+	m_bEnd = false;
+
+	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
+	m_iCursorSound = CSoundMgr::Get_Instance()->Get_AvailableChennel();
 }
 
 void CSellGame::Late_Initialize()
@@ -82,17 +97,22 @@ void CSellGame::Late_Initialize()
 int CSellGame::Update()
 {
 	if (m_bEnd)
+	{
+		Release();
+		CSoundMgr::Get_Instance()->StopAll();
 		return DEAD;
+	}
 
 	for (auto pImg : m_ImageList)
 	{
 		pImg->Update();
 	}
-
+	
 	m_pResult1->Update();
 
 	m_pCursor->Update();
 	m_pMainCursor->Update();
+	m_pResultUI->Update();
 	
 
 	return NOEVENT;
@@ -124,7 +144,7 @@ void CSellGame::Late_Update()
 		break;
 
 	case CSellGame::RESULT:
-
+		Show_Item();
 		break;
 	case CSellGame::STATE_END:
 		break;
@@ -145,6 +165,7 @@ void CSellGame::Late_Update()
 	m_pResult1->Late_Update();
 	m_pCursor->Late_Update();
 	m_pMainCursor->Late_Update();
+	m_pResultUI->Late_Update();
 
 	m_pCursor->Set_Pos(340.f + (float)m_iCusorIndex * 60.f, 340.f);
 	m_pMainCursor->Set_Pos(250.f + (float)m_iMainCusorIndex * 190.f, 465.f);
@@ -172,7 +193,7 @@ void CSellGame::Render(HDC hDC)
 		256,//(int)m_tInfo.fCY,				// 복사할 이미지의 세로
 		RGB(255, 0, 255));
 
-	if (START == m_eCurState)
+	if (START == m_eCurState|| RESULT == m_eCurState)
 		m_pResult1->Render(hDC);
 	
 	for (auto pImg : m_ImageList)
@@ -187,6 +208,9 @@ void CSellGame::Render(HDC hDC)
 	{
 		m_pMainCursor->Render(hDC);
 	}
+
+	if (RESULT == m_eCurState)
+		m_pResultUI->Render(hDC);
 	
 }
 
@@ -195,25 +219,40 @@ void CSellGame::Release()
 	for_each(m_ImageList.begin(), m_ImageList.end(), Safe_Delete<CImage*>);
 	m_ImageList.clear();
 	Safe_Delete<CImage*>(m_pResult1);
+	Safe_Delete<CImage*>(m_pCursor);
+	Safe_Delete<CImage*>(m_pMainCursor);
+	Safe_Delete<CImage*>(m_pResultUI);
+	m_vecSkeletons.clear();
+	m_vecResult.clear();
+	CSoundMgr::Get_Instance()->PlayBGM(L"StoreRoomBGM.mp3", 0.3f);
 }
 
 void CSellGame::Shuffle(INFO* Tmp, INFO* Src)
 {
-	if(!m_bShuffle)
+	
+	if (!m_bShuffle)
 	{
+		m_fTmpX = Tmp->fX;
+		m_fSrcX = Src->fX;
 		m_fRadius = fabsf(Tmp->fX - Src->fX)* 0.5f;
 		m_fX = (Tmp->fX + Src->fX) * 0.5f;
 		m_fY = Tmp->fY;
 		m_fAngle = 0.f;
 		m_bShuffle = true;
 	}
-	
-	Tmp->fX = m_fX + m_fRadius * cosf(m_fAngle * PI / 180.f);
-	Tmp->fY = m_fY - m_fRadius * sinf(m_fAngle * PI / 180.f);
 
-	Src->fX = m_fX - m_fRadius * cosf(m_fAngle * PI / 180.f);
+	if(m_fTmpX < m_fSrcX)
+	{
+		Tmp->fX = m_fX - m_fRadius * cosf(m_fAngle * PI / 180.f);
+		Src->fX = m_fX + m_fRadius * cosf(m_fAngle * PI / 180.f);
+	}
+	else
+	{
+		Tmp->fX = m_fX + m_fRadius * cosf(m_fAngle * PI / 180.f);
+		Src->fX = m_fX - m_fRadius * cosf(m_fAngle * PI / 180.f);
+	}
+	Tmp->fY = m_fY - m_fRadius * sinf(m_fAngle * PI / 180.f);
 	Src->fY = m_fY - m_fRadius * sinf(m_fAngle * PI / 180.f);
-	
 
 	m_fAngle += m_fShuffleSpeed;
 
@@ -232,15 +271,17 @@ void CSellGame::Change_State()
 		switch (m_eCurState)
 		{
 		case CSellGame::IDLE:
+			CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 			break;
 		case CSellGame::START:
 			m_pResult1->Set_Info(m_pSkeleton3->Get_Info()->fX, m_pSkeleton3->Get_Info()->fY, 32.f, 32.f);
 			break;
 		case CSellGame::SHUFFLE:
 			m_pSeller->Set_FrameStart(1);
+			CSoundMgr::Get_Instance()->PlayLoop(L"ShellGame.mp3", m_iSoundChennel, 0.5f);
 			break;
 		case CSellGame::SELLECT:
-			
+			CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 			break;
 		case CSellGame::STATE_END:
 			break;
@@ -259,7 +300,12 @@ void CSellGame::Set_Random_Index()
 	{
 		m_iIndex2 = CTools::Get_RandomNumber(0, 2);
 		if (m_iIndex2 != m_iIndex1)
+		{
+			if (m_iIndex1 > m_iIndex2)
+				swap(m_iIndex1, m_iIndex2);
+
 			break;
+		}
 	}
 }
 
@@ -276,7 +322,14 @@ void CSellGame::Show_Item()
 
 	if (m_vecSkeletons.front()->fY >= 340.f)
 	{
-		m_eCurState = SHUFFLE;
+		for (auto pImg : m_vecSkeletons)
+		{
+			pImg->fY = 340.f;
+		}
+		if (START == m_eCurState)
+			m_eCurState = SHUFFLE;
+		else if (RESULT == m_eCurState)
+			m_eCurState = IDLE;
 	}
 
 
@@ -287,12 +340,22 @@ void CSellGame::Check_Result()
 	if (340 + 60 * m_iCusorIndex == m_pSkeleton3->Get_Info()->fX)
 	{
 		m_pSeller->Set_FrameStart(3);
+		m_pResultUI->Set_FrameStart(0);
+		dynamic_cast<CPlayer*>(CObjMgr::Get_Instance()->Get_Player())->Set_Coin(2);
+		CSoundMgr::Get_Instance()->PlaySound(L"ThumbsUp.mp3", m_iSoundChennel, 0.5f);
 	}
 	else
 	{
 		m_pSeller->Set_FrameStart(2);
+		m_pResultUI->Set_FrameStart(1);
+		dynamic_cast<CPlayer*>(CObjMgr::Get_Instance()->Get_Player())->Set_Coin(-1);
+		CSoundMgr::Get_Instance()->PlaySound(L"ThumbsDown.mp3", m_iSoundChennel, 0.5f);
 	}
+	m_pResult1->Set_Info(m_pSkeleton3->Get_Info()->fX, m_pSkeleton3->Get_Info()->fY, 32.f, 32.f);
 	m_eCurState = RESULT;
+	
+	m_fShowSpeed = 1.f;
+	m_dwTime = GetTickCount64();
 }
 
 void CSellGame::Key_Input()
@@ -303,6 +366,7 @@ void CSellGame::Key_Input()
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
 		{
 			++m_iMainCusorIndex;
+			CursorSound();
 			if (1 < m_iMainCusorIndex)
 				m_iMainCusorIndex = 0;
 		}
@@ -310,6 +374,7 @@ void CSellGame::Key_Input()
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_LEFT))
 		{
 			--m_iMainCusorIndex;
+			CursorSound();
 			if (0 > m_iMainCusorIndex)
 				m_iMainCusorIndex = 1;
 		}
@@ -317,7 +382,19 @@ void CSellGame::Key_Input()
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_RETURN))
 		{
 			if (0 == m_iMainCusorIndex)
-				m_eCurState = START;
+			{
+				if(0 < dynamic_cast<CPlayer*>(CObjMgr::Get_Instance()->Get_Player())->Get_ItemInfo()->iCoin)
+				{
+					m_eCurState = START;
+					m_iCount = 10;
+					m_fShuffleSpeed = 10.f;
+					m_fShowSpeed = 1.f;
+				}
+				else
+				{
+					// 돈 부족 출력
+				}
+			}
 			else
 				m_bEnd = true;
 		}
@@ -327,6 +404,7 @@ void CSellGame::Key_Input()
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
 		{
 			++m_iCusorIndex;
+			CursorSound();
 			if (2 < m_iCusorIndex)
 				m_iCusorIndex = 0;
 		}
@@ -334,12 +412,11 @@ void CSellGame::Key_Input()
 		if (CKeyMgr::Get_Instance()->Key_Down(VK_LEFT))
 		{
 			--m_iCusorIndex;
+			CursorSound();
 			if (0 > m_iCusorIndex)
 				m_iCusorIndex = 2;
 		}
 		break;
-
-	
 
 	defualt:
 		break;
@@ -347,4 +424,10 @@ void CSellGame::Key_Input()
 		
 	
 
+}
+
+void CSellGame::CursorSound()
+{
+	CSoundMgr::Get_Instance()->StopSound(m_iCursorSound);
+	CSoundMgr::Get_Instance()->PlaySound(L"Cursor.mp3", m_iCursorSound, 1.f);
 }

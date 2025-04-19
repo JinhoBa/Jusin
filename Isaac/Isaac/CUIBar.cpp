@@ -5,8 +5,10 @@
 #include "CPlayer.h"
 #include "CUIMgr.h"
 #include "CMiniMap.h"
+#include "CImage.h"
+#include "CNumber.h"
 
-CUIBar::CUIBar() : m_pPlayer(nullptr), m_pCoin(L""), m_pBomb(L""), m_pKey(L""), m_pHp(L"")
+CUIBar::CUIBar() : m_pPlayer(nullptr), m_pCoinValue(nullptr), m_pBombValue(nullptr), m_pKeyValue(nullptr)
 {
 	ZeroMemory(&m_tItemInfo, sizeof(ITEMINFO));
 }
@@ -24,8 +26,11 @@ void CUIBar::Initialize()
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/UIBar.bmp", L"UIBar");
     CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/Heart_UI.bmp", L"Heart_UI");
 
-	CUIMgr::Get_Instance()->Add_UI(UI_MINIMAP, CAbstractFactory<CMiniMap>::Create_UI());
+	CUIMgr::Get_Instance()->Add_UI(UI_MINIMAP, CAbstractFactory<CMiniMap>::Create_UI(0.f, 0.f, 0.f, 0.f));
     
+	m_pCoinValue = CAbstractFactory<CNumber>::Create_UI(432.f, 17.f, 16.f, 16.f);
+	m_pBombValue = CAbstractFactory<CNumber>::Create_UI(432.f, 49.f, 16.f, 16.f);
+	m_pKeyValue = CAbstractFactory<CNumber>::Create_UI(432.f, 81.f, 16.f, 16.f);
 }
 
 void CUIBar::Late_Initialize()
@@ -39,10 +44,9 @@ int CUIBar::Update()
 
 int CUIBar::Late_Update()
 {
-	wsprintf(m_pCoin, L"%d", m_tItemInfo->iCoin);
-	wsprintf(m_pBomb, L"%d", m_tItemInfo->iBomb);
-	wsprintf(m_pKey, L"%d", m_tItemInfo->iKey);
-	//wsprintf(m_pHp, L"%d", (int)(m_pPlayer->Get_Stat()->fHp));
+	dynamic_cast<CNumber*>(m_pCoinValue)->Set_Frame(m_tItemInfo->iCoin % 10, m_tItemInfo->iCoin / 10);
+	dynamic_cast<CNumber*>(m_pBombValue)->Set_Frame(m_tItemInfo->iBomb % 10, m_tItemInfo->iBomb / 10);
+	dynamic_cast<CNumber*>(m_pKeyValue)->Set_Frame(m_tItemInfo->iKey % 10, m_tItemInfo->iKey / 10);
 
 	int iHp = (int)(m_pPlayer->Get_Stat()->fHp);
 	int iMaxHp = (int)(m_pPlayer->Get_Stat()->fMaxHp);
@@ -121,24 +125,13 @@ void CUIBar::Render(HDC hDC)
 				SRCCOPY);
 		}
 	}
-	HFONT hFont, OldFont;
 
-	hFont = CreateFont(
-		18, 0, 0, 0, FW_HEAVY, FALSE, FALSE, FALSE,
-		HANGEUL_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
-		DEFAULT_QUALITY, VARIABLE_PITCH | FF_SWISS,
-		TEXT("±¼¸²")
-	);
-	OldFont = (HFONT)SelectObject(hDC, hFont);
-	SetTextColor(hDC, RGB(255, 255, 255));
-	SetBkMode(hDC, TRANSPARENT);
-	TextOut(hDC, 430, 13, m_pCoin, lstrlen(m_pCoin));
-	TextOut(hDC, 430, 45, m_pBomb, lstrlen(m_pBomb));
-	TextOut(hDC, 430, 76, m_pKey, lstrlen(m_pKey));
-	TextOut(hDC, 600, 26, m_pHp, lstrlen(m_pHp));
+	m_pCoinValue->Render(hDC);
+	m_pBombValue->Render(hDC);
+	m_pKeyValue->Render(hDC);
+	
 
-	SelectObject(hDC, OldFont);
-	DeleteObject(hFont);
+
 }
 
 void CUIBar::Release()

@@ -121,9 +121,8 @@ public:
 	static CSceneMgr* m_pInstance;
 
 	CScene* m_pScene;
-	CScene* m_pTutorial;
-	CScene* m_pStage1;
-	CScene* m_pTreasureRoom;
+	CScene* m_pLoading;
+	
 
 	vector<CScene*> m_vecScene;
 	vector<int> m_vecSceneState;

@@ -23,6 +23,8 @@ private:
 	void	Show_Item();
 	void	Check_Result();
 	void	Key_Input();
+	void	CursorSound();
+	
 private:
 	GAMESTATE m_eCurState;
 	GAMESTATE m_ePreState;
@@ -37,12 +39,19 @@ private:
 	int m_iIndex1;
 	int m_iIndex2;
 
+	int			m_iSoundChennel;
+	int			m_iCursorSound;
+
 	float m_fX;
 	float m_fY;
+	float m_fTmpX;
+	float m_fSrcX;
 	float m_fRadius;
 	float m_fAngle;
 	float m_fShuffleSpeed;
 	float m_fShowSpeed;
+
+	ULONGLONG m_dwTime;
 
 	CImage* m_pSkeleton1;
 	CImage* m_pSkeleton2;
@@ -51,6 +60,7 @@ private:
 
 	CImage* m_pCursor;
 	CImage* m_pMainCursor;
+	CImage* m_pResultUI;
 
 	list<CImage*> m_ImageList;
 	vector<bool> m_vecResult;

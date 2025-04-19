@@ -50,7 +50,7 @@ void CTreasureRoom::Update()
 	if (m_bFirst && m_dwTime + 5000 < GetTickCount64())
 	{
 		m_bFirst = false;
-		CSoundMgr::Get_Instance()->PlayBGM(L"TresureRoomBGM.mp3", 0.3f);
+		
 	}
 	CObjMgr::Get_Instance()->Update();
 	CTileMgr::Get_Instance()->Update();

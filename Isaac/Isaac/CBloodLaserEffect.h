@@ -18,6 +18,5 @@ public:
 
 public:
 	ULONGLONG m_dwTime;
-	int m_fCY;
 };
 

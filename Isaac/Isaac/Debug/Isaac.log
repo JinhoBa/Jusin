@@ -1,5 +1,2 @@
-﻿  CSellGame.cpp
-C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSellGame.cpp(344,2): warning C4102: 'defualt': 참조되지 않은 레이블입니다.
-  (소스 파일 '/CSellGame.cpp'을(를) 컴파일하는 중)
-  
+﻿  CSellNPC.cpp
   Isaac.vcxproj -> C:\Users\Jinho\source\Jusin\Isaac\Debug\Isaac.exe

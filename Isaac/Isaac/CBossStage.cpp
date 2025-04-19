@@ -40,8 +40,8 @@ void CBossStage::Initialize()
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 	
 
-	CUIMgr::Get_Instance()->Add_UI(UI_BAR, CAbstractFactory<CUIBar>::Create_UI());
-	CUIMgr::Get_Instance()->Add_UI(UI_BOSSHP, CAbstractFactory<CBossHp>::Create_UI());
+	CUIMgr::Get_Instance()->Add_UI(UI_BAR, CAbstractFactory<CUIBar>::Create_UI(0.f, 0.f, 0.f, 0.f));
+	CUIMgr::Get_Instance()->Add_UI(UI_BOSSHP, CAbstractFactory<CBossHp>::Create_UI(0.f, 0.f, 0.f, 0.f));
 
 	CSoundMgr::Get_Instance()->StopSound(SOUND_INTRO);
 	CSoundMgr::Get_Instance()->PlaySound(L"bossintro.mp3", SOUND_INTRO, 1.f);

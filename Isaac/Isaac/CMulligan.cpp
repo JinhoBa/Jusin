@@ -62,13 +62,11 @@ int CMulligan::Late_Update()
 	__super::Move_Frame();
 
 	if (m_pTarget->Get_Info()->fX > m_tInfo.fX)
-		m_eCurState = RIGHT;
-	else
 		m_eCurState = LEFT;
+	else
+		m_eCurState = RIGHT;
 
 	Move();
-
-	
 
 	Set_CollisionBoxPos(m_tInfo.fX + 5.f, m_tInfo.fY + 7.f);
 
@@ -78,7 +76,7 @@ int CMulligan::Late_Update()
 
 void CMulligan::Render(HDC hDC)
 {
-	__super::Collision_Render(hDC);
+	//__super::Collision_Render(hDC);
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(m_pFrameKey);
 
 	GdiTransparentBlt(hDC,/// 복사 받을 dc
@@ -109,7 +107,13 @@ void CMulligan::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			Set_CollisionBoxSize(0.f, 0.f);
 			for(int i = 0; i < 4; ++i)
 			{
-				CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CFly>::Create_Obj(m_tInfo.fX+i*30 , m_tInfo.fY, 32.f, 30.f));
+				CObjMgr::Get_Instance()->Add_CObj(
+					OBJ_MONSTER, 
+					CAbstractFactory<CFly>::Create_Obj(
+						m_tInfo.fX + 20.f*i * cosf(m_fAngle * PI / 180.f), 
+						m_tInfo.fY - 20.f*i * sinf(m_fAngle * PI / 180.f),
+						32.f, 30.f
+					));
 			}
 			m_bDead = true;
 		}
@@ -163,7 +167,7 @@ void CMulligan::Change_Motion()
 
 void CMulligan::Move()
 {
-	if(CTools::Get_Distance(m_pTarget, &m_tInfo) < 150.f)
+	if(CTools::Get_Distance(m_pTarget, &m_tInfo) < 200.f)
 	{
 		m_fAngle = CTools::Get_Angle(m_pTarget, &m_tInfo);
 		m_tInfo.fX += -m_fSpeed * cosf(m_fAngle * PI / 180.f);

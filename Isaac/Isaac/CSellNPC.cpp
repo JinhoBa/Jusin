@@ -2,8 +2,10 @@
 #include "CSellNPC.h"
 #include "CBmpMgr.h"
 #include "CStoreRoom.h"
+#include "CSellGame.h"
+#include "CSoundMgr.h"
 
-CSellNPC::CSellNPC()
+CSellNPC::CSellNPC() : m_pSellGame(nullptr)
 {
 }
 
@@ -66,6 +68,12 @@ void CSellNPC::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
 	if (OBJ_PLAYER == _pObj->Get_ObjID())
 	{
+		if (m_pSellGame)
+		{
+			m_pSellGame->Initialize();
+			CSoundMgr::Get_Instance()->StopAll();
+			CSoundMgr::Get_Instance()->PlayBGM(L"ShellGameBGM.mp3", 0.4f);
+		}
 		dynamic_cast<CStoreRoom*>(CSceneMgr::Get_Instance()->Get_CurScene())->Set_Start();
 	}
 }

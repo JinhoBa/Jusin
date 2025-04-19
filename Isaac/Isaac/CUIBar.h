@@ -2,7 +2,7 @@
 #include "CUI.h"
 
 class CObj;
-
+class CImage;
 class CUIBar : public CUI
 {
 public:
@@ -22,9 +22,9 @@ private:
 	vector<int> m_vecHp;
 
 	ITEMINFO*	m_tItemInfo;
-	TCHAR		m_pCoin[16];
-	TCHAR		m_pBomb[16];
-	TCHAR		m_pKey[16];
-	TCHAR		m_pHp[16];
+
+	CUI* m_pCoinValue;
+	CUI* m_pBombValue;
+	CUI* m_pKeyValue;
 };
 

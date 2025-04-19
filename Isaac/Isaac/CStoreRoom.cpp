@@ -33,21 +33,26 @@ void CStoreRoom::Initialize()
 	dynamic_cast<CDoor*>(pObj)->Set_Open();
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pObj);
 
+	pSellGame = new CSellGame;
+
 	//pObj = CAbstractFactory<CPassiveItem>::Create_Obj(400.f, 400.f, 50.f, 50.f);
 	//dynamic_cast<CItem*>(pObj)->Set_Item(L"Item_Spoon", CItem::ITEM_SPOON);
 	//CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSlotMachine>::Create_Obj(320.f, 370.f, 50.f, 50.f));
 
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CSellNPC>::Create_Obj(600.f, 200.f, 50.f, 50.f));
+	pObj = CAbstractFactory<CSellNPC>::Create_Obj(600.f, 200.f, 50.f, 50.f);
+	dynamic_cast<CSellNPC*>(pObj)->Set_SellGame(pSellGame);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
 
 	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_TreasureRoom.dat");
 
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_STOREROOM, 12, 0);
 
 
-	pSellGame = new CSellGame;
-	pSellGame->Initialize();
+	
+	
+
 }
 
 void CStoreRoom::Update()
@@ -58,8 +63,9 @@ void CStoreRoom::Update()
 		{
 			m_bStart = false;
 			CObjMgr::Get_Instance()->Get_Player()->Set_posY(10.f);
-		}
 			
+		}
+		CUIMgr::Get_Instance()->Update();
 	}else
 	{
 		CObjMgr::Get_Instance()->Update();
@@ -73,6 +79,8 @@ void CStoreRoom::Late_Update()
 	if (m_bStart)
 	{
 		pSellGame->Late_Update();
+
+		CUIMgr::Get_Instance()->Late_Update();
 	}
 	else
 	{
@@ -115,7 +123,9 @@ void CStoreRoom::Render(HDC hDC)
 	CUIMgr::Get_Instance()->Render(hDC);
 
 	if (m_bStart)
+	{
 		pSellGame->Render(hDC);
+	}
 		
 }
 

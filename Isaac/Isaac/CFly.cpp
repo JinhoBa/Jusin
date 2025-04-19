@@ -51,7 +51,14 @@ int CFly::Update()
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f,16.f, 0));
 		return DEAD;
 	}
-	
+	if (m_tInfo.fX > WINCX - TILECX)
+		m_tInfo.fX = WINCX - TILECX - 10.f;
+	else if (m_tInfo.fX < TILECX)
+		m_tInfo.fX = TILECX + 10.f;
+	else if (m_tInfo.fY > WINCY - TILECY)
+		m_tInfo.fY = WINCY - TILECY - 10.f;
+	else if (m_tInfo.fY < 100.f + TILECY)
+		m_tInfo.fY = 110.f + TILECY;
 	__super::Update_Rect();
 
 	return NOEVENT;

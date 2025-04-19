@@ -28,7 +28,7 @@ void CBoss::Initialize()
 	m_tInfo.fCX = 120.f;
 	m_tInfo.fCY = 120.f;
 
-	Set_Stat(100.f, 1.f, 0.f, 1.f);
+	Set_Stat(300.f, 1.f, 0.f, 1.4f);
 	
 	Set_Frame(0, 0, 0);
 	m_tFrame.dwFrameSpeed = 1000;
@@ -56,7 +56,7 @@ int CBoss::Update()
 	{
 		CSoundMgr::Get_Instance()->StopAll();
 		Set_Sound(L"BossClear.mp3", 0.8f);
-		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 300.f, 32.f, 32.f));
+		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 350.f, 32.f, 32.f));
 
 		CObj* pDoor = CAbstractFactory<CEndHole>::Create_Obj(400.f, 250.f, 40.f, 40.f);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
@@ -87,15 +87,10 @@ int CBoss::Late_Update()
 	case CBoss::IDLE:
 		if (m_MotionTime + 3000 < GetTickCount64())
 		{
-			if(rand() % 5 != 0)
-			{
-				if (CTools::Get_Distance(m_pTarget, &m_tInfo) < 250.f)
-					m_eCurState = CBoss::ATTACK;
-				else
-					m_eCurState = CBoss::JUMP_ATTACK;
-			}
+			if(300.f < CTools::Get_Distance(m_pTarget, &m_tInfo))
+				m_eCurState = CBoss::JUMP_ATTACK;
 			else
-				m_eCurState = CBoss::SPOWN;
+				m_eCurState = CBoss::ATTACK;				
 		}
 		else
 		{
@@ -127,18 +122,18 @@ int CBoss::Late_Update()
 		{
 			
 			Set_CollisionBoxSize(110.f, 80.f);
-			m_eCurState = CBoss::IDLE;
+			m_eCurState = CBoss::SPOWN;
 			m_fTime = 0.f;
 		}
 		else
 		{
-			if ((m_fTime < 3.f || m_fAfterY > m_tInfo.fY))
+			if ((m_fTime < 4.f || m_fAfterY > m_tInfo.fY))
 			{
 				if (m_tInfo.fY < 480.f)
 				{
 					if(m_tInfo.fX > 110.f && WINCX - 110.f > m_tInfo.fX)
-						m_tInfo.fX += 15 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-					m_tInfo.fY -= 15 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
+						m_tInfo.fX += 18 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+					m_tInfo.fY -= 18 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 				}
 				m_tFrame.iStart = 2;
 				m_fTime += 0.1;
@@ -148,13 +143,12 @@ int CBoss::Late_Update()
 			{
 				Set_CollisionBoxSize(110.f, 80.f);
 				m_tFrame.iStart = 3;
-				
 			}
 		}
 		break;
 
 	case CBoss::SPOWN:
-		if (m_MotionTime + 4000 < GetTickCount64())
+		if (m_MotionTime + 2000 < GetTickCount64())
 		{
 			CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 			CSoundMgr::Get_Instance()->PlaySound(L"Monster_Grunt_5.mp3", SOUND_EFFECT, 1.f);
@@ -300,7 +294,7 @@ void CBoss::Change_Motion()
 
 		case CBoss::SPOWN:
 			Set_Frame(0, 1, 4);
-			m_tFrame.dwFrameSpeed = 2000;
+			m_tFrame.dwFrameSpeed = 1000;
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();
 			break;

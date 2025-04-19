@@ -226,6 +226,12 @@
     <Filter Include="08. SellGame\01. Btn">
       <UniqueIdentifier>{03663535-dc02-4873-a88e-f7b3d0887b13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="07. UI\04. Number">
+      <UniqueIdentifier>{28fa875e-861e-4581-ac71-9ca29d203005}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03. Scene\09. Loading">
+      <UniqueIdentifier>{a99c8848-a010-4369-bf59-152d2beef940}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -444,6 +450,12 @@
     <ClInclude Include="CBtn.h">
       <Filter>08. SellGame\01. Btn</Filter>
     </ClInclude>
+    <ClInclude Include="CNumber.h">
+      <Filter>07. UI\04. Number</Filter>
+    </ClInclude>
+    <ClInclude Include="CLoading.h">
+      <Filter>03. Scene\09. Loading</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -646,6 +658,12 @@
     </ClCompile>
     <ClCompile Include="CBtn.cpp">
       <Filter>08. SellGame\01. Btn</Filter>
+    </ClCompile>
+    <ClCompile Include="CNumber.cpp">
+      <Filter>07. UI\04. Number</Filter>
+    </ClCompile>
+    <ClCompile Include="CLoading.cpp">
+      <Filter>03. Scene\09. Loading</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

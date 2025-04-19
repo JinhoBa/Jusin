@@ -174,6 +174,7 @@
     <ClInclude Include="CItemEffect.h" />
     <ClInclude Include="CKey.h" />
     <ClInclude Include="CKeyMgr.h" />
+    <ClInclude Include="CLoading.h" />
     <ClInclude Include="CMainGame.h" />
     <ClInclude Include="CMenu.h" />
     <ClInclude Include="CMiniMap.h" />
@@ -182,6 +183,7 @@
     <ClInclude Include="CMonsterDeathEffect.h" />
     <ClInclude Include="CMulligan.h" />
     <ClInclude Include="CMyBmp.h" />
+    <ClInclude Include="CNumber.h" />
     <ClInclude Include="CObj.h" />
     <ClInclude Include="CObjMgr.h" />
     <ClInclude Include="CPassiveItem.h" />
@@ -247,6 +249,7 @@
     <ClCompile Include="CItemEffect.cpp" />
     <ClCompile Include="CKey.cpp" />
     <ClCompile Include="CKeyMgr.cpp" />
+    <ClCompile Include="CLoading.cpp" />
     <ClCompile Include="CMainGame.cpp" />
     <ClCompile Include="CMenu.cpp" />
     <ClCompile Include="CMiniMap.cpp" />
@@ -255,6 +258,7 @@
     <ClCompile Include="CMonsterDeathEffect.cpp" />
     <ClCompile Include="CMulligan.cpp" />
     <ClCompile Include="CMyBmp.cpp" />
+    <ClCompile Include="CNumber.cpp" />
     <ClCompile Include="CObj.cpp" />
     <ClCompile Include="CObjMgr.cpp" />
     <ClCompile Include="CPassiveItem.cpp" />

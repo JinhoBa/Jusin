@@ -14,11 +14,12 @@
 #include "CStage2.h"
 #include "CDevilRoom.h"
 #include "CEnding.h"
+#include "CLoading.h"
 
 CSceneMgr* CSceneMgr::m_pInstance = nullptr;
 
 CSceneMgr::CSceneMgr()
-	: m_pScene(nullptr), m_pTutorial(nullptr), m_pStage1(nullptr), m_pTreasureRoom(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
+	: m_pScene(nullptr),m_pLoading(nullptr), m_eCurScene(SC_MENU), m_ePreScene(SC_END)
 {
 	m_vecScene.assign(10, nullptr);
 	m_vecSceneState.assign(12, 0);
@@ -112,6 +113,7 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 			break;
 
 		case CSceneMgr::SC_TREASURE:
+			CSoundMgr::Get_Instance()->PlayBGM(L"TresureRoomBGM.mp3", 0.3f);
 			if (!m_vecScene[SC_TREASURE])
 				m_vecScene[SC_TREASURE] = CAbstractFactory<CTreasureRoom>::Create_Scene();
 			else
@@ -171,16 +173,19 @@ void CSceneMgr::Scene_Change(SCENEID eID)
 void CSceneMgr::Update()
 {
 	m_pScene->Update();
+	
 }
 
 void CSceneMgr::Late_Update()
 {
 	m_pScene->Late_Update();
+	//m_pLoading->Late_Update();
 }
 
 void CSceneMgr::Render(HDC hDC)
 {
 	m_pScene->Render(hDC);
+	//m_pLoading->Render(hDC);
 }
 
 void CSceneMgr::Release()

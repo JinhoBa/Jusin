@@ -2,7 +2,7 @@
 #include "CImage.h"
 #include "CBmpMgr.h"
 
-CImage::CImage() : m_pFrameKey(L""), m_bCoin(false)
+CImage::CImage() : m_pFrameKey(L""), m_bCoin(false), m_iCX(0), m_iCY(0)
 {
 	ZeroMemory(&m_tInfo, sizeof(INFO));
 	ZeroMemory(&m_tRect, sizeof(RECT));
@@ -45,6 +45,11 @@ void CImage::Late_Update()
 	{
 		m_iCX = 64;
 		m_iCY = 64;
+	}
+	else if (!lstrcmp(m_pFrameKey, L"ResultUI"))
+	{
+		m_iCX = 200;
+		m_iCY = 80;
 	}
 	else
 	{

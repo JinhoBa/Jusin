@@ -1,5 +1,6 @@
 #pragma once
 #include "CObj.h"
+#include "CSoundMgr.h"
 class CPlayer : public CObj
 {
 	enum MSTATE {IDLE, ATTACK, ATTACK_LASER, HIT, GETITEM, DEATH, MS_END};
@@ -32,7 +33,8 @@ public:
 	{
 		if (m_tItemInfo.iKey <= 0)
 			return false;
-		
+		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
+		CSoundMgr::Get_Instance()->PlaySound(L"LockBreak1.mp3", SOUND_EFFECT,1.f);
 		--m_tItemInfo.iKey;
 		
 		return true;

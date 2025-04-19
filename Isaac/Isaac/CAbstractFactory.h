@@ -3,6 +3,7 @@
 #include "CObj.h"
 #include "CUI.h"
 #include "CScene.h"
+#include "CImage.h"
 
 template<typename T>
 class CAbstractFactory
@@ -22,9 +23,10 @@ public:
 	}
 
 
-	static CUI* Create_UI()
+	static CUI* Create_UI(float _fX, float _fY, float _fCX, float _fCY)
 	{
 		CUI* pUI = new T;
+		pUI->Set_Info(_fX, _fY, _fCX, _fCY);
 		pUI->Initialize();
 
 		return pUI;
