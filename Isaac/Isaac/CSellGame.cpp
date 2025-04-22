@@ -10,7 +10,9 @@
 
 CSellGame::CSellGame() 
 	: m_fX(0.f), m_fY(0.f), m_fRadius(0.f), m_fAngle(0.f), m_eCurState(STATE_END), m_ePreState(STATE_END), m_bShuffle(false), 
-	m_iCount(0), m_fShuffleSpeed(0.f), m_iIndex1(0), m_iIndex2(0), m_fShowSpeed(1.f), m_bEnd(false), m_iMainCusorIndex(0)
+	m_iCount(0), m_fShuffleSpeed(0.f), m_iIndex1(0), m_iIndex2(0), m_fShowSpeed(1.f), m_bEnd(false), m_iMainCusorIndex(0),
+	m_fSrcX(0.f), m_fTmpX(0.f), m_iCusorIndex(0), m_iCursorSound(0), m_pCursor(nullptr), m_pMainCursor(nullptr), m_pResultUI(nullptr),
+	m_pSeller(nullptr), m_pSkeleton1(nullptr), m_pSkeleton2(nullptr), m_pSkeleton3(nullptr), m_iSoundChennel(0), m_pResult1(nullptr)
 {
 }
 
@@ -23,6 +25,9 @@ CSellGame::~CSellGame()
 
 void CSellGame::Initialize()
 {
+	CSoundMgr::Get_Instance()->StopAll();
+	CSoundMgr::Get_Instance()->PlayBGM(L"ShellGameBGM.mp3", 0.4f);
+
 	m_eCurState = IDLE;
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/SellBack.bmp", L"SellBack");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/SellGame/SellerMotion.bmp", L"SellerMotion");
@@ -224,7 +229,6 @@ void CSellGame::Release()
 	Safe_Delete<CImage*>(m_pResultUI);
 	m_vecSkeletons.clear();
 	m_vecResult.clear();
-	CSoundMgr::Get_Instance()->PlayBGM(L"StoreRoomBGM.mp3", 0.3f);
 }
 
 void CSellGame::Shuffle(INFO* Tmp, INFO* Src)
@@ -355,7 +359,7 @@ void CSellGame::Check_Result()
 	m_eCurState = RESULT;
 	
 	m_fShowSpeed = 1.f;
-	m_dwTime = GetTickCount64();
+	
 }
 
 void CSellGame::Key_Input()

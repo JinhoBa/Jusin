@@ -71,8 +71,6 @@ void CSellNPC::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 		if (m_pSellGame)
 		{
 			m_pSellGame->Initialize();
-			CSoundMgr::Get_Instance()->StopAll();
-			CSoundMgr::Get_Instance()->PlayBGM(L"ShellGameBGM.mp3", 0.4f);
 		}
 		dynamic_cast<CStoreRoom*>(CSceneMgr::Get_Instance()->Get_CurScene())->Set_Start();
 	}

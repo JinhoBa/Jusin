@@ -55,7 +55,7 @@ int CBloodLaserEffect::Late_Update()
 	}
 
 
-	if(m_dwTime+900 < GetTickCount64())
+	if(m_dwTime+1100 < GetTickCount64())
 		m_bDead = true;
 	
 

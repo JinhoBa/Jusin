@@ -63,7 +63,8 @@ void CStoreRoom::Update()
 		{
 			m_bStart = false;
 			CObjMgr::Get_Instance()->Get_Player()->Set_posY(10.f);
-			
+			CSoundMgr::Get_Instance()->StopAll();
+			CSoundMgr::Get_Instance()->PlayBGM(L"StoreRoomBGM.mp3", 0.3f);
 		}
 		CUIMgr::Get_Instance()->Update();
 	}else
@@ -131,7 +132,7 @@ void CStoreRoom::Render(HDC hDC)
 
 void CStoreRoom::Release()
 {
-	for (int i = 0; i < size(m_ObjList); ++i)
+	for (int i = 0; i < (int)(size(m_ObjList)); ++i)
 	{
 		for_each(m_ObjList[i].begin(), m_ObjList[i].end(), Safe_Delete<CObj*>);
 		m_ObjList[i].clear();

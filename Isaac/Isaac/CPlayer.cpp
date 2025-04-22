@@ -108,9 +108,10 @@ int CPlayer::Late_Update()
 		if (m_vecItem[2] == true)
 		{
 			m_tFrame.iStart = 7;
-			if (m_dwTime + 800 < GetTickCount64())
+			if (m_dwTime + 1200 < GetTickCount64())
 				m_eCurState = IDLE;
-		}else
+		}
+		else
 		{
 			__super::Move_Frame();
 			if (m_dwTime + m_fCoolDown < GetTickCount64())
@@ -517,8 +518,11 @@ void CPlayer::Key_Input()
 					Move_ChargeFrame();
 				else
 				{
-					m_tFrame.iStart = 0;
-					m_tFrame.iMotion = 0;
+					if(ATTACK != m_eCurState)
+					{
+						m_tFrame.iStart = 0;
+						m_tFrame.iMotion = 0;
+					}
 				}
 
 				if (CKeyMgr::Get_Instance()->Key_Down(VK_RIGHT))
@@ -531,6 +535,7 @@ void CPlayer::Key_Input()
 				{
 					if (m_ChargeTime + 800 < GetTickCount64())
 					{
+						m_tFrame.iMotion = 1;
 						Laser_Attack(0.f, false);
 					}
 				}
@@ -545,6 +550,7 @@ void CPlayer::Key_Input()
 				{
 					if (m_ChargeTime + 800 < GetTickCount64())
 					{
+						m_tFrame.iMotion = 2;
 						Laser_Attack(180.f, false);
 					}
 				}
@@ -560,6 +566,7 @@ void CPlayer::Key_Input()
 				{
 					if (m_ChargeTime + 800 < GetTickCount64())
 					{
+						m_tFrame.iMotion = 3;
 						Laser_Attack(90.f, true);
 					}
 				}
@@ -769,16 +776,17 @@ void CPlayer::Laser_Attack(float _fAngle, bool _bX)
 		{
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 64.f, 32.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
+				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 74.f, 32.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
 
 			m_dwTime = GetTickCount64();
 			m_eCurState = CPlayer::ATTACK;
 		}
 		else
 		{
+			
 			CObjMgr::Get_Instance()->Add_CObj(
 				OBJ_BULLET,
-				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 32.f, 64.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
+				CObj::Create_Bullet<CBloodLaser>(m_tInfo.fX, m_tInfo.fY, 32.f, 74.f, _fAngle, m_tStat.fHp, m_tStat.fAttack, m_tStat.fIntersection, 5.f));
 
 			m_dwTime = GetTickCount64();
 			m_eCurState = CPlayer::ATTACK;

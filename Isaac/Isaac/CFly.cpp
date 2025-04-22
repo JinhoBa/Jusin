@@ -36,7 +36,7 @@ void CFly::Initialize()
 	m_pTarget = CObjMgr::Get_Instance()->Get_Target(OBJ_PLAYER, this);
 
 	m_iSoundChennel = CSoundMgr::Get_Instance()->Get_AvailableChennel();
-	CSoundMgr::Get_Instance()->PlayLoop(L"Fly_Buzz_Loop.mp3", m_iSoundChennel, 0.5f);
+	CSoundMgr::Get_Instance()->PlaySound(L"Fly_Buzz_Loop.mp3", m_iSoundChennel, 0.3f);
 }
 
 void CFly::Late_Initialize()
@@ -47,6 +47,7 @@ int CFly::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DEADEFFECT, Create_Effect<CMonsterDeathEffect>(L"Blood", m_tInfo.fX, m_tInfo.fY, 33.f,16.f, 0));
 		return DEAD;

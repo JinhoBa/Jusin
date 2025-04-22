@@ -32,12 +32,12 @@ public:
 protected:
 	ITEMID m_eItemID;
 
-	bool m_bMove;
+	bool	m_bMove;
 
 	int		m_iDropTime;
-	float m_fTime;
-	float m_fItemSpeedX;
-	float m_fItemSpeedY;
+	float	m_fTime;
+	float	m_fItemSpeedX;
+	float	m_fItemSpeedY;
 
 	ULONGLONG m_CreateTime;
 	

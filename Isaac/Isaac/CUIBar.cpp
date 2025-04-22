@@ -136,4 +136,7 @@ void CUIBar::Render(HDC hDC)
 
 void CUIBar::Release()
 {
+	Safe_Delete<CUI*>(m_pCoinValue);
+	Safe_Delete<CUI*>(m_pBombValue);
+	Safe_Delete<CUI*>(m_pKeyValue);
 }

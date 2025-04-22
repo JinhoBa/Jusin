@@ -45,6 +45,7 @@ int CMulligan::Update()
 {
 	if (m_bDead)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_3.mp3", SOUND_EFFECT, 1.f);

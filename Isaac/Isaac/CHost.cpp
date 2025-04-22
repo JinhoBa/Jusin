@@ -39,6 +39,7 @@ int CHost::Update()
 {
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_1.mp3", SOUND_EFFECT, 1.f);
@@ -98,8 +99,10 @@ void CHost::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 			break;
 		
 		if (1 == m_tFrame.iStart)
+		{
 			m_tStat.fHp -= _pObj->Get_Damage();
-		
+		}
+		_pObj->Set_Dead();
 		break;
 
 	default:

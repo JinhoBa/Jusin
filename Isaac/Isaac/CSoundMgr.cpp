@@ -16,7 +16,7 @@ CSoundMgr::~CSoundMgr()
 
 void CSoundMgr::Initialize()
 {
-	for (int i = 3; i < 32; ++i)
+	for (int i = 7; i < 32; ++i)
 	{
 		m_availableChennels.push_back(i);
 	}

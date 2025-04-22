@@ -188,29 +188,6 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 {
 	switch (_pObj->Get_ObjID())
 	{
-		/*case OBJ_MONSTER:
-			switch (_tHitPoint.eDirection)
-			{
-			case DIR_DOWN:
-				_pObj->Set_posY(_tHitPoint.fY);
-				break;
-			case DIR_UP:
-				_pObj->Set_posY(-_tHitPoint.fY);
-				break;
-			case DIR_LEFT:
-				_pObj->Set_posX(-_tHitPoint.fX);
-				break;
-			case DIR_RIGHT:
-				_pObj->Set_posX(_tHitPoint.fX);
-				break;
-			default:
-				break;
-
-			}
-			break;*/
-
-	
-
 	case OBJ_BULLET:
 		if (CBullet::BULLET_PLAYER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID() || 
 			CBullet::BULLET_LASER == dynamic_cast<CBullet*>(_pObj)->Get_BulletID())
@@ -231,7 +208,11 @@ void CTile::Collision(CObj* _pObj, HITPOINT _tHitPoint)
 				else
 				{
 					if(0 == CTools::Get_RandomNumber(0, 1))
-						CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX, m_tInfo.fY, 32.f, 32.f));
+					{
+						CObj* pObj = CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX, m_tInfo.fY, 32.f, 32.f);
+						dynamic_cast<CItem*>(pObj)->Set_Stop();
+						CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, pObj);
+					}
 					m_iOption = 0;
 					m_iDrawID = 0;
 				}

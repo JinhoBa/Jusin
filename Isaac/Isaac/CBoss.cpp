@@ -14,7 +14,8 @@
 #include "CEndHole.h"
 
 CBoss::CBoss() 
-	: m_bLeft(true), m_bHit(false), m_HitTime(GetTickCount64()), m_MotionTime(GetTickCount64()), m_ePreState(IDLE), m_eCurState(IDLE), m_fTime(0.f), m_fAfterY(0.f)
+	: m_bLeft(true), m_bHit(false), m_HitTime(GetTickCount64()), m_MotionTime(GetTickCount64()), m_ePreState(IDLE), m_eCurState(IDLE), m_fTime(0.f),
+	m_fTargetX(0.f), m_fTargetY(0.f)
 {
 }
 
@@ -55,11 +56,13 @@ int CBoss::Update()
 	if (m_bDead || m_tStat.fHp < 0.f)
 	{
 		CSoundMgr::Get_Instance()->StopAll();
-		Set_Sound(L"BossClear.mp3", 0.8f);
+		
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CBox>::Create_Obj(400.f, 350.f, 32.f, 32.f));
 
 		CObj* pDoor = CAbstractFactory<CEndHole>::Create_Obj(400.f, 250.f, 40.f, 40.f);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
+		CSoundMgr::Get_Instance()->PlaySound(L"BossClear.mp3", SOUND_BOSSEND, 0.8f);
+		//Set_Sound(L"BossClear.mp3", 0.8f);
 		return DEAD;
 	}
 
@@ -127,22 +130,27 @@ int CBoss::Late_Update()
 		}
 		else
 		{
-			if ((m_fTime < 4.f || m_fAfterY > m_tInfo.fY))
-			{
-				if (m_tInfo.fY < 480.f)
-				{
-					if(m_tInfo.fX > 110.f && WINCX - 110.f > m_tInfo.fX)
-						m_tInfo.fX += 18 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-					m_tInfo.fY -= 18 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
-				}
-				m_tFrame.iStart = 2;
-				m_fTime += 0.1;
+			float fYSpeed = 18 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 
-			}
-			else
+			if (( m_fTargetY - 20.f <= m_tInfo.fY)  && fYSpeed < 0.f)
 			{
 				Set_CollisionBoxSize(110.f, 80.f);
 				m_tFrame.iStart = 3;
+			}
+			else
+			{
+				if (m_tInfo.fX > 110.f && WINCX - 110.f > m_tInfo.fX)
+					m_tInfo.fX += 15 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+
+				if (fYSpeed < -20.f)
+					fYSpeed = -20.f;
+
+				m_tInfo.fY -= fYSpeed;
+				if (m_tInfo.fY > 480.f)
+					m_MotionTime -= 3000;
+
+				m_tFrame.iStart = 2;
+				m_fTime += 0.1f;
 			}
 		}
 		break;
@@ -281,7 +289,8 @@ void CBoss::Change_Motion()
 			m_tFrame.dwFrameSpeed = 300;
 			m_tFrame.dwTime = GetTickCount64();
 			m_MotionTime = GetTickCount64();
-			m_fAfterY = m_pTarget->Get_Info()->fY;
+			m_fTargetX = m_pTarget->Get_Info()->fX;
+			m_fTargetY = m_pTarget->Get_Info()->fY;
 			Set_CollisionBoxSize(0.f, 0.f);
 			m_fAngle = 80.f;
 			if (m_bLeft)
@@ -319,7 +328,7 @@ void CBoss::Attack(int _iCount)
 		float fAttack = (float)CTools::Get_RandomNumber(1, 4);
 		float fSpeed = 1.5f + (float)CTools::Get_RandomNumber(1, 5) * 0.5f;
 
-		float fRand = (float)CTools::Get_RandomNumber(0, 10);
+		float fRand = (float)CTools::Get_RandomNumber(-10, 10);
 		float fX;
 
 		if (m_bLeft)
@@ -328,8 +337,10 @@ void CBoss::Attack(int _iCount)
 			fX = m_tInfo.fX + m_tInfo.fCX * 0.2f + fRand;
 
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_BULLET, Create_Bullet<CMonsterBullet>(
-			fX, m_tInfo.fY - 20.f,
+			fX, m_tInfo.fY,
 			34.f, 34.f,
-			m_fAngle + fRand * 5.f - 50.f, 0.f, fAttack, 300.f, fSpeed));
+			m_fAngle + fRand * 3.f, 0.f, fAttack, 300.f, fSpeed));
 	}
 }
+
+

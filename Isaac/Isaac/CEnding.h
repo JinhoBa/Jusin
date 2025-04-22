@@ -15,5 +15,9 @@ public:
 	void Late_Update() override;
 	void Render(HDC hDC) override;
 	void Release() override;
+
+private:
+	ULONGLONG m_dwTime;
+	FRAME m_tFrame;
 };
 

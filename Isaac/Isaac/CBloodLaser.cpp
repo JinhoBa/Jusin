@@ -21,8 +21,10 @@ void CBloodLaser::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/BloodLaser_RIGHT.bmp", L"BloodLaser_RIGHT");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/BloodLaser_UP.bmp", L"BloodLaser_UP");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/33.bmp", L"33");
-	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/44.bmp", L"44");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/Laser_UP.bmp", L"Laser_UP");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/Laser_DOWN.bmp", L"Laser_DOWN");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/Laser_RIGHT.bmp", L"Laser_RIGHT");
+	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Bullet/Laser_LEFT.bmp", L"Laser_LEFT");
 
 	m_eBulletID = BULLET_LASER;
 
@@ -55,14 +57,14 @@ void CBloodLaser::Late_Initialize()
 	case 0:
 		m_eDir = DIR_RIGHT;
 		m_fMaxSize = m_tInfo.fCY;
-		m_pFrameKey = L"44";
+		m_pFrameKey = L"Laser_RIGHT";
 		pEffect = Create_Effect<CBloodLaserEffect>(L"BloodLaser_Effect", float(WINCX - TILECX), m_tRenderInfo.fY, 64.f, 64.f, 3);
 		pEffect->Set_Frame(0, 3, 3);
 		break;
 	case 180:
 		m_eDir = DIR_LEFT;
 		m_fMaxSize = m_tInfo.fCY;
-		m_pFrameKey = L"44";
+		m_pFrameKey = L"Laser_LEFT";
 		pEffect = Create_Effect<CBloodLaserEffect>(L"BloodLaser_Effect", float(TILECX), m_tRenderInfo.fY, 64.f, 64.f, 3);
 		pEffect->Set_Frame(0, 3, 2);
 		
@@ -71,7 +73,7 @@ void CBloodLaser::Late_Initialize()
 	case 90:
 		m_eDir = DIR_UP;
 		m_fMaxSize = 40.f;
-		m_pFrameKey = L"33";
+		m_pFrameKey = L"Laser_UP";
 		pEffect = Create_Effect<CBloodLaserEffect>(L"BloodLaser_Effect", m_tRenderInfo.fX, 100.f +(float)TILECY, 64.f, 64.f, 3);
 		pEffect->Set_Frame(0, 3, 0);
 		break;
@@ -79,7 +81,7 @@ void CBloodLaser::Late_Initialize()
 	case 270:
 		m_eDir = DIR_DOWN;
 		m_fMaxSize = 40.f;
-		m_pFrameKey = L"33";
+		m_pFrameKey = L"Laser_DOWN";
 		pEffect = Create_Effect<CBloodLaserEffect>(L"BloodLaser_Effect", m_tRenderInfo.fX, float(WINCY - TILECY), 64.f, 64.f, 3);
 		pEffect->Set_Frame(0, 3, 1);
 
@@ -98,7 +100,11 @@ void CBloodLaser::Late_Initialize()
 int CBloodLaser::Update()
 {
 	if (m_bDead)
+	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
+		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
+	}
 
 	__super::Update_Rect();
 	__super::Move_Frame();
@@ -113,13 +119,13 @@ int CBloodLaser::Late_Update()
 	case DIR_LEFT:
 		m_tRenderInfo.fX = TILECX;
 		m_tRenderInfo.fY = m_pTarget->Get_Info()->fY - m_fSize / 2;
-		m_tRenderInfo.fCX = m_pTarget->Get_Info()->fX - TILECX;
+		m_tRenderInfo.fCX = m_pTarget->Get_Info()->fX - TILECX - 10.f;
 		m_tRenderInfo.fCY = m_fSize;
 		m_iImageCX = (int)m_tInfo.fCX;
 		m_iImageCY = (int)m_tInfo.fCY;
 		break;
 	case DIR_RIGHT:
-		m_tRenderInfo.fX = m_pTarget->Get_Info()->fX;
+		m_tRenderInfo.fX = m_pTarget->Get_Info()->fX + 10.f;
 		m_tRenderInfo.fY = m_pTarget->Get_Info()->fY - m_fSize / 2;
 		m_tRenderInfo.fCX = WINCX - m_tRenderInfo.fX - TILECX;
 		m_tRenderInfo.fCY = m_fSize;
@@ -130,12 +136,12 @@ int CBloodLaser::Late_Update()
 		m_tRenderInfo.fX = m_pTarget->Get_Info()->fX - m_fSize / 2;
 		m_tRenderInfo.fY = 100.f + TILECY;
 		m_tRenderInfo.fCX = m_fSize;
-		m_tRenderInfo.fCY = m_pTarget->Get_Info()->fY - m_tRenderInfo.fY;
+		m_tRenderInfo.fCY = m_pTarget->Get_Info()->fY - m_tRenderInfo.fY - 20.f;
 		m_iImageCX = (int)m_tInfo.fCX;
 		m_iImageCY = (int)m_tInfo.fCY;
 		break;
 	case DIR_DOWN:
-		m_tRenderInfo.fX = m_pTarget->Get_Info()->fX - m_fSize / 2;
+		m_tRenderInfo.fX = m_pTarget->Get_Info()->fX - m_fSize / 2 ;
 		m_tRenderInfo.fY = m_pTarget->Get_Info()->fY;
 		m_tRenderInfo.fCX = m_fSize;
 		m_tRenderInfo.fCY = WINCY - TILECY - m_tRenderInfo.fY;
@@ -162,14 +168,16 @@ int CBloodLaser::Late_Update()
 	}
 	else
 	{
-		if (!lstrcmp(L"44", m_pFrameKey))
+		if (!lstrcmp(L"Laser_RIGHT", m_pFrameKey))
+			Set_CollisionBoxSize(m_tRenderInfo.fCX, m_tRenderInfo.fCY * 0.5f);
+		else if(!lstrcmp(L"Laser_LEFT", m_pFrameKey))
 			Set_CollisionBoxSize(m_tRenderInfo.fCX, m_tRenderInfo.fCY * 0.5f);
 		else
 			Set_CollisionBoxSize(m_tRenderInfo.fCX * 0.5f, m_tRenderInfo.fCY);
 	}
 	
 	
-	if (m_fSize <= 0.f)
+	if (m_fSize <= 20.f)
 		m_bDead = true;
 
 	return NOEVENT;

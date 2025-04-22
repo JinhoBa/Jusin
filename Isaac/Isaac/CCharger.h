@@ -9,6 +9,28 @@ public:
 	~CCharger();
 
 public:
+	void Set_DIR(int _i) 
+	{
+		switch (_i)
+		{
+		case 4:
+			m_eCurState = LEFT;
+			break;
+		case 6:
+			m_eCurState = RIGHT;
+			break;
+		case 8:
+			m_eCurState = TOP;
+			break;
+		case 2:
+			m_eCurState = BOTTOM;
+			break;
+		default:
+			break;
+		}
+	}
+
+public:
 	void Initialize() override;
 	void Late_Initialize() override;
 	int Update() override;

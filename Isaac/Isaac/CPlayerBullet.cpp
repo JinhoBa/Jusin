@@ -43,6 +43,7 @@ int CPlayerBullet::Update()
 {
 	if (m_bDead)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_EFFECT, Create_Effect<CEffect>(L"bullet_death", m_tInfo.fX, m_tInfo.fY, 60.f, m_tInfo.fCY, 4));
 		return DEAD;

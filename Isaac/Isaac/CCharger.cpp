@@ -9,7 +9,7 @@
 #include "CTile.h"
 #include "CSoundMgr.h"
 
-CCharger::CCharger() : m_ePreState(ST_END), m_eCurState(ST_END), m_fOffX(0.f), m_fOffY(0.f), m_eStateDIR(ST_END)
+CCharger::CCharger() : m_ePreState(ST_END), m_eCurState(TOP), m_fOffX(0.f), m_fOffY(0.f), m_eStateDIR(ST_END)
 {
 }
 
@@ -34,20 +34,7 @@ void CCharger::Initialize()
 
 void CCharger::Late_Initialize()
 {
-	if (0 == CTools::Get_RandomNumber(0, 1))
-	{
-		m_eCurState = CCharger::LEFT;
-		Set_CollisionBoxSize(25.f, 15.f);
-		m_fOffX = 10.f;
-		m_fOffY = 12.f;
-	}
-	else
-	{
-		m_eCurState = CCharger::BOTTOM;
-		Set_CollisionBoxSize(15.f, 20.f);
-		m_fOffX = 8.f;
-		m_fOffY = 12.f;
-	}
+	
 	
 	Set_CollisionBoxPos(m_tInfo.fX + 25.f, m_tInfo.fY+15.f);
 	
@@ -58,6 +45,7 @@ int CCharger::Update()
 {
 	if (m_bDead || m_tStat.fHp <= 0.f)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->StopSound(SOUND_EFFECT);
 		CSoundMgr::Get_Instance()->PlaySound(L"Meaty_Deaths_0.mp3", SOUND_EFFECT, 1.f);
@@ -72,6 +60,19 @@ int CCharger::Update()
 
 int CCharger::Late_Update()
 {
+	if (LEFT == m_eCurState || RIGHT == m_eCurState)
+	{
+		Set_CollisionBoxSize(25.f, 15.f);
+		m_fOffX = 10.f;
+		m_fOffY = 12.f;
+	}
+	else
+	{
+		Set_CollisionBoxSize(15.f, 20.f);
+		m_fOffX = 8.f;
+		m_fOffY = 12.f;
+	}
+
 	Set_CollisionBoxPos(m_tInfo.fX + m_fOffX, m_tInfo.fY + m_fOffY);
 
 	Change_Motion();
@@ -265,6 +266,8 @@ void CCharger::Change_Motion()
 		case CCharger::ATTACK:
 			m_tFrame.dwTime = GetTickCount64();
 			m_tFrame.iMotion = 4;
+			CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
+			CSoundMgr::Get_Instance()->PlaySound(L"ChargerAttack.mp3", m_iSoundChennel, 1.f);
 			switch (m_eStateDIR)
 			{
 			case CCharger::LEFT:

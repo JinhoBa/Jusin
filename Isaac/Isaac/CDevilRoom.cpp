@@ -25,17 +25,35 @@ void CDevilRoom::Initialize()
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Room/DevilRoom.bmp", L"DevilRoom");
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/Door/Door_Devil.bmp", L"Door_Devil");
 
+	CObj* pObj;
+	pObj = CAbstractFactory<CCharger>::Create_Obj(87.f, 300.f, 32.f, 30.f);
+	dynamic_cast<CCharger*>(pObj)->Set_DIR(8);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, pObj);
 
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 180.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(300.f, 250.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 300.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(400.f, 300.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(500.f, 400.f, 32.f, 30.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CCharger>::Create_Obj(600.f, 200.f, 32.f, 30.f));
+	pObj = CAbstractFactory<CCharger>::Create_Obj(203.f, 400.f, 32.f, 30.f);
+	dynamic_cast<CCharger*>(pObj)->Set_DIR(2);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, pObj);
 
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(200.f, 300.f, 36.f, 52.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(600.f, 350.f, 36.f, 52.f));
-	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(400.f, 400.f, 36.f, 52.f));
+	
+
+	pObj = CAbstractFactory<CCharger>::Create_Obj(400.f, 290.f, 32.f, 30.f);
+	dynamic_cast<CCharger*>(pObj)->Set_DIR(4);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, pObj);
+
+	pObj = CAbstractFactory<CCharger>::Create_Obj(655.f, 300.f, 32.f, 30.f);
+	dynamic_cast<CCharger*>(pObj)->Set_DIR(8);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, pObj);
+
+	pObj = CAbstractFactory<CCharger>::Create_Obj(625.f, 397.f, 32.f, 30.f);
+	dynamic_cast<CCharger*>(pObj)->Set_DIR(4);
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, pObj);
+	
+
+
+
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(600.f, 500.f, 36.f, 52.f));
+	CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(87.f, 200.f, 36.f, 52.f));
+	//CObjMgr::Get_Instance()->Add_CObj(OBJ_MONSTER, CAbstractFactory<CMulligan>::Create_Obj(400.f, 400.f, 36.f, 52.f));
 
 
 
@@ -46,7 +64,7 @@ void CDevilRoom::Initialize()
 	CObjMgr::Get_Instance()->Add_CObj(OBJ_DOOR, pDoor);
 
 
-	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_Tutorial.dat");
+	CTileMgr::Get_Instance()->Load_Tile(L"../Data/Tile_DevilRoom.dat");
 
 
 	CSceneMgr::Get_Instance()->Set_SceneState(CSceneMgr::SC_DEVILROOM, 3, 0);

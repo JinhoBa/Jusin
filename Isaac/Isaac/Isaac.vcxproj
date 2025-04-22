@@ -169,6 +169,7 @@
     <ClInclude Include="CGuidedBullet.h" />
     <ClInclude Include="CHeart.h" />
     <ClInclude Include="CHost.h" />
+    <ClInclude Include="CHourGlass.h" />
     <ClInclude Include="CImage.h" />
     <ClInclude Include="CItem.h" />
     <ClInclude Include="CItemEffect.h" />
@@ -244,6 +245,7 @@
     <ClCompile Include="CGuidedBullet.cpp" />
     <ClCompile Include="CHeart.cpp" />
     <ClCompile Include="CHost.cpp" />
+    <ClCompile Include="CHourGlass.cpp" />
     <ClCompile Include="CImage.cpp" />
     <ClCompile Include="CItem.cpp" />
     <ClCompile Include="CItemEffect.cpp" />

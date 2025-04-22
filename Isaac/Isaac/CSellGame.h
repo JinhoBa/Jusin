@@ -31,27 +31,26 @@ private:
 
 	CImage* m_pSeller;
 
-	bool m_bShuffle;
-	bool m_bEnd;
-	int m_iCusorIndex;
-	int m_iMainCusorIndex;
-	int	m_iCount;
-	int m_iIndex1;
-	int m_iIndex2;
+	bool	m_bShuffle;
+	bool	m_bEnd;
+	int		m_iCusorIndex;
+	int		m_iMainCusorIndex;
+	int		m_iCount;
+	int		m_iIndex1;
+	int		m_iIndex2;
 
-	int			m_iSoundChennel;
-	int			m_iCursorSound;
+	int		m_iSoundChennel;
+	int		m_iCursorSound;
 
-	float m_fX;
-	float m_fY;
-	float m_fTmpX;
-	float m_fSrcX;
-	float m_fRadius;
-	float m_fAngle;
-	float m_fShuffleSpeed;
-	float m_fShowSpeed;
+	float	m_fX;
+	float	m_fY;
+	float	m_fTmpX;
+	float	m_fSrcX;
+	float	m_fRadius;
+	float	m_fAngle;
+	float	m_fShuffleSpeed;
+	float	m_fShowSpeed;
 
-	ULONGLONG m_dwTime;
 
 	CImage* m_pSkeleton1;
 	CImage* m_pSkeleton2;

@@ -232,6 +232,9 @@
     <Filter Include="03. Scene\09. Loading">
       <UniqueIdentifier>{a99c8848-a010-4369-bf59-152d2beef940}</UniqueIdentifier>
     </Filter>
+    <Filter Include="01. Obj\04. Item\07. HourGlass">
+      <UniqueIdentifier>{9d922baa-9d4c-447b-9d49-951a437fdf57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Define.h">
@@ -456,6 +459,9 @@
     <ClInclude Include="CLoading.h">
       <Filter>03. Scene\09. Loading</Filter>
     </ClInclude>
+    <ClInclude Include="CHourGlass.h">
+      <Filter>01. Obj\04. Item\07. HourGlass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Isaac.cpp">
@@ -664,6 +670,9 @@
     </ClCompile>
     <ClCompile Include="CLoading.cpp">
       <Filter>03. Scene\09. Loading</Filter>
+    </ClCompile>
+    <ClCompile Include="CHourGlass.cpp">
+      <Filter>01. Obj\04. Item\07. HourGlass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

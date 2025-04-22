@@ -84,11 +84,11 @@ void CItem::Spown_Move()
 	}
 	else
 	{
-		if(m_bMove)
+		if(m_bMove && m_fTime < 3.f)
 		{
 			
-			m_tInfo.fX += 10 * cosf(m_fAngle * PI / 180.f) * m_fTime;
-			m_tInfo.fY -= 10 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
+			m_tInfo.fX += 8 * cosf(m_fAngle * PI / 180.f) * m_fTime;
+			m_tInfo.fY -= 8 * sinf(m_fAngle * PI / 180.f) * m_fTime - 0.5f * 9.8f * m_fTime * m_fTime;
 			m_fTime += 0.1f;
 
 			if (m_tInfo.fX < TILECX * 0.5f)

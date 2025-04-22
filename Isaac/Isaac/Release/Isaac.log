@@ -1,0 +1,130 @@
+﻿  pch.cpp
+  CBloodLaser.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CBloodLaser.cpp(215,33): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CBloodLaser.cpp'을(를) 컴파일하는 중)
+  
+  CBloodLaserEffect.cpp
+  CBmpMgr.cpp
+  CBomb.cpp
+  CBombBullet.cpp
+  CBombEffect.cpp
+  CBombFly.cpp
+  CBoss.cpp
+  CBossHp.cpp
+  CBossStage.cpp
+  CBox.cpp
+  CBtn.cpp
+  CBullet.cpp
+  CButton.cpp
+  CCharger.cpp
+  CCoin.cpp
+  CCollisionMgr.cpp
+  CCursor.cpp
+  CCyclops.cpp
+  CDevilRoom.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDevilRoom.cpp(129,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CDevilRoom.cpp'을(를) 컴파일하는 중)
+  
+  컴파일하고 있습니다...
+  CDoor.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDoor.cpp(68,11): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CDoor.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CDoor.cpp(69,10): warning C4244: '초기화 중': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CDoor.cpp'을(를) 컴파일하는 중)
+  
+  CEffect.cpp
+  CEndHole.cpp
+  CEnding.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CEnding.cpp(67,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CEnding.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\Define.h(45,3): warning C4150: 불완전한 형식 'CObj'에 대한 포인터를 삭제했습니다. 소멸자가 호출되지 않습니다.
+  (소스 파일 '/CEnding.cpp'을(를) 컴파일하는 중)
+      C:\Users\Jinho\source\Jusin\Isaac\Isaac\CScene.h(3,7):
+      'CObj' 선언을 참조하십시오.
+      C:\Users\Jinho\source\Jusin\Isaac\Isaac\Define.h(45,3):
+      템플릿 인스턴스화 컨텍스트(가장 오래된 인스턴스화 컨텍스트)가
+          C:\Users\Jinho\source\Jusin\Isaac\Isaac\CEnding.cpp(69,72):
+          컴파일되는 함수 템플릿 인스턴스화 'void Safe_Delete<CObj*>(T &)'에 대한 참조를 확인하세요.
+          with
+          [
+              T=CObj *
+          ]
+  
+  CFly.cpp
+  CGuidedBullet.cpp
+  CHeart.cpp
+  CHost.cpp
+  CHourGlass.cpp
+  CImage.cpp
+  CItem.cpp
+  CItemEffect.cpp
+  CKey.cpp
+  CKeyMgr.cpp
+  CLoading.cpp
+  CMainGame.cpp
+  CMenu.cpp
+  CMiniMap.cpp
+  CMonster.cpp
+  CMonsterBullet.cpp
+  컴파일하고 있습니다...
+  CMonsterDeathEffect.cpp
+  CMulligan.cpp
+  CMyBmp.cpp
+  CNumber.cpp
+  CObj.cpp
+  CObjMgr.cpp
+  CPassiveItem.cpp
+  CPlayer.cpp
+  CPlayerBullet.cpp
+  CScene.cpp
+  CSceneMgr.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp(58,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CSceneMgr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSceneMgr.cpp(195,19): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CSceneMgr.cpp'을(를) 컴파일하는 중)
+  
+  CSellGame.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CSellGame.cpp(425,2): warning C4102: 'defualt': 참조되지 않은 레이블입니다.
+  (소스 파일 '/CSellGame.cpp'을(를) 컴파일하는 중)
+  
+  CSellNPC.cpp
+  CSlotMachine.cpp
+  CSoulHeart.cpp
+  CSoundMgr.cpp
+  CStage1.cpp
+  CStage2.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CStage2.cpp(117,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CStage2.cpp'을(를) 컴파일하는 중)
+  
+  CStoreRoom.cpp
+  CTile.cpp
+  컴파일하고 있습니다...
+  CTileMgr.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTileMgr.cpp(64,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTileMgr.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTileMgr.cpp(65,34): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 '/CTileMgr.cpp'을(를) 컴파일하는 중)
+  
+  CTools.cpp
+  CTreasureRoom.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTreasureRoom.cpp(99,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CTreasureRoom.cpp'을(를) 컴파일하는 중)
+  
+  CTutorial.cpp
+C:\Users\Jinho\source\Jusin\Isaac\Isaac\CTutorial.cpp(147,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  (소스 파일 '/CTutorial.cpp'을(를) 컴파일하는 중)
+  
+  CUI.cpp
+  CUIBar.cpp
+  CUIMgr.cpp
+  CZombie.cpp
+  Isaac.cpp
+  코드를 생성하고 있습니다.
+  Previous IPDB not found, fall back to full compilation.
+  All 1743 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Isaac.vcxproj -> C:\Users\Jinho\source\Jusin\Isaac\Release\Isaac.exe

@@ -3,8 +3,9 @@
 #include "CBmpMgr.h"
 #include "CSoundMgr.h"
 
-CEnding::CEnding()
+CEnding::CEnding() : m_dwTime(GetTickCount64())
 {
+	ZeroMemory(&m_tFrame, sizeof(FRAME));
 }
 
 CEnding::~CEnding()
@@ -15,11 +16,26 @@ CEnding::~CEnding()
 void CEnding::Initialize()
 {
 	CBmpMgr::Get_Instance()->Insert_Bmp(L"../Resource/UI/Ending.bmp", L"Ending");
-	CSoundMgr::Get_Instance()->PlayBGM(L"EndingBGM.mp3", 05.f);
+	CSoundMgr::Get_Instance()->PlayBGM(L"EndingBGM.mp3", 0.3f);
+
+	m_tFrame.iStart = 0;
+	m_tFrame.iEnd = 5;
+
+	m_tFrame.dwFrameSpeed = 1000;
+	m_tFrame.dwTime = GetTickCount64();
+
 }
 
 void CEnding::Update()
 {
+	if (m_tFrame.iStart != m_tFrame.iEnd)
+	{
+		if (m_tFrame.dwTime + m_tFrame.dwFrameSpeed < GetTickCount64())
+		{
+			++m_tFrame.iStart;
+			m_tFrame.dwTime = GetTickCount64();
+		}
+	}
 }
 
 void CEnding::Late_Update()
@@ -29,14 +45,20 @@ void CEnding::Late_Update()
 
 void CEnding::Render(HDC hDC)
 {
+
+	RECT rc = { 0, 0, 800, 600 };
+	HBRUSH hBrush = CreateSolidBrush(RGB(255, 255, 255));
+	FillRect(hDC, &rc, hBrush);
+	DeleteObject(hBrush);
+
 	HDC hMemDC = CBmpMgr::Get_Instance()->Find_Image(L"Ending");
 
 	BitBlt(hDC,
-		0,
-		0,
-		WINCX, WINCY,
+		150,
+		200,
+		500, 250,
 		hMemDC,
-		0, 0,
+		500 * m_tFrame.iStart, 0,
 		SRCCOPY);
 }
 

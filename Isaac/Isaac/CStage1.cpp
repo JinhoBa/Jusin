@@ -121,7 +121,7 @@ void CStage1::Render(HDC hDC)
 
 void CStage1::Release()
 {
-	for(int i = 0; i < size(m_ObjList); ++i)
+	for(int i = 0; i < (int)size(m_ObjList); ++i)
 	{
 		for_each(m_ObjList[i].begin(), m_ObjList[i].end(), Safe_Delete<CObj*>);
 		m_ObjList[i].clear();

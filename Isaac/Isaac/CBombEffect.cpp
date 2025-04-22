@@ -36,6 +36,7 @@ int CBombEffect::Update()
 {
 	if (m_bDead)
 	{
+		CSoundMgr::Get_Instance()->StopSound(m_iSoundChennel);
 		CSoundMgr::Get_Instance()->Return_Chennel(m_iSoundChennel);
 		return DEAD;
 	}

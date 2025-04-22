@@ -71,12 +71,18 @@ int CSlotMachine::Late_Update()
 		if (m_dwTime + 1000 < GetTickCount64())
 		{
 			m_eCurState = STOP;
-			int iTmp = CTools::Get_RandomNumber(0, 4);
+			int iTmp = CTools::Get_RandomNumber(0, 16);
 			
 			if (0 < iTmp && iTmp < 5)
 			{
 				Drop_Item(iTmp);
 				m_tFrame.iMotion = iTmp;
+				m_tFrame.iStart = 0;
+			}
+			else if (5 <= iTmp && iTmp < 11)
+			{
+				Drop_Item(1);
+				m_tFrame.iMotion = 1;
 				m_tFrame.iStart = 0;
 			}
 			else
@@ -202,7 +208,7 @@ void CSlotMachine::Drop_Item(int i)
 		break;
 
 	case 4:  // µ¿Àü
-	for(int j=0; j < 10; ++j)
+	for(int j=0; j < 5; ++j)
 	{
 		CObjMgr::Get_Instance()->Add_CObj(OBJ_ITEM, CAbstractFactory<CCoin>::Create_Obj(m_tInfo.fX, m_tInfo.fY, 32.f, 32.f));
 	}

@@ -20,12 +20,15 @@ public:
 private:
 	void Change_Motion();
 	void Attack(int _iCount);
+
 private:
 	bool m_bLeft;
 	bool m_bHit;
 
 	float m_fTime;
-	float m_fAfterY;
+
+	float m_fTargetX;
+	float m_fTargetY;
 
 	ULONGLONG m_MotionTime;
 	ULONGLONG m_HitTime;
